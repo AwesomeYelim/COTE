@@ -413,8 +413,67 @@
 // O (join 메서드 몰라서 삽질, .sort((a, b) => a - b) 이해덜됨)
 
 // 문제 35. Factory 함수 사용하기
+
+// 내가쓴답
+// function one(n){
+//     function two(k){
+//            return k **= n
+//     }
+//     return two;
+// }
+// const a = one(2);
+// const b = one(3);
+// const c = one(4);
+// console.log(a(10));
+// console.log(b(10));
+// console.log(c(10));
+
+// 선생님답
+// function one(n){
+//     function two(k){
+//            return Math.pow(k, n);
+//     }
+//     return two;
+// }
+// const a = one(2);
+// const b = one(3);
+// const c = one(4);
+// console.log(a(10));
+// console.log(b(10));
+// console.log(c(10));
+
+// O(Math.pow() - 제곱해주는 메서드 알아야함)
+
 // 문제 36. 구구단 출력하기
+// let 구구단 = prompt()
+// let result;
+// for(let i = 1; i < 10; i++){
+//     result = 구구단*i
+//     console.log(result)
+// }
+
+// 선생님 답(한줄에 출력해야함)
+// let num = prompt()
+// let result = ''
+// for(let i = 1; i < 10; i++){
+//     result += num * i + " "
+// }
+// console.log(result)
+
+// O(한줄에 출력해야함)
+
+
 // 문제 37. 반장선거
+let 투표 = '예림 예림 예림 성관 성관 보인 보인'
+let selected = 투표.split(' ')
+let candidate = new Set(selected);
+
+
+// console.log(candidate)
+for(let i = 0; i < selected.length; i++){
+    
+}
+
 // 문제 38. 호준이의 아르바이트
 // 문제 39. 오타 수정하기
 // 문제 40. 놀이동산에 가자
