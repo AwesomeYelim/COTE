@@ -464,15 +464,17 @@
 
 
 // 문제 37. 반장선거
-let 투표 = '예림 예림 예림 성관 성관 보인 보인'
-let selected = 투표.split(' ')
-let candidate = new Set(selected);
+// let vote = prompt().split(" ");
+let vote = ["예림", "예림" ,"보인", "예림", "보인","언니", "보인", "언니"]
+let result = {}
+let count = ""
 
-
-// console.log(candidate)
-for(let i = 0; i < selected.length; i++){
+for(const mem in vote){
     
 }
+
+
+
 
 // 문제 38. 호준이의 아르바이트
 // 문제 39. 오타 수정하기
