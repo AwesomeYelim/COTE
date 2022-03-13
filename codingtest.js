@@ -444,6 +444,7 @@
 
 // O(Math.pow() - 제곱해주는 메서드 알아야함)
 
+
 // 문제 36. 구구단 출력하기
 // let 구구단 = prompt()
 // let result;
@@ -465,13 +466,23 @@
 
 // 문제 37. 반장선거
 // let vote = prompt().split(" ");
-let vote = ["예림", "예림" ,"보인", "예림", "보인","언니", "보인", "언니"]
-let result = {}
-let count = ""
+let vote = ["예림", "예림" ,"보인", "예림", "보인", "언니", "보인", "언니"]
+// let result = {}
+let mem = new Set(vote)
+// let count;
 
-for(const mem in vote){
-    
-}
+console.log(Object.values(mem))
+// for(let i = 0; i < vote.length; i++){
+//     count = 0;
+//     if(vote[i] === Object.key(mem)){
+//         count++;
+//     }
+//     console.log(count)
+// }
+
+
+
+
 
 
 
@@ -480,6 +491,7 @@ for(const mem in vote){
 // 문제 39. 오타 수정하기
 // 문제 40. 놀이동산에 가자
 
+// 문제 
 // 문제
 // 문제
 // 문제
@@ -487,5 +499,6 @@ for(const mem in vote){
 // 문제
 // 문제
 // 문제
-// 문제
-// 문제
+
+
+
