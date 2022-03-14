@@ -465,29 +465,41 @@
 
 
 // 문제 37. 반장선거
-// let vote = prompt().split(" ");
-let vote = ["예림", "예림" ,"보인", "예림", "보인", "언니", "보인", "언니"]
-// let result = {}
-let mem = new Set(vote)
-// let count;
+// let array = prompt().split(" ");
+// let result = {};
+// let winner;
 
-console.log(Object.values(mem))
-// for(let i = 0; i < vote.length; i++){
-//     count = 0;
-//     if(vote[i] === Object.key(mem)){
-//         count++;
-//     }
-//     console.log(count)
+// for(let index in array) {
+//     let val = array[index];
+//     result[val] = result[val] === undefined ? 1 : result[val] += 1
 // }
 
+// winner = Object.keys(result).reduce(function(a,b){
+//     return result[a] > result[b] ? a : b;
+// })
 
+// console.log(`${winner}이(가) 총 ${result[winner]}표로 반장이 되었습니다`)
 
-
-
+// X (풀이는 이해했지만 다시 풀기)
 
 
 
 // 문제 38. 호준이의 아르바이트
+// let score = prompt.split(" ");
+let score = ['97', '100', '97', '56', '80', '100', '80', '60']
+let stu = score.sort((a, b) => a - b).reverse()
+let rank = Array.from(new Set(stu)) // [ '100', '97', '80', '60', '56' ]
+let count = 0
+
+for (let i = 0; i < 3; i++){
+    if(stu[i] === rank[i]){
+        count.reduce((a, b) => {
+            
+        })
+    }
+    console.log(count)
+    
+}
 // 문제 39. 오타 수정하기
 // 문제 40. 놀이동산에 가자
 
