@@ -509,6 +509,18 @@
 
 
 // 문제 39. 오타 수정하기
+
+let wrong = prompt()
+// let wrong = 'hqllo qvqryonq'
+let arr = []
+for(let fix in wrong){
+    let match = wrong[fix].replace('q','e')
+    arr.push(match)
+}
+console.log(arr.join(''))
+
+// O (replace 메서드만 검색)
+
 // 문제 40. 놀이동산에 가자
 
 // 문제 
@@ -519,6 +531,7 @@
 // 문제
 // 문제
 // 문제
+
 
 
 
