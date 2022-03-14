@@ -485,21 +485,29 @@
 
 
 // 문제 38. 호준이의 아르바이트
-// let score = prompt.split(" ");
-let score = ['97', '100', '97', '56', '80', '100', '80', '60']
-let stu = score.sort((a, b) => a - b).reverse()
-let rank = Array.from(new Set(stu)) // [ '100', '97', '80', '60', '56' ]
-let count = 0
+// let score = prompt().split(" ");
+// // let score = ['97', '100', '97', '56', '80', '100', '80', '60']
+// score.sort((a, b) => a - b)
+// // let rank = Array.from(new Set(stu)).slice(0, 3) // [ '100', '97', '80', '60', '56' ]
 
-for (let i = 0; i < 3; i++){
-    if(stu[i] === rank[i]){
-        count.reduce((a, b) => {
-            
-        })
-    }
-    console.log(count)
-    
-}
+// // console.log(score)
+// let rank = []
+// let count = 0
+
+// while(rank.length < 4){
+//     let val = score.pop();
+//     if(!rank.includes(val)){
+//         rank.push(val);
+//     }
+//     count++;
+// }
+
+// console.log(count -1)
+
+// X
+
+
+
 // 문제 39. 오타 수정하기
 // 문제 40. 놀이동산에 가자
 
