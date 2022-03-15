@@ -590,3 +590,27 @@
 
 // solution(월, 일)
 // O
+
+
+// 문제 43. 10진수를 2진수로
+
+// // 내가푼법
+// let num = prompt()
+// console.log(num.toString(2))
+
+
+// 선생님 풀이
+// let num = '16'
+// let arr = []
+
+// while(num){
+//     arr.push(num % 2);// 1 0 1 1 
+//     num = Math.floor(num/2) //6 3 1 0
+// }
+    
+
+// console.log(arr.reverse().join('')) // 1101
+
+// O
+
+
