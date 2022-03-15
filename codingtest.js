@@ -636,3 +636,15 @@
 
 // O (10진법을 이용하여 구해보기 연습)
 
+
+// 문제 45. getTime()함수 사용하기
+// 내가쓴답
+// let now = new Date()
+// console.log(1970 + Math.floor(now.getTime() / 1000 / 3600 / 24 / 365))
+
+
+// 선생님답
+// let now = new Date()
+// console.log(Math.floor(now.getTime()/(1000*3600*24*365))+ 1970)
+
+// O
