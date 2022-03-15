@@ -510,18 +510,53 @@
 
 // 문제 39. 오타 수정하기
 
-let wrong = prompt()
-// let wrong = 'hqllo qvqryonq'
-let arr = []
-for(let fix in wrong){
-    let match = wrong[fix].replace('q','e')
-    arr.push(match)
-}
-console.log(arr.join(''))
+// 내가 쓴답
+// let wrong = prompt()
+// // let wrong = 'hqllo qvqryonq'
+// let arr = []
+// for(let fix in wrong){
+//     let match = wrong[fix].replace('q','e')
+//     arr.push(match)
+// }
+// console.log(arr.join(''))
+
+// 선생님답
+// const word = prompt()
+// console.log(word.split('q').join('e'));
 
 // O (replace 메서드만 검색)
 
 // 문제 40. 놀이동산에 가자
+
+//  내가 푼 방법
+// let 놀이기구 = prompt().split(" ");
+// let count = 0;
+
+// for(let i = 2; i < 놀이기구.length; i++){
+//      let val = 놀이기구[0] -= 놀이기구[i];
+//     if(val < 0){
+//         break;
+//     }
+//     count++
+// }
+// console.log(count)
+
+// 선생님이 푼방법
+// let weightLimit = prompt("무게 제한을 입력")
+// let memberCount = prompt("몇명이 탈것인가?");
+
+// let count = 0;
+// let totalWeight = 0;
+
+// for(let i = 0; i < memberCount; i++){
+//     totalWeight += weightLimit + parseInt(prompt("각자의 몸무게를 입력하라"), 10);
+//     if(totalWeight <= weightLimit){
+//         count++;
+//     }
+// }
+
+// console.log(count);
+// O (배열로 받는줄 착각함)
 
 // 문제 
 // 문제
