@@ -614,3 +614,25 @@
 // O
 
 
+// 문제 44. 각자리수의 합
+
+// 내가 쓴답
+// let num = prompt().split('')
+// let count = 0;
+// for(let i = 0; i < num.length; i++){
+//     count += parseInt(num[i], 10) 
+// }
+// console.log(count)
+
+
+// 선생님풀이
+// let num = "12345";
+// let sum = 0;
+// while(num){
+//     sum += num%10; // 5 9 12 14 15
+//     num = Math.floor(num/10); // 1234 123 12 1 0
+// }
+// console.log(sum);
+
+// O (10진법을 이용하여 구해보기 연습)
+
