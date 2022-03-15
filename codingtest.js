@@ -444,7 +444,6 @@
 
 // O(Math.pow() - 제곱해주는 메서드 알아야함)
 
-
 // 문제 36. 구구단 출력하기
 // let 구구단 = prompt()
 // let result;
@@ -463,7 +462,6 @@
 
 // O(한줄에 출력해야함)
 
-
 // 문제 37. 반장선거
 // let array = prompt().split(" ");
 // let result = {};
@@ -481,8 +479,6 @@
 // console.log(`${winner}이(가) 총 ${result[winner]}표로 반장이 되었습니다`)
 
 // X (풀이는 이해했지만 다시 풀기)
-
-
 
 // 문제 38. 호준이의 아르바이트
 // let score = prompt().split(" ");
@@ -505,8 +501,6 @@
 // console.log(count -1)
 
 // X
-
-
 
 // 문제 39. 오타 수정하기
 
@@ -558,15 +552,41 @@
 // console.log(count);
 // O (배열로 받는줄 착각함)
 
-// 문제 
-// 문제
-// 문제
-// 문제
-// 문제
-// 문제
-// 문제
-// 문제
+// 문제 41. 소수판별
+
+// 내가쓴답
+// function 소수인가(num){
+
+//     if( num === 2 ){
+//         return console.log("YES")
+//     }
+//     for(let i = 2; i <= num -1; i++){
+//         if(num % i === 0){
+//             return console.log("NO");
+//         }
+//     }
+//     if(num === 1){
+//         return console.log("NO");
+//     }
+//     return console.log("YES")
+// }
+
+// 소수인가(Number(prompt("숫자를 입력하시오")))
+
+// O
 
 
 
+// 문제 42. 2020년
+// let 월 = parseInt(prompt("월 입력"),10)
+// let 일 = parseInt(prompt("일 입력"),10)
 
+
+// function solution(a, b) {
+//   let day = new Date(2020, a - 1, b);
+//   let 요일 = ["SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"];
+//   console.log(요일[day.getDay()]);
+// }
+
+// solution(월, 일)
+// O
