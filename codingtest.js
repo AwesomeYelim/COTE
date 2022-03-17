@@ -2,9 +2,9 @@
 
 // var nums = [100, 200, 300, 400, 500];
 
-// console.log(nums.splice(0,3));// 내가쓴정답
+// console.log(nums.splice(0,3));// // 내가푼답
 
-// 선생님 정답
+// // 선생님답
 // nums.pop();
 // nums.pop();
 // console.log(nums);
@@ -118,7 +118,7 @@
 
 // 문제 13. 몇 번째 행성인가요?
 
-// 내가 푼 방법
+// // 내가푼답
 // let 행성 = [0, '수성', '금성', '지구', '화성', '목성', '토성', '천왕성', '해왕성']
 // let 순서 = 행성[prompt()]
 // console.log(순서)
@@ -157,7 +157,7 @@
 
 // 문제 16. 로꾸거
 
-// 내가 푼 문제
+// // 내가푼답
 // let n = prompt();
 // let sp = n.split('');
 // let op = sp.reverse();
@@ -184,7 +184,7 @@
 // 문제 18. 평균 점수
 // 영하네 반 -> 국 수 영(평균점수 구하기)
 
-// 내가 푼 답
+// // 내가푼답
 // let num = prompt();
 // let sp = num.split(' ');
 // let tonum = Math.floor((Number(sp[0])+Number(sp[1])+Number(sp[2]))/3)
@@ -201,7 +201,7 @@
 // O(Number, parseInt 검색함 구글 검색 불명확 하므로 다시한번풀기)
 
 // 문제 19. 제곱을 구하자
-// 내가 쓴 답
+// // 내가푼답
 // let n = prompt().split(' ');
 // let z = Number(n[0])**Number(n[1]);
 // console.log(z)
@@ -213,7 +213,7 @@
 // O  Math.pow 메서드를 이용하여 제곱한다(숫자형 문자에도 적용됨-> 좀더 확실히 하기위해 parseInt를 적용한다)
 
 // 문제 20. 몫과 나머지
-// 내가 쓴답
+// // 내가푼답
 // let ab = prompt().split(' ');
 // let 몫 = Math.floor(parseInt(ab[0], 10)/parseInt(ab[1], 10))
 // let 나머지 = parseInt(ab[0], 10)%parseInt(ab[1], 10)
@@ -261,7 +261,7 @@
 // 문제 25. 원의 넓이를 구하세요.
 // 원의 넓이 = 반지름의 길이 * 반지름의 길이 * 3.14
 
-// 내가쓴답
+// // 내가푼답
 // let n = prompt("반지름의 길이")
 // let π = 3.14
 // function 원의넓이(){
@@ -269,7 +269,7 @@
 // }
 // console.log(원의넓이())
 
-// 선생님답
+// // 선생님답
 // function 원의넓이(n){
 //     return n * n * 3.14;
 // }
@@ -280,7 +280,7 @@
 // 문제 26. 행성문제 2
 // 한글이름 입력시 영어이름 반환
 
-// 내가 쓴답
+// // 내가푼답
 // let 행성 = prompt("태양계 행성 영어로?")
 // let planets = ['Mercury', 'Venus', 'Earth', 'Mars', 'Jupiter', 'Saturn', 'Uranus', 'Neptune']
 
@@ -302,7 +302,7 @@
 //     console.log('태양계 행성을 입력하셈')
 // };
 
-// 선생님답
+// // 선생님답
 // const 행성 = {
 //     수성 : 'Mercury',
 //     금성 : 'Venus',
@@ -319,12 +319,12 @@
 
 // 문제 27. 객체 만들기
 
-// 내가 푼답
+// // 내가푼답
 // let name = prompt().split(' ')
 // let score = prompt().split(' ')
 // console.log(`{'${name[0]}' : ${score[0]}, '${name[1]}' : ${score[1]}}`)
 
-// 선생님답
+// // 선생님답
 // const keys = prompt().split(' ')
 // const values = prompt().split(' ')
 // let obj = {};
@@ -339,7 +339,7 @@
 // for (let i = 0; i < 문자.length -1; i++) {
 //   let gram = 문자[i] + 문자[i+1];
 //   console.log(gram);
-// //   console.log(문자[i] + 문자[i+1]); // 선생님 답
+// //   console.log(문자[i] + 문자[i+1]); // // 선생님답
 // }
 // O
 
@@ -353,7 +353,7 @@
 // O(조금의 구글링)
 
 // 문제 30. 문자열속 문자 찾기
-// 내가푼답
+// // 내가푼답
 // let s1 = prompt("첫번째 문장을 입력하시오");
 // let s2 = prompt("두번째 문장을 입력하시오");
 // for (let i = 0; i < s1.length; i++) {
@@ -362,7 +362,7 @@
 //   }
 // }
 
-// 선생님 정답
+// // 선생님답
 // indexOf() : 문자열에 포함된 문자열인지(포함안되면 -1 반환), 몇번째 index에 있는지 확인 가능함
 // let s1 = prompt("첫번째 문장");
 // let s2 = prompt("두번째 문장");
@@ -382,7 +382,7 @@
 // O
 
 // 문제 33. 거꾸로 출력하기
-// 내가쓴답
+// // 내가푼답
 // let num = prompt("숫자를 입력하시오").split(" ")
 // for(let i = num.length - 1; i < num.length; i--){
 //      console.log(num[i])
@@ -391,7 +391,7 @@
 //      }
 // }
 
-// 선생님답
+// // 선생님답
 // let num = prompt("숫자를 입력하시오").split(" ").reverse();
 // let result = ""
 // for(let i = 0; i < num.length; i++){
@@ -414,7 +414,7 @@
 
 // 문제 35. Factory 함수 사용하기
 
-// 내가쓴답
+// // 내가푼답
 // function one(n){
 //     function two(k){
 //            return k **= n
@@ -428,7 +428,7 @@
 // console.log(b(10));
 // console.log(c(10));
 
-// 선생님답
+// // 선생님답
 // function one(n){
 //     function two(k){
 //            return Math.pow(k, n);
@@ -452,7 +452,7 @@
 //     console.log(result)
 // }
 
-// 선생님 답(한줄에 출력해야함)
+// // 선생님답(한줄에 출력해야함)
 // let num = prompt()
 // let result = ''
 // for(let i = 1; i < 10; i++){
@@ -504,7 +504,7 @@
 
 // 문제 39. 오타 수정하기
 
-// 내가 쓴답
+// // 내가푼답
 // let wrong = prompt()
 // // let wrong = 'hqllo qvqryonq'
 // let arr = []
@@ -514,7 +514,7 @@
 // }
 // console.log(arr.join(''))
 
-// 선생님답
+// // 선생님답
 // const word = prompt()
 // console.log(word.split('q').join('e'));
 
@@ -522,7 +522,7 @@
 
 // 문제 40. 놀이동산에 가자
 
-//  내가 푼 방법
+//  // 내가푼답
 // let 놀이기구 = prompt().split(" ");
 // let count = 0;
 
@@ -535,7 +535,7 @@
 // }
 // console.log(count)
 
-// 선생님이 푼방법
+// // 선생님답
 // let weightLimit = prompt("무게 제한을 입력")
 // let memberCount = prompt("몇명이 탈것인가?");
 
@@ -554,7 +554,7 @@
 
 // 문제 41. 소수판별
 
-// 내가쓴답
+// // 내가푼답
 // function 소수인가(num){
 
 //     if( num === 2 ){
@@ -594,12 +594,12 @@
 
 // 문제 43. 10진수를 2진수로
 
-// // 내가푼법
+// // 내가푼답
 // let num = prompt()
 // console.log(num.toString(2))
 
 
-// 선생님 풀이
+// // 선생님답
 // let num = '16'
 // let arr = []
 
@@ -616,7 +616,7 @@
 
 // 문제 44. 각자리수의 합
 
-// 내가 쓴답
+// // 내가푼답
 // let num = prompt().split('')
 // let count = 0;
 // for(let i = 0; i < num.length; i++){
@@ -625,7 +625,7 @@
 // console.log(count)
 
 
-// 선생님풀이
+// // 선생님답
 // let num = "12345";
 // let sum = 0;
 // while(num){
@@ -638,13 +638,61 @@
 
 
 // 문제 45. getTime()함수 사용하기
-// 내가쓴답
+// // 내가푼답
 // let now = new Date()
 // console.log(1970 + Math.floor(now.getTime() / 1000 / 3600 / 24 / 365))
 
 
-// 선생님답
+// // 선생님답
 // let now = new Date()
 // console.log(Math.floor(now.getTime()/(1000*3600*24*365))+ 1970)
 
 // O
+
+
+// 문제 46. 각 자리수의 합2
+
+// // 내가푼답
+// let num = "1234567891011121314151617181920"
+// num.split('')
+// let count = 0;
+// for(let i = 0; i < num.length; i++){
+//     count += parseInt(num[i], 10)
+// }
+// console.log(count)
+
+//  // 선생님답
+// let arr = [];
+// let total = 0;
+
+// for(let i = 0; i < 20; i++){
+//     arr[i] = i+1;
+// }
+// // console.log(arr)
+
+// arr.forEach((n) =>{
+//     while(n){
+//         total =  total + n%10 
+//         n = Math.floor(n/10)  
+//     }
+// })
+
+// console.log(total)
+
+// O (while 문 이용못함)
+
+
+
+// 문제 47. set 자료형의 응용
+// 내가푼답
+const people = [
+    ('홍예림', '01012341234'),
+    ('이호상', '01051442904'),
+    ('홍예일', '01098765432'),
+    ('홍예인', '01028474293'),
+    ('홍예인', '01028474293'),
+    ('홍예일', '01098765432'),
+    ('홍예림', '01012341234')
+]
+let count = Array.from(new Set(people))
+console.log(count.length)
