@@ -575,12 +575,9 @@
 
 // O
 
-
-
 // 문제 42. 2020년
 // let 월 = parseInt(prompt("월 입력"),10)
 // let 일 = parseInt(prompt("일 입력"),10)
-
 
 // function solution(a, b) {
 //   let day = new Date(2020, a - 1, b);
@@ -591,28 +588,24 @@
 // solution(월, 일)
 // O
 
-
 // 문제 43. 10진수를 2진수로
 
 // // 내가푼답
 // let num = prompt()
 // console.log(num.toString(2))
 
-
 // // 선생님답
 // let num = '16'
 // let arr = []
 
 // while(num){
-//     arr.push(num % 2);// 1 0 1 1 
+//     arr.push(num % 2);// 1 0 1 1
 //     num = Math.floor(num/2) //6 3 1 0
 // }
-    
 
 // console.log(arr.reverse().join('')) // 1101
 
 // O
-
 
 // 문제 44. 각자리수의 합
 
@@ -620,10 +613,9 @@
 // let num = prompt().split('')
 // let count = 0;
 // for(let i = 0; i < num.length; i++){
-//     count += parseInt(num[i], 10) 
+//     count += parseInt(num[i], 10)
 // }
 // console.log(count)
-
 
 // // 선생님답
 // let num = "12345";
@@ -636,19 +628,16 @@
 
 // O (10진법을 이용하여 구해보기 연습)
 
-
 // 문제 45. getTime()함수 사용하기
 // // 내가푼답
 // let now = new Date()
 // console.log(1970 + Math.floor(now.getTime() / 1000 / 3600 / 24 / 365))
-
 
 // // 선생님답
 // let now = new Date()
 // console.log(Math.floor(now.getTime()/(1000*3600*24*365))+ 1970)
 
 // O
-
 
 // 문제 46. 각 자리수의 합2
 
@@ -672,16 +661,14 @@
 
 // arr.forEach((n) =>{
 //     while(n){
-//         total =  total + n%10 
-//         n = Math.floor(n/10)  
+//         total =  total + n%10
+//         n = Math.floor(n/10)
 //     }
 // })
 
 // console.log(total)
 
 // O (while 문 이용못함)
-
-
 
 // 문제 47. set 자료형의 응용
 // 내가푼답
@@ -696,7 +683,6 @@
 // ]
 // let count = Array.from(new Set(people))
 // console.log(count.length)
-
 
 // 선생님답
 // const people = {
@@ -716,3 +702,22 @@
 // }
 
 // console.log(result.size);
+
+// O (프로퍼티 관련 여러 메서드 익히기)
+
+// 문제 48. 대소문자 바꿔서 출력하기
+// let alphabet = prompt().split(' ');
+let alphabet = "AAABBBcccddd";
+let arr = [];
+
+for (let i = 0; i < alphabet.length; i++) {
+  if (alphabet[i] === alphabet[i].toUpperCase()) {
+    arr += alphabet[i].toLowerCase();
+  } else if (alphabet[i] === alphabet[i].toLowerCase()) {
+    arr += alphabet[i].toUpperCase();
+  }
+}
+
+console.log(arr)
+
+// O
