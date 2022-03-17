@@ -707,17 +707,53 @@
 
 // 문제 48. 대소문자 바꿔서 출력하기
 // let alphabet = prompt().split(' ');
-let alphabet = "AAABBBcccddd";
-let arr = [];
+// let alphabet = "AAABBBcccddd";
+// let arr = [];
 
-for (let i = 0; i < alphabet.length; i++) {
-  if (alphabet[i] === alphabet[i].toUpperCase()) {
-    arr += alphabet[i].toLowerCase();
-  } else if (alphabet[i] === alphabet[i].toLowerCase()) {
-    arr += alphabet[i].toUpperCase();
-  }
+// for (let i = 0; i < alphabet.length; i++) {
+//   if (alphabet[i] === alphabet[i].toUpperCase()) {
+//     arr += alphabet[i].toLowerCase();
+//   } else if (alphabet[i] === alphabet[i].toLowerCase()) {
+//     arr += alphabet[i].toUpperCase();
+//   }
+// }
+
+// console.log(arr)
+
+// O 
+
+
+// 문제 49. 최댓값 구하기
+// 내가푼답
+// let num = prompt().split(" ")
+// let num = [ '10', '9', '8', '7', '6', '5', '4', '3','2','1']
+// num.sort((a,b) => b-a);
+// console.log(num[0])
+
+// O (map 메서드를 이용하여 배열 전체에 parseInt 적용)
+
+
+
+// 문제 50. 버블 정렬 구현하기
+function bubble(arr){
+    let result = arr.slice();
+    for (let i = 0; i < result.length - 1 ; i++){ 
+        for(let j = 0; j < result.length - i ; j++){ 
+            if(result[j] > result[j+1]){
+                let val = result[j]
+                result[j] = result[j+1];
+                result[j+1] = val;
+            }
+        }
+        
+    }
+    
+    return result;
 }
+// prompt('입력해주세요').split(' ')
+const items = ['4','2','3','8','5'].map((n) => {
+    return parseInt(n, 10);
+});
 
-console.log(arr)
+console.log(bubble(items));
 
-// O
