@@ -720,8 +720,7 @@
 
 // console.log(arr)
 
-// O 
-
+// O
 
 // 문제 49. 최댓값 구하기
 // 내가푼답
@@ -732,28 +731,60 @@
 
 // O (map 메서드를 이용하여 배열 전체에 parseInt 적용)
 
-
-
 // 문제 50. 버블 정렬 구현하기
-function bubble(arr){
-    let result = arr.slice();
-    for (let i = 0; i < result.length - 1 ; i++){ 
-        for(let j = 0; j < result.length - i ; j++){ 
-            if(result[j] > result[j+1]){
-                let val = result[j]
-                result[j] = result[j+1];
-                result[j+1] = val;
-            }
-        }
-        
-    }
-    
-    return result;
+// function bubble(arr){
+//     let result = arr.slice(); //매개변수 arr에 새로 배열을 만들어 준다는 의미
+//     for (let i = 0; i < result.length - 1 ; i++){
+//         for(let j = 0; j < result.length - i ; j++){
+//             if(result[j] > result[j+1]){
+//                 let val = result[j]
+//                 result[j] = result[j+1];
+//                 result[j+1] = val;
+//             }
+//         }
+
+//     }
+
+//     return result;
+// }
+// // prompt('입력해주세요').split(' ')
+// const items = ['4','2','3','8','5'].map((n) => {
+//     return parseInt(n, 10);
+// });
+
+// console.log(bubble(items));
+
+// X (이해는 했지만 처음부터 다시 해보기)
+
+// 문제 51. merge sort 를 만들어보자
+function mergeSort(arr) {
+  if (arr.length <= 1) {
+    return arr;
+  }
+  const mid = Math.floor(arr.length / 2);
+  const left = arr.slice(0, mid);
+  const right = arr.slice(mid);
+
+  return merge(mergeSort(left), mergeSort(right));
 }
-// prompt('입력해주세요').split(' ')
-const items = ['4','2','3','8','5'].map((n) => {
-    return parseInt(n, 10);
-});
 
-console.log(bubble(items));
+function merge(left, right) {
+  let result = [];
 
+  while (left.length > 0 && right.length > 0) {
+    if (left[left.length] > left[left.length - 1]) {
+      result.push(left.shift());
+    } else {
+      result.push(right.shift());
+    }
+  }
+  while (left.length) {}
+  while (right.length) {}
+  return result;
+}
+
+// const array = prompt('배열을 입력하세요').split(' ').map(n => parseInt(n, 10));
+
+const array = [10, 11, 1, 2, 4, 7, 3];
+
+console.log(mergeSort(array));
