@@ -756,6 +756,8 @@
 
 // X (이해는 했지만 처음부터 다시 해보기)
 
+
+
 // 문제 51. merge sort 를 만들어보자
 function mergeSort(arr) {
   if (arr.length <= 1) {
