@@ -759,6 +759,7 @@
 
 
 // 문제 51. merge sort 를 만들어보자
+
 function mergeSort(arr) {
   if (arr.length <= 1) {
     return arr;
@@ -773,15 +774,19 @@ function mergeSort(arr) {
 function merge(left, right) {
   let result = [];
 
-  while (left.length > 0 && right.length > 0) {
-    if (left[left.length] > left[left.length - 1]) {
+  while (left.length  && right.length) {
+    if (left[0] < right[0]) {
       result.push(left.shift());
     } else {
       result.push(right.shift());
     }
   }
-  while (left.length) {}
-  while (right.length) {}
+  while (left.length) {
+    result.push(left.shift());
+  }
+  while (right.length) {
+    result.push(right.shift());
+  }
   return result;
 }
 
@@ -790,3 +795,5 @@ function merge(left, right) {
 const array = [10, 11, 1, 2, 4, 7, 3];
 
 console.log(mergeSort(array));
+
+// X (이해는 했는데 다시)
