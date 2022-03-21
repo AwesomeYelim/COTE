@@ -488,17 +488,17 @@
 
 // // console.log(score)
 // let rank = []
-// let count = 0
+// let c = 0
 
 // while(rank.length < 4){
 //     let val = score.pop();
 //     if(!rank.includes(val)){
 //         rank.push(val);
 //     }
-//     count++;
+//     c++;
 // }
 
-// console.log(count -1)
+// console.log(c -1)
 
 // X
 
@@ -524,32 +524,32 @@
 
 //  // 내가푼답
 // let 놀이기구 = prompt().split(" ");
-// let count = 0;
+// let c = 0;
 
 // for(let i = 2; i < 놀이기구.length; i++){
 //      let val = 놀이기구[0] -= 놀이기구[i];
 //     if(val < 0){
 //         break;
 //     }
-//     count++
+//     c++
 // }
-// console.log(count)
+// console.log(c)
 
 // // 선생님답
 // let weightLimit = prompt("무게 제한을 입력")
-// let memberCount = prompt("몇명이 탈것인가?");
+// let memberC = prompt("몇명이 탈것인가?");
 
-// let count = 0;
+// let c = 0;
 // let totalWeight = 0;
 
-// for(let i = 0; i < memberCount; i++){
+// for(let i = 0; i < memberC; i++){
 //     totalWeight += weightLimit + parseInt(prompt("각자의 몸무게를 입력하라"), 10);
 //     if(totalWeight <= weightLimit){
-//         count++;
+//         c++;
 //     }
 // }
 
-// console.log(count);
+// console.log(c);
 // O (배열로 받는줄 착각함)
 
 // 문제 41. 소수판별
@@ -611,11 +611,11 @@
 
 // // 내가푼답
 // let num = prompt().split('')
-// let count = 0;
+// let c = 0;
 // for(let i = 0; i < num.length; i++){
-//     count += parseInt(num[i], 10)
+//     c += parseInt(num[i], 10)
 // }
-// console.log(count)
+// console.log(c)
 
 // // 선생님답
 // let num = "12345";
@@ -644,11 +644,11 @@
 // // 내가푼답
 // let num = "1234567891011121314151617181920"
 // num.split('')
-// let count = 0;
+// let c = 0;
 // for(let i = 0; i < num.length; i++){
-//     count += parseInt(num[i], 10)
+//     c += parseInt(num[i], 10)
 // }
-// console.log(count)
+// console.log(c)
 
 //  // 선생님답
 // let arr = [];
@@ -681,8 +681,8 @@
 //     ('홍예일', '01098765432'),
 //     ('홍예림', '01012341234')
 // ]
-// let count = Array.from(new Set(people))
-// console.log(count.length)
+// let c = Array.from(new Set(people))
+// console.log(c.length)
 
 // 선생님답
 // const people = {
@@ -756,44 +756,149 @@
 
 // X (이해는 했지만 처음부터 다시 해보기)
 
-
-
 // 문제 51. merge sort 를 만들어보자
 
-function mergeSort(arr) {
-  if (arr.length <= 1) {
-    return arr;
-  }
-  const mid = Math.floor(arr.length / 2);
-  const left = arr.slice(0, mid);
-  const right = arr.slice(mid);
+// function mergeSort(arr) {
+//   if (arr.length <= 1) {
+//     return arr;
+//   }
+//   const mid = Math.floor(arr.length / 2);
+//   const left = arr.slice(0, mid);
+//   const right = arr.slice(mid);
 
-  return merge(mergeSort(left), mergeSort(right));
-}
+//   return merge(mergeSort(left), mergeSort(right));
+// }
 
-function merge(left, right) {
-  let result = [];
+// function merge(left, right) {
+//   let result = [];
 
-  while (left.length  && right.length) {
-    if (left[0] < right[0]) {
-      result.push(left.shift());
-    } else {
-      result.push(right.shift());
-    }
-  }
-  while (left.length) {
-    result.push(left.shift());
-  }
-  while (right.length) {
-    result.push(right.shift());
-  }
-  return result;
-}
+//   while (left.length  && right.length) {
+//     if (left[0] < right[0]) {
+//       result.push(left.shift());
+//     } else {
+//       result.push(right.shift());
+//     }
+//   }
+//   while (left.length) {
+//     result.push(left.shift());
+//   }
+//   while (right.length) {
+//     result.push(right.shift());
+//   }
+//   return result;
+// }
 
-// const array = prompt('배열을 입력하세요').split(' ').map(n => parseInt(n, 10));
+// // const array = prompt('배열을 입력하세요').split(' ').map(n => parseInt(n, 10));
 
-const array = [10, 11, 1, 2, 4, 7, 3];
+// const array = [10, 11, 1, 2, 4, 7, 3];
 
-console.log(mergeSort(array));
+// console.log(mergeSort(array));
 
 // X (이해는 했는데 다시)
+
+// 문제 52. quick sort
+
+// function quickSort(arr) {
+//   if (arr.length <= 1) {
+//     return arr;
+//   }
+
+//   const pivot = arr[0];
+//   const left = [];
+//   const right = [];
+
+//   for (let i = 1; i < arr.length; i++) {
+//     if (arr[i] < pivot) {
+//       left.push(arr[i]);
+//     } else {
+//       right.push(arr[i]);
+//     }
+//   }
+//   return quickSort(left).concat(pivot, quickSort(right));
+// }
+
+// // const array = prompt('배열을 입력하세요').split(' ').map(n => parseInt(n, 10));
+// const array = [5, 1, 3, 9, 7];
+// console.log(quickSort(array));
+
+// O (구글링함-> 다시 풀기)
+
+//  문제 53. 괄호 문자열
+
+// 내가푼답
+// let 괄호 = prompt('괄호를 포함하여 입력하시오').split(' ')
+// // let 괄호 = ('([제이름은 홍예림]]')
+// let c1 = 0;
+// let c2 = 0;
+// let c3 = 0;
+// let c4 = 0;
+// let c5 = 0;
+// let c6 = 0;
+
+// for (let i = 0; i < 괄호.length; i++) {
+//   if(괄호[i]=== '['){
+//     c1++
+//   }else if(괄호[i]=== ']'){
+//     c2++
+//   }else if(괄호[i]=== '('){
+//     c3++
+//   }else if(괄호[i]=== ')'){
+//     c4++
+//   }else if(괄호[i]=== '{'){
+//     c5++
+//   }else if(괄호[i]=== '}'){
+//     c6++
+//   }
+// }
+
+// if((c1 === c2 || c3 === c4 || c5 === c6) && (c1 != 0 && c3 != 0 && c4 != 0 && c5 != 0 && c6 != 0)){
+//   console.log('YES')
+// }else{
+//   console.log('NO')
+// }
+
+// 선생님답
+// 6가지 케이스를 살펴봄
+// 1. (())
+// 2. (((()()())))
+// 3. ()()()
+// 4. )))(((
+// 5. ())
+// 6. ())(
+
+function mathBrackets(arr) {
+  let count = 0;
+
+  for (let i = 0; i < arr.length; i) {
+    if (arr[i] === "(") {
+      count++;
+    }
+    if (arr[i] === ")") {
+      count--;
+    }
+  }
+
+  if (count !== 0) {
+    console.log("false");
+  }
+
+  let bracket = [];
+  for (let i in arr) {
+    if (arr[i] === "(") {
+      bracket.push("(");
+    }
+    if (arr[i] === ")") {
+      if (bracket.length === 0) {
+        console.log("false");
+      }
+      bracket.pop();
+    }
+    console.log("true");
+  }
+}
+
+const num = "((())".split("");
+// console.log(num)
+console.log(mathBrackets(num));
+
+// △ (다른 문자열 삽입시 틀림)
