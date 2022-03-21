@@ -866,39 +866,134 @@
 // 5. ())
 // 6. ())(
 
-function mathBrackets(arr) {
-  let count = 0;
+// function mathBrackets(arr) {
+//   let count = 0;
 
-  for (let i = 0; i < arr.length; i) {
-    if (arr[i] === "(") {
-      count++;
-    }
-    if (arr[i] === ")") {
-      count--;
-    }
-  }
+//   for (let i = 0; i < arr.length; i++) {
+//     if (arr[i] === "(" || arr[i] === "[" || arr[i] === "{") {
+//       count++;
+//     }
+//     if (arr[i] === ")" || arr[i] === "]" || arr[i] === "}") {
+//       count--;
+//     }
+//   }
 
-  if (count !== 0) {
-    console.log("false");
-  }
+//   if (count !== 0) {
+//     return false;
+//   }
 
-  let bracket = [];
-  for (let i in arr) {
-    if (arr[i] === "(") {
-      bracket.push("(");
-    }
-    if (arr[i] === ")") {
-      if (bracket.length === 0) {
-        console.log("false");
-      }
-      bracket.pop();
-    }
-    console.log("true");
-  }
-}
+//   let bracket = [];
 
-const num = "((())".split("");
-// console.log(num)
-console.log(mathBrackets(num));
+//   for (let i in arr) {
+//     if (arr[i] === "(") {
+//       bracket.push("(");
+//     }
+//     if (arr[i] === ")") {
+//       if (bracket.length === 0) {
+//         //')' 부터 시작할수 없기 때문에 return false를 반환
+//         return false;
+//       }
+//       bracket.pop();
+//     }
+//     if (arr[i] === "[") {
+//       bracket.push("[");
+//     }
+//     if (arr[i] === "]") {
+//       if (bracket.length === 0) {
+//         return false;
+//       }
+//       bracket.pop();
+//     }
+//     if (arr[i] === "{") {
+//       bracket.push("{");
+//     }
+//     if (arr[i] === "}") {
+//       if (bracket.length === 0) {
+//         return false;
+//       }
+//       bracket.pop();
+//     }
+//     return true;
+//   }
+// }
+// // const num = prompt().split("")
+// const num = "(())}{}".split("");
 
-// △ (다른 문자열 삽입시 틀림)
+// if (mathBrackets(num) == true) {
+//   console.log("YES");
+// } else {
+//   console.log("NO");
+// }
+
+// △ (다른 문자열 삽입시 틀림) -> 이해했지만 한번더
+
+// 문제 54. 연속되는 수
+
+// 내가 푼답
+// function consecutive(n){
+//   for(let i = 0; i < n.length; i++) {
+//     if(parseInt(n[i], 10) + 1 === parseInt(n[i+1],10)){
+//       return true;
+//     }else{
+//       return false;
+//     }
+//   }
+// }
+
+// let num = prompt().split(" ")
+
+// // console.log(consecutive(num))
+// // let num = [1,4,2,6,3]
+// if(consecutive(num) === true){
+//   console.log("YES")
+// }else{
+//   console.log("NO")
+// }
+
+// 선생님답
+// const n = "1 3 4 2 5".split(" ").sort();
+// function solution(n) {
+//   for (let i = 0; i < n.length -1; i++) {
+//     if (Number(n[i]) + 1 !== Number(n[i + 1])) {
+//       return "NO";
+//     }
+//   }
+//   return "YES";
+// }
+
+// console.log(solution(n))
+
+//O (디테일 신경쓰기..)
+
+
+// 문제 55. 하노이의 탑
+// const A = [1 ,3, 5, 2, 4, 7].sort().reverse();
+
+
+// function hanoi(A){
+
+//   const B = [];
+//   const C = [];
+//   let count = 0;
+
+//   for(let i = 0; i < A.length; i++){
+//     B.push(A.pop())
+//     C.push(A.pop())
+    
+//     if(A[i] < B[B.length-1]){
+//       B.push(A.pop())
+//     }
+//     if(A[i] < C[C.length-1]){
+//       C.push(A.pop())
+//     }
+//     if(B[i] < C[C.length-1]){
+//       C.push(B.pop())
+//     }
+//     return count++;
+//   }
+// }
+
+// const A = [ 7, 5, 4, 3, 2, 1 ];
+// console.log(hanoi(A))
+
+// X (이해못함 - 컨디션 좋을때 하기)
