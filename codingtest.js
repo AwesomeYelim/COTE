@@ -967,33 +967,51 @@
 
 
 // 문제 55. 하노이의 탑
-// const A = [1 ,3, 5, 2, 4, 7].sort().reverse();
 
+// const route = [];
 
-// function hanoi(A){
-
-//   const B = [];
-//   const C = [];
-//   let count = 0;
-
-//   for(let i = 0; i < A.length; i++){
-//     B.push(A.pop())
-//     C.push(A.pop())
-    
-//     if(A[i] < B[B.length-1]){
-//       B.push(A.pop())
-//     }
-//     if(A[i] < C[C.length-1]){
-//       C.push(A.pop())
-//     }
-//     if(B[i] < C[C.length-1]){
-//       C.push(B.pop())
-//     }
-//     return count++;
+// function hanoi(num, start, end, temp){
+//   // 원판이 한개 일때는 바로 옮기면 됩니다.
+//   if (num === 1){
+//     route.push([start, end]);
+//     return NaN;
 //   }
+
+//   // 원반이 n-1개를 경유기둥으로 옮기고
+//   hanoi()
+//   // 가장 큰 원반은 목표기둥으로
+//   route.push()
+//   // 경유기둥과 시작기둥을 바꿉니다.
+//   hanoi()
 // }
 
-// const A = [ 7, 5, 4, 3, 2, 1 ];
-// console.log(hanoi(A))
+// hanoi(3, 'A', 'B', 'C');
+// console.log(route);
+// console.log(route.length);
+
+
 
 // X (이해못함 - 컨디션 좋을때 하기)
+
+
+// 문제 56. 객체의 함수 응용
+
+nationWidth = {
+  'Korea': 220877,
+  'Rusia': 17098242,
+  'China': 9596961,
+  'France': 543965,
+  'Japan': 377915,
+  'England': 242900,
+}
+let simi = Object.values(nationWidth).sort((a, b)=> a - b)
+let difer = simi[1]-simi[0]
+
+for (let i = 0; i < simi.length; i++){
+  if(simi[i] === nationWidth['England']){
+  }
+}
+
+console.log(difer)
+
+
