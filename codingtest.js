@@ -965,7 +965,6 @@
 
 //O (디테일 신경쓰기..)
 
-
 // 문제 55. 하노이의 탑
 
 // const route = [];
@@ -989,10 +988,7 @@
 // console.log(route);
 // console.log(route.length);
 
-
-
 // X (이해못함 - 컨디션 좋을때 하기)
-
 
 // 문제 56. 객체의 함수 응용
 
@@ -1046,32 +1042,56 @@
 
 // console.log(item[0], item[1]-w)
 
-
 // O (다른방식의 풀이법 적용)
 
-
-
-
-
 // 문제 57. 1의 개수
-let arr = []
-let count = 0;
+// let arr = []
+// let count = 0;
 
-  for(let i = 0; i < 1000; i++){
-      arr += String(i+1)
-  }
+//   for(let i = 0; i < 1000; i++){
+//       arr += String(i+1)
+//   }
 
-arr.split('')
+// arr.split('')
 
-for(let i in arr){
-  if(arr[i].includes('1')){
-    count++;
+// for(let i in arr){
+//   if(arr[i].includes('1')){
+//     count++;
+//   }
+// }
+
+// console.log(count)
+
+// O (정규표현식 통해서 푸는 방법 습득하기)
+
+// 문제 58. 콤마 찍기
+
+// 내가푼답
+// let num = prompt().split('')
+let num = "1234567891011".split('').reverse()
+
+for(let i = 0; i < num.length; i++){
+  if(i%4 === 0){
+    num.splice(i, 0, ',')
   }
 }
 
-console.log(count)
+num.splice(0, 1)
 
+console.log(num.reverse().join(''));
 
+// 선생님답
+// 방법 1.메서드 사용
+// const n = 10000000
+// console.log(n.toLocaleString())
 
+// 방법2. 재귀함수
+// function comma(s) {
+//   if (s.length <= 3) {
+//     return s;
+//   } else {
+//     return comma(s.slice(0, s.length-3)) + "," + s.slice(s.length - 3);
+//   }
+// }
 
-
+// console.log(comma("123456789"));
