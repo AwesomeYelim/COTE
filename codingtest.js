@@ -996,22 +996,61 @@
 
 // 문제 56. 객체의 함수 응용
 
-nationWidth = {
-  'Korea': 220877,
-  'Rusia': 17098242,
-  'China': 9596961,
-  'France': 543965,
-  'Japan': 377915,
-  'England': 242900,
-}
-let simi = Object.values(nationWidth).sort((a, b)=> a - b)
-let difer = simi[1]-simi[0]
+// // 내가푼답
+// const nationWidth = {
+//   'Korea': 220877,
+//   'Rusia': 17098242,
+//   'China': 9596961,
+//   'France': 543965,
+//   'Japan': 377915,
+//   'England': 242900,
+// }
+// let simi = Object.values(nationWidth).sort((a, b)=> a - b)
+// let difer = simi[1] - simi[0]
 
-for (let i = 0; i < simi.length; i++){
-  if(simi[i] === nationWidth['England']){
-  }
-}
+// for (let i = 0; i < simi.length; i++){
+//   if(simi[1] === Object.values(nationWidth)[i]){
+//     console.log(Object.keys(nationWidth)[i], difer)
+//   }
+// }
 
-console.log(difer)
+// 선생님답
+// const nationWidth = {
+//   'Korea': 220877,
+//   'Rusia': 17098242,
+//   'China': 9596961,
+//   'France': 543965,
+//   'Japan': 377915,
+//   'England': 242900,
+// }
+
+// const w = nationWidth["Korea"];
+// delete nationWidth["Korea"];
+// console.log(nationWidth);
+
+// const entry = Object.entries(nationWidth);
+// console.log(entry);
+// const values = Object.values(nationWidth);
+// console.log(values);
+
+// let gap = Math.max.apply(null, values);
+// console.log(gap);
+// let item = [];
+
+// for (let i in entry){
+//   if(gap > Math.abs(entry[i][1]-w)){
+//     gap = Math.abs(entry[i][1]-w);
+//     item = entry[i];
+//   }
+// }
+
+// console.log(item[0], item[1]-w)
 
 
+// O (다른방식의 풀이법 적용)
+
+
+
+
+
+// 문제 57. 1의 개수
