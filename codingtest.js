@@ -1054,3 +1054,24 @@
 
 
 // 문제 57. 1의 개수
+let arr = []
+let count = 0;
+
+  for(let i = 0; i < 1000; i++){
+      arr += String(i+1)
+  }
+
+arr.split('')
+
+for(let i in arr){
+  if(arr[i].includes('1')){
+    count++;
+  }
+}
+
+console.log(count)
+
+
+
+
+
