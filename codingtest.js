@@ -86,18 +86,7 @@
 // 9
 
 // X
-const star = "*"
 
-for(let i = 1; i <= 5; i++) { // 입력은 5라고 했으니 건들지 않는다
-  let tree = "" //초기화를 시켜준다
-  for(let k = 0; k <= 5-i; k++) {
-    tree += " "
-  }
-    for(let j = 0; j < i*2-1; j++) {
-        tree += star
-    }
-    console.log(tree)
-}
 // 문제 11. for를 이용한 기본 활용
 // let s = 0;
 
@@ -1109,4 +1098,33 @@ for(let i = 1; i <= 5; i++) { // 입력은 5라고 했으니 건들지 않는다
 
 // O (재귀함수연습하기)
 
-// 문제 59.
+// 문제 59. 빈칸채우기
+// 내가푼답
+// let str = prompt().split("")
+// // let str = "hiiiiiiiiiiii".split("");
+// let arr = [];
+
+// function center(s) {
+//   for (let i = 0; i < 50; i++) {
+//     arr.push("=");
+//   }
+//   arr.splice(25 - s.length / 2, s.length, s.join(""));
+//   console.log(arr.join(""))
+// }
+
+// center(str);
+
+
+// 선생님답
+// const s = 'hi';
+// const n = 25 + parseInt((s.length/2), 10)
+
+// // 왼쪽채우기
+// const left = s.padStart(n, '=')
+
+// // 오른쪽 채우기
+// const right = left.padEnd(50, '=');
+// console.log(right);
+
+// O (padStart, padEnd 메서드 알기!)
+
