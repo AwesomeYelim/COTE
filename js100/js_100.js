@@ -1152,14 +1152,38 @@
 
 
 // 문제 61. 문자열 압축하기
+
+// 내가푼답
 let 입력 = 'aaabbbbcdddd'.split('')
 let 압축 = Array.from(new Set(입력))
+let arr = []
 
 for(let i in 압축) {
-   입력.filter(a => a === 압축[i]).length
+    let num = 입력.filter(a => a === 압축[i]).length
+    arr.push(압축[i],num)
 }
 
-    
+console.log(arr.join(''))
 
 
+// 선생님답
+// const user_s = 'aaabbbbcdddd';
+// let result_s = '';
+// let store_s = user_s[0];
+// let count = 0
 
+
+// // aaabbbbsdddd
+// // result_s = 'a3b4c1d4';
+// for(let i of user_s){
+//     console.log(i);
+//     if(i == store_s){
+//         count += 1;
+//     }else {
+//         result_s += store_s + String(count);
+//         store_s = i; // 다음 i 로 a -> b/ b -> c/ c->d  로 바꿔준다
+//         count = 1; //count 초기화
+//     }
+// }
+// result_s += store_s + String(count); // d4를 추가해 주기 위해서
+// console.log(result_s);
