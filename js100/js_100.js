@@ -1148,4 +1148,18 @@
 //   console.log(`번호: ${Number(i)+1}, 이름: ${students[i]}`)
 // }
 
-// O
+// O 
+
+
+// 문제 61. 문자열 압축하기
+let 입력 = 'aaabbbbcdddd'.split('')
+let 압축 = Array.from(new Set(입력))
+
+for(let i in 압축) {
+   입력.filter(a => a === 압축[i]).length
+}
+
+    
+
+
+
