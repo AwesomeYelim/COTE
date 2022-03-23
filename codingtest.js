@@ -86,7 +86,18 @@
 // 9
 
 // X
+const star = "*"
 
+for(let i = 1; i <= 5; i++) { // 입력은 5라고 했으니 건들지 않는다
+  let tree = "" //초기화를 시켜준다
+  for(let k = 0; k <= 5-i; k++) {
+    tree += " "
+  }
+    for(let j = 0; j < i*2-1; j++) {
+        tree += star
+    }
+    console.log(tree)
+}
 // 문제 11. for를 이용한 기본 활용
 // let s = 0;
 
@@ -1066,19 +1077,19 @@
 
 // 문제 58. 콤마 찍기
 
-// 내가푼답
-// let num = prompt().split('')
-let num = "1234567891011".split('').reverse()
+// // 내가푼답
+// // let num = prompt().split('')
+// let num = "1234567891011".split('').reverse()
 
-for(let i = 0; i < num.length; i++){
-  if(i%4 === 0){
-    num.splice(i, 0, ',')
-  }
-}
+// for(let i = 0; i < num.length; i++){
+//   if(i%4 === 0){
+//     num.splice(i, 0, ',')
+//   }
+// }
 
-num.splice(0, 1)
+// num.splice(0, 1)
 
-console.log(num.reverse().join(''));
+// console.log(num.reverse().join(''));
 
 // 선생님답
 // 방법 1.메서드 사용
@@ -1095,3 +1106,7 @@ console.log(num.reverse().join(''));
 // }
 
 // console.log(comma("123456789"));
+
+// O (재귀함수연습하기)
+
+// 문제 59.
