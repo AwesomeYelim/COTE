@@ -1154,16 +1154,16 @@
 // 문제 61. 문자열 압축하기
 
 // 내가푼답
-let 입력 = 'aaabbbbcdddd'.split('')
-let 압축 = Array.from(new Set(입력))
-let arr = []
+// let 입력 = 'aaabbbbcdddd'.split('')
+// let 압축 = Array.from(new Set(입력))
+// let arr = []
 
-for(let i in 압축) {
-    let num = 입력.filter(a => a === 압축[i]).length
-    arr.push(압축[i],num)
-}
+// for(let i in 압축) {
+//     let num = 입력.filter(a => a === 압축[i]).length
+//     arr.push(압축[i],num)
+// }
 
-console.log(arr.join(''))
+// console.log(arr.join(''))
 
 
 // 선생님답
@@ -1187,3 +1187,36 @@ console.log(arr.join(''))
 // }
 // result_s += store_s + String(count); // d4를 추가해 주기 위해서
 // console.log(result_s);
+
+
+// O
+
+
+// 문제 62번. 20190923 출력하기
+// 내가푼답
+// let date = '이천십구년 구월 이십삼'.split(' ')
+// let array = []
+
+// for(let i of date){
+//     if(i == '이천십구년'){
+//         array.push(2019)
+//     }
+//     if(i == '구월'){
+//         array.push(09)
+//     }
+//     if(i == '이십삼'){
+//         array.push(23)
+//     }
+// }
+
+
+// console.log(array.join(''))
+
+
+// 선생님답
+// const user_s = 'aacdddddddddfff'
+// let result_s = '';
+// console.log(
+//     `${user_s.match(/a/g).length}${Number(user_s.match(/b/g))}${user_s.match(/c/g).length}${user_s.match(/d/g).length}${Number(user_s.match(/e/g))}${user_s.match(/d/g).length}${user_s.match(/a/g).length}${user_s.match(/f/g).length}`)
+// // 정규표현식 사용 match(/a/g) -> 전체길이에서 a만 골라냄
+// // ${Number(user_s.match(/e/g))} -> NaN, null을 0으로 표현
