@@ -114,6 +114,8 @@
 // const x = new Wizard(545, 210, 10);
 // console.log(x.health, x.mana, x.armor);
 // x.attack();
+
+
 // O(구글링함)
 
 // 문제 13. 몇 번째 행성인가요?
@@ -1143,13 +1145,11 @@
 //   "강채연",
 // ].sort()
 
-
 // for(let i in students) {
 //   console.log(`번호: ${Number(i)+1}, 이름: ${students[i]}`)
 // }
 
-// O 
-
+// O
 
 // 문제 61. 문자열 압축하기
 
@@ -1165,13 +1165,11 @@
 
 // console.log(arr.join(''))
 
-
 // 선생님답
 // const user_s = 'aaabbbbcdddd';
 // let result_s = '';
 // let store_s = user_s[0];
 // let count = 0
-
 
 // // aaabbbbsdddd
 // // result_s = 'a3b4c1d4';
@@ -1188,9 +1186,7 @@
 // result_s += store_s + String(count); // d4를 추가해 주기 위해서
 // console.log(result_s);
 
-
 // O
-
 
 // 문제 62번. 20190923 출력하기
 // 내가푼답
@@ -1209,9 +1205,7 @@
 //     }
 // }
 
-
 // console.log(array.join(''))
-
 
 // 선생님답
 // const user_s = 'aacdddddddddfff'
@@ -1220,3 +1214,117 @@
 //     `${user_s.match(/a/g).length}${Number(user_s.match(/b/g))}${user_s.match(/c/g).length}${user_s.match(/d/g).length}${Number(user_s.match(/e/g))}${user_s.match(/d/g).length}${user_s.match(/a/g).length}${user_s.match(/f/g).length}`)
 // // 정규표현식 사용 match(/a/g) -> 전체길이에서 a만 골라냄
 // // ${Number(user_s.match(/e/g))} -> NaN, null을 0으로 표현
+
+// X (숫자써서 틀림)
+
+// 문제 63. 친해지고 싶어
+// 내가푼답
+// let short = prompt().split(' ')
+// let short = '복잡한 세상 편하게 살자'.split(' ')
+// let arr = []
+
+// for(let i of short) {
+//     arr.push(i[0])
+// }
+
+// console.log(arr.join(''))
+
+// O
+
+// 문제 64. 이상한 엘레베이터
+
+// // 내가푼답
+// let 정량 = 33;
+// let count = 0;
+
+// 첫번째 풀이
+// if ((정량 % 7) % 3 === 0) {
+//   count = Math.floor(정량 / 7) + Math.floor((정량 % 7 )/ 3);
+//   console.log(count);
+// } else {
+//   console.log(-1);
+// }
+
+// 두번째 풀이
+// for(let i = 0; i < 정량/3; i++){
+//     for(let j = 0; j < 정량/7; j++) {
+//         if(7*j + 3*i === 정량){
+//             count = j+i
+//         }
+//         if(7*i + 3*j === 정량){
+//             count = j+i
+//         }
+//         // if(정량%i !== 0 && 정량%7 !== 0){
+//         //     count = -1
+//         // }
+//     }
+// }
+// console.log(count)
+
+// 선생님답
+// let n = 13;
+// let result = 0;
+// while (true){
+//     if(n%7 == 0){
+//         result += parseInt(n/7, 10);
+//         console.log(result);
+//         break;
+//     }
+//     n -= 3
+//     result += 1
+//     if(n < 0){
+//         console.log(-1);
+//         break;
+//     }
+// }
+
+// △ (-1 리턴못함)
+
+// 문제 65. 변형된 리스트
+// 내가푼답
+// let arr1 = [1, 2, 3, 4]
+// let arr2 = ['a', 'b', 'c', 'd']
+// let arr = []
+
+// for(let i in arr1){
+//     if(i%2 !== 0){
+//       arr.push([arr2[i],arr1[i]])
+//     }else(
+//       arr.push([arr1[i],arr2[i]])
+//     )
+// }
+
+// console.log(arr)
+
+// 선생님답
+// 1. map 사용(요소, 인덱스)
+// const a = [1, 4, 5, 16]
+// const b = ['a', 'b', 'c', 'd'];
+// let c = a.map(function(e ,i){
+//     if(i%2 == 0){
+//         return [e, b[i]];
+//     }else {
+//         return [b[i], e];
+//     }
+// });
+// console.log(c)
+
+// 2. forEach 사용(map과 동일 but! return값이 없다.)
+// const a = [1, 4, 5, 16]
+// const b = ['a', 'b', 'c', 'd'];
+// let c = [];
+
+// a.forEach(function(e ,i){
+//     if(i%2 == 0){
+//         c.push([e, b[i]]);
+//     }else {
+//         c.push([b[i], e]);
+//     }
+// });
+
+// console.log(c)
+
+// O
+
+
+// 문제 66. 블럭탑쌓기
