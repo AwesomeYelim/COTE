@@ -1345,33 +1345,79 @@
 
 // console.log(arr)
 
-
-
 // 선생님답
 // const 전체블록 = ['ABCDEF', 'BCAD', 'ADEFQRX', 'BEDFG', 'EFGHZ']
 // let 규칙 = 'ABD';
 
+// function solution(전체블록, 규칙){
+//     let answer = [];
+//     for(let 부분블록 of 전체블록){
+//         answer.push(블록순서체크(부분블록, 규칙)) //콜백함수를 넣어줌
+//     }
+//     return answer;
+// }
+// function 블록순서체크(부분블록, 규칙){
+//     let 임시변수 = 규칙.indexOf(규칙[0]);
+//     for(let 문자 of 부분블록){
+//         if(규칙.includes(문자)){
+//             if(임시변수 > 규칙.indexOf(문자)){
+//                 return '불가능'
+//             }
+//             임시변수 = 규칙.indexOf(문자);
+//         }
+//     }
+//     return '가능';
+// }
 
-function solution(전체블록, 규칙){
-    let answer = [];
-    for(let 부분블록 of 전체블록){
-        answer.push(블록순서체크(부분블록, 규칙)) //콜백함수를 넣어줌
-    }
-    return answer;
-}
-function 블록순서체크(부분블록, 규칙){
-    let 임시변수 = 규칙.indexOf(규칙[0]);
-    for(let 문자 of 부분블록){
-        if(규칙.includes(문자)){
-            if(임시변수 > 규칙.indexOf(문자)){
-                return '불가능'
-            }
-            임시변수 = 규칙.indexOf(문자);
-        }
-    }
-    return '가능';
-}
-
-console.log(solution(전체블록, 규칙))
+// console.log(solution(전체블록, 규칙))
 
 // △ (알파벳순으로 출력함/ 풀이 이해못함 -> 다시풀기)
+
+// 문재 67. 민규의 악수
+
+// 내가푼답
+// let 총 = Number(prompt())+7;
+// let 총 = 63;
+// let 정리 = [];
+// let 참가자 = 0;
+
+// for (let i = 0; i < (총 + 7) / 2; i++) {
+//   총 -= i;
+//   if (총 > 0) {
+//     참가자++;
+//   }
+// }
+// let 민규 = 참가자 - 7;
+// 정리.push(민규, 참가자 + 1);
+// console.log(정리);
+
+
+// 선생님답
+// 총참가자 = n + 1(민규)
+// 악수의 수 = n-1 + n-2 + n-3....16
+// 100 + 99 + 98 + ..... 3 + 2 + 1 === 101*50 == 5050
+// n(n+1)/2 -->  (n-1)(n)/2 
+
+
+// 입력: 59
+// (n-1)(n)/2
+// 11 명 참가자일때 55
+// 12 명 (55 + 민규가 4번의 악수)
+
+function solution(n){
+    let 사람 = 0;
+    let 총악수 = 0;
+    let temp = 0;
+    while(true){
+        총악수 = parseInt((사람*(사람-1)/2),10)
+        if(n < 총악수){
+            break;
+        }
+        temp = 총악수;
+        사람 += 1;
+    }
+    return [parseInt(n-temp, 10), 사람];
+}
+
+const 악수의수 = 59;
+console.log(solution(악수의수));
