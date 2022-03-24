@@ -1391,35 +1391,73 @@
 // 정리.push(민규, 참가자 + 1);
 // console.log(정리);
 
-
 // 선생님답
 // 총참가자 = n + 1(민규)
 // 악수의 수 = n-1 + n-2 + n-3....16
 // 100 + 99 + 98 + ..... 3 + 2 + 1 === 101*50 == 5050
-// n(n+1)/2 -->  (n-1)(n)/2 
-
+// n(n+1)/2 -->  (n-1)(n)/2
 
 // 입력: 59
 // (n-1)(n)/2
 // 11 명 참가자일때 55
 // 12 명 (55 + 민규가 4번의 악수)
 
-function solution(n){
-    let 사람 = 0;
-    let 총악수 = 0;
-    let temp = 0;
-    while(true){
-        총악수 = parseInt((사람*(사람-1)/2),10)
-        if(n < 총악수){
-            break;
-        }
-        temp = 총악수;
-        사람 += 1;
-    }
-    return [parseInt(n-temp, 10), 사람];
-}
+// function solution(n){
+//     let 사람 = 0;
+//     let 총악수 = 0;
+//     let temp = 0;
+//     while(true){
+//         총악수 = parseInt((사람*(사람-1)/2),10)
+//         if(n < 총악수){
+//             break;
+//         }
+//         temp = 총악수;
+//         사람 += 1;
+//     }
+//     return [parseInt(n-temp, 10), 사람];
+// }
 
-const 악수의수 = 59;
-console.log(solution(악수의수));
+// const 악수의수 = 59;
+// console.log(solution(악수의수));
 
 // O (좀 이상하게 풀어서 다시풀기)
+
+// 문제 68. 버스 시간표
+
+// 내가푼답
+let time = ["12:30", "13:20", "14:13"];
+let bus = "12:40".split(":");
+
+function solution(time, bus) {
+    let arr = [];
+  for (let i in time) {
+    let hour = time[i].split(":")[0] * 60;
+    let min = Number(time[i].split(":")[1]);
+    let hm = hour + min;
+    let bushm = bus[0] * 60 + Number(bus[1]);
+
+    // console.log(hour, min, hm, bushm)
+    if (hm < bushm) {
+      arr.push("지나갔습니다.");
+    }
+    if (hm >= bushm) {
+      if(hm === bushm) {
+          arr.push("진입합니다.")
+      }
+      if (hm - bushm < 60 && hm - bushm !== 0) {
+        arr.push(`${hm - bushm}분 남았습니다`);
+      }
+      if (hm - bushm > 60) {
+        arr.push(`${parseInt((hm - bushm)/60, 10)}시간 ${(hm - bushm)%60}분 남았습니다`);
+      }
+    }
+  }
+  return console.log(arr)
+}
+
+solution(time, bus);
+
+// O (선생님 답과 유사)
+
+
+// 문제 69. 골드바흐의 추측
