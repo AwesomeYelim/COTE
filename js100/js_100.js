@@ -1421,3 +1421,5 @@ function solution(n){
 
 const 악수의수 = 59;
 console.log(solution(악수의수));
+
+// O (좀 이상하게 풀어서 다시풀기)
