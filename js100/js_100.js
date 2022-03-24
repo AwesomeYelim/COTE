@@ -86,6 +86,7 @@
 // 9
 
 // X
+// ✡︎
 
 // 문제 11. for를 이용한 기본 활용
 // let s = 0;
@@ -114,7 +115,6 @@
 // const x = new Wizard(545, 210, 10);
 // console.log(x.health, x.mana, x.armor);
 // x.attack();
-
 
 // O(구글링함)
 
@@ -466,12 +466,13 @@
 
 // 문제 37. 반장선거
 // let array = prompt().split(" ");
+// let array = '예림 예림 예림 예인 보인 혜지 혜지 예일 예인 예일'.split(" ");
 // let result = {};
 // let winner;
 
-// for(let index in array) {
-//     let val = array[index];
-//     result[val] = result[val] === undefined ? 1 : result[val] += 1
+// for(let el of array) {
+//     let val = el;
+//     result[val] = result[val] === undefined ? 1 : result[val] += 1 // result[val]에 처음접근시 undefined 를 출력 -> 1 / result[val] 은 1이되며 다시순환하게 됨
 // }
 
 // winner = Object.keys(result).reduce(function(a,b){
@@ -481,6 +482,7 @@
 // console.log(`${winner}이(가) 총 ${result[winner]}표로 반장이 되었습니다`)
 
 // X (풀이는 이해했지만 다시 풀기)
+// ✡︎
 
 // 문제 38. 호준이의 아르바이트
 // let score = prompt().split(" ");
@@ -1326,5 +1328,50 @@
 
 // O
 
-
 // 문제 66. 블럭탑쌓기
+// 내가푼답
+// let 탑 = ['ABCDEF', 'BCAD', 'ADEFQRX', 'BEDFG', 'EFGHZ']
+// let 규칙 = 'ABD'.split('')
+// let arr = []
+
+// for(let i of 탑){
+//     // console.log(Array.from(i).sort())
+//     if(Array.from(i).join('') === Array.from(i).sort().join('')){
+//         arr.push("가능")
+//     }else{
+//         arr.push("불가능")
+//     }
+// }
+
+// console.log(arr)
+
+
+
+// 선생님답
+// const 전체블록 = ['ABCDEF', 'BCAD', 'ADEFQRX', 'BEDFG', 'EFGHZ']
+// let 규칙 = 'ABD';
+
+
+function solution(전체블록, 규칙){
+    let answer = [];
+    for(let 부분블록 of 전체블록){
+        answer.push(블록순서체크(부분블록, 규칙)) //콜백함수를 넣어줌
+    }
+    return answer;
+}
+function 블록순서체크(부분블록, 규칙){
+    let 임시변수 = 규칙.indexOf(규칙[0]);
+    for(let 문자 of 부분블록){
+        if(규칙.includes(문자)){
+            if(임시변수 > 규칙.indexOf(문자)){
+                return '불가능'
+            }
+            임시변수 = 규칙.indexOf(문자);
+        }
+    }
+    return '가능';
+}
+
+console.log(solution(전체블록, 규칙))
+
+// △ (알파벳순으로 출력함/ 풀이 이해못함 -> 다시풀기)
