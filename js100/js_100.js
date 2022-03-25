@@ -1425,39 +1425,87 @@
 // 문제 68. 버스 시간표
 
 // 내가푼답
-let time = ["12:30", "13:20", "14:13"];
-let bus = "12:40".split(":");
+// let time = ["12:30", "13:20", "14:13"];
+// let bus = "12:40".split(":");
 
-function solution(time, bus) {
-    let arr = [];
-  for (let i in time) {
-    let hour = time[i].split(":")[0] * 60;
-    let min = Number(time[i].split(":")[1]);
-    let hm = hour + min;
-    let bushm = bus[0] * 60 + Number(bus[1]);
+// function solution(time, bus) {
+//     let arr = [];
+//   for (let i in time) {
+//     let hour = time[i].split(":")[0] * 60;
+//     let min = Number(time[i].split(":")[1]);
+//     let hm = hour + min;
+//     let bushm = bus[0] * 60 + Number(bus[1]);
 
-    // console.log(hour, min, hm, bushm)
-    if (hm < bushm) {
-      arr.push("지나갔습니다.");
-    }
-    if (hm >= bushm) {
-      if(hm === bushm) {
-          arr.push("진입합니다.")
-      }
-      if (hm - bushm < 60 && hm - bushm !== 0) {
-        arr.push(`${hm - bushm}분 남았습니다`);
-      }
-      if (hm - bushm > 60) {
-        arr.push(`${parseInt((hm - bushm)/60, 10)}시간 ${(hm - bushm)%60}분 남았습니다`);
-      }
-    }
-  }
-  return console.log(arr)
-}
+//     // console.log(hour, min, hm, bushm)
+//     if (hm < bushm) {
+//       arr.push("지나갔습니다.");
+//     }
+//     if (hm >= bushm) {
+//       if(hm === bushm) {
+//           arr.push("진입합니다.")
+//       }
+//       if (hm - bushm < 60 && hm - bushm !== 0) {
+//         arr.push(`${hm - bushm}분 남았습니다`);
+//       }
+//       if (hm - bushm > 60) {
+//         arr.push(`${parseInt((hm - bushm)/60, 10)}시간 ${(hm - bushm)%60}분 남았습니다`);
+//       }
+//     }
+//   }
+//   return console.log(arr)
+// }
 
-solution(time, bus);
+// solution(time, bus);
 
 // O (선생님 답과 유사)
 
 
+
+
+
 // 문제 69. 골드바흐의 추측
+
+// 내가푼답
+let num = 100;
+let count;
+let self;
+let arr = [];
+let 소수합산 = [];
+
+function 소수판별식(num) {
+  if (num === 2) {
+    return true;
+  }
+  for (let i = 2; i <= Math.floor(Math.sqrt(num)); i++) {
+    if (num % i === 0) {
+      return false;
+    }
+  }
+  return true;
+}
+
+for (let i = 2; i <= num; i++) {
+  if (소수판별식(i) === true) {
+    arr.push(i);
+  }
+}
+console.log(arr);
+
+for (let i = 0; i < arr.length; i++) {
+  for (let j = 0; j <= i; j++) {
+    self = arr[i]*2
+    count = arr[i] + arr[j];
+    if(self % 2 === 0){
+        소수합산.push(self);
+    }
+    if(count % 2 === 0) {
+        소수합산.push(count);
+    }
+  }
+}
+소수합산 = Array.from(new Set(소수합산)).sort((a,b)=> a - b)
+
+console.log(소수합산);
+
+
+// △ (문제 잘못읽음...)
