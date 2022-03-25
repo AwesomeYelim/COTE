@@ -492,7 +492,6 @@
 // let count = score.filter(a => rank.includes(a)).length
 // console.log(count)
 
-
 // 선생님답
 // let score = prompt().split(" ");
 // // let score = ['97', '100', '97', '56', '80', '100', '80', '60']
@@ -514,8 +513,6 @@
 // console.log(c -1)
 
 // X
-
-
 
 // 문제 39. 오타 수정하기
 
@@ -1470,10 +1467,6 @@
 
 // O (선생님 답과 유사)
 
-
-
-
-
 // 문제 69. 골드바흐의 추측
 
 // 내가푼답
@@ -1550,7 +1543,75 @@
 // console.log(차)
 // console.log(작은값, 큰값)
 
-
-
-
 // △ (문제 잘못읽음...-> 다시풀기)
+
+// 문제 70. 행렬 곱하기
+
+// 내가푼답
+// let as = [
+//   [1, 2],
+//   [3, 4]
+// ];
+// let bs = [
+//   [4, 5],
+//   [6, 7],
+// ];
+
+// 출력
+// [
+//   [16, 19],
+//   [36, 43]
+// ];
+
+// let arr = []
+// let brr = []
+// let result = []
+// for (let i = 0; i < bs.length; i++) {
+//   for (let j = 0; j < as[i].length; j++) {
+//     if (as[i].length === bs.length) {
+//         arr.push(as[i][j]*bs[j][i])// [ 4, 12, 15, 28 ]
+        
+//     } else {
+//       console.log("-1");
+//     }
+//   }
+// }
+// console.log(arr);
+
+
+// 선생님답
+let as = [
+  [1, 2],
+  [3, 4]
+];
+let bs = [
+  [4, 5],
+  [6, 7],
+];
+
+function solution(A, B) {
+    let answer = [];
+    for (let i = 0; i < A.length; i++) {
+      // 행렬 A의 행 접근 - A
+      const row = A[i];
+      answer.push([]);
+      // 행렬 B의 열 접근해서 곱하기 - B
+      // 행렬 B의 열 길이
+      for (let j = 0; j < B[0].length; j++) {
+        let sum = 0;
+        // 행렬 B의 행 길이
+        // B는 열을 고정해놓고 행을 이동하기 - C
+        for (let k = 0; k < B.length; k++) {
+          sum += row[k] * B[k][j];
+        }
+        answer[i].push(sum);
+      }
+    }
+    return answer;
+  }
+
+console.log(solution(as, bs))
+
+
+// X (다시한번 풀어보기)
+
