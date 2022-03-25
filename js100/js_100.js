@@ -485,6 +485,15 @@
 // ✡︎
 
 // 문제 38. 호준이의 아르바이트
+// 내가푼답
+// let score ='97 86 75 66 55 97 85 97 97 95'.split(' ')
+// let rank = Array.from(new Set(score)).sort((a, b) => b - a).slice(0, 3)
+// console.log(rank)
+// let count = score.filter(a => rank.includes(a)).length
+// console.log(count)
+
+
+// 선생님답
 // let score = prompt().split(" ");
 // // let score = ['97', '100', '97', '56', '80', '100', '80', '60']
 // score.sort((a, b) => a - b)
@@ -505,6 +514,8 @@
 // console.log(c -1)
 
 // X
+
+
 
 // 문제 39. 오타 수정하기
 
@@ -1466,46 +1477,80 @@
 // 문제 69. 골드바흐의 추측
 
 // 내가푼답
-let num = 100;
-let count;
-let self;
-let arr = [];
-let 소수합산 = [];
+// let num = 100;
+// let count;
+// let self;
+// let arr = [];
+// let 소수합산 = [];
 
-function 소수판별식(num) {
-  if (num === 2) {
-    return true;
-  }
-  for (let i = 2; i <= Math.floor(Math.sqrt(num)); i++) {
-    if (num % i === 0) {
-      return false;
-    }
-  }
-  return true;
-}
+// function 소수판별식(num) {
+//   if (num === 2) {
+//     return true;
+//   }
+//   for (let i = 2; i <= Math.floor(Math.sqrt(num)); i++) {
+//     if (num % i === 0) {
+//       return false;
+//     }
+//   }
+//   return true;
+// }
 
-for (let i = 2; i <= num; i++) {
-  if (소수판별식(i) === true) {
-    arr.push(i);
-  }
-}
-console.log(arr);
+// for (let i = 2; i <= num; i++) {
+//   if (소수판별식(i) === true) {
+//     arr.push(i);
+//   }
+// }
+// console.log(arr);
 
-for (let i = 0; i < arr.length; i++) {
-  for (let j = 0; j <= i; j++) {
-    self = arr[i]*2
-    count = arr[i] + arr[j];
-    if(self % 2 === 0){
-        소수합산.push(self);
-    }
-    if(count % 2 === 0) {
-        소수합산.push(count);
-    }
-  }
-}
-소수합산 = Array.from(new Set(소수합산)).sort((a,b)=> a - b)
+// for (let i = 0; i < arr.length; i++) {
+//   for (let j = 0; j <= i; j++) {
+//     self = arr[i]*2
+//     count = arr[i] + arr[j];
+//     if(self % 2 === 0){
+//         소수합산.push(self);
+//     }
+//     if(count % 2 === 0) {
+//         소수합산.push(count);
+//     }
+//   }
+// }
+// 소수합산 = Array.from(new Set(소수합산)).sort((a,b)=> a - b)
 
-console.log(소수합산);
+// console.log(소수합산);
+
+// 선생님답
+// let prime = [];
+// let isPrime = true;
+// let val = 100;
+// let 골드바흐파티션 = [];
+
+// for (let i = 2; i < val; i++) {
+//     for(let j = 2; j < i; j++){
+//         if(i % j == 0){
+//             isPrime = false; //정수일때
+//         }
+//     }
+//     if(isPrime){ //소수일때
+//         prime.push(i);
+//     }
+//     isPrime = true;
+// }
+
+// for(let n of prime){
+//     if(prime.includes(val - n) && n <= val - n){
+//         골드바흐파티션.push([n, val - n]);
+//     }
+// }
+
+// let 차 = 골드바흐파티션.map(e => e[1]-e[0]);
+// let 작은값 = 골드바흐파티션[차.indexOf(Math.min.apply(null, 차))]
+// let 큰값 = 골드바흐파티션[차.indexOf(Math.max.apply(null, 차))]
+
+// console.log(골드바흐파티션) //모두출력
+// console.log(차)
+// console.log(작은값, 큰값)
 
 
-// △ (문제 잘못읽음...)
+
+
+// △ (문제 잘못읽음...-> 다시풀기)
