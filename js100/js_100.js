@@ -693,10 +693,10 @@
 //     ('홍예일', '01098765432'),
 //     ('홍예림', '01012341234')
 // ]
-// let c = Array.from(new Set(people))
-// console.log(c.length)
+// // let c = Array.from(new Set(people))
+// // console.log(c.length)
 
-// 선생님답
+// // 선생님답
 // const people = {
 //         홍예림: '01012341234',
 //         이호상: '01051442904',
@@ -744,27 +744,28 @@
 // O (map 메서드를 이용하여 배열 전체에 parseInt 적용)
 
 // 문제 50. 버블 정렬 구현하기
-// function bubble(arr){
-//     let result = arr.slice(); //매개변수 arr에 새로 배열을 만들어 준다는 의미
-//     for (let i = 0; i < result.length - 1 ; i++){
-//         for(let j = 0; j < result.length - i ; j++){
-//             if(result[j] > result[j+1]){
-//                 let val = result[j]
-//                 result[j] = result[j+1];
-//                 result[j+1] = val;
-//             }
-//         }
+function bubble(arr){
+    let result = arr.slice(); //매개변수 arr에 새로 배열을 만들어 준다는 의미
 
-//     }
+    for (let i = 0; i < result.length - 1 ; i++){
+        for(let j = 0; j < result.length - i ; j++){
+            if(result[j] > result[j+1]){
+                let val = result[j]
+                result[j] = result[j+1];
+                result[j+1] = val;
+            }
+        }
 
-//     return result;
-// }
-// // prompt('입력해주세요').split(' ')
-// const items = ['4','2','3','8','5'].map((n) => {
-//     return parseInt(n, 10);
-// });
+    }
 
-// console.log(bubble(items));
+    return result;
+}
+// prompt('입력해주세요').split(' ')
+const items = ['4','2','3','8','5'].map((n) => {
+    return parseInt(n, 10);
+});
+
+console.log(bubble(items));
 
 // X (이해는 했지만 처음부터 다시 해보기)
 
@@ -1580,37 +1581,37 @@
 
 
 // 선생님답
-let as = [
-  [1, 2],
-  [3, 4]
-];
-let bs = [
-  [4, 5],
-  [6, 7],
-];
+// let as = [
+//   [1, 2],
+//   [3, 4]
+// ];
+// let bs = [
+//   [4, 5],
+//   [6, 7],
+// ];
 
-function solution(A, B) {
-    let answer = [];
-    for (let i = 0; i < A.length; i++) {
-      // 행렬 A의 행 접근 - A
-      const row = A[i];
-      answer.push([]);
-      // 행렬 B의 열 접근해서 곱하기 - B
-      // 행렬 B의 열 길이
-      for (let j = 0; j < B[0].length; j++) {
-        let sum = 0;
-        // 행렬 B의 행 길이
-        // B는 열을 고정해놓고 행을 이동하기 - C
-        for (let k = 0; k < B.length; k++) {
-          sum += row[k] * B[k][j];
-        }
-        answer[i].push(sum);
-      }
-    }
-    return answer;
-  }
+// function solution(A, B) {
+//     let answer = [];
+//     for (let i = 0; i < A.length; i++) {
+//       // 행렬 A의 행 접근 - A
+//       const row = A[i];
+//       answer.push([]);
+//       // 행렬 B의 열 접근해서 곱하기 - B
+//       // 행렬 B의 열 길이
+//       for (let j = 0; j < B[0].length; j++) {
+//         let sum = 0;
+//         // 행렬 B의 행 길이
+//         // B는 열을 고정해놓고 행을 이동하기 - C
+//         for (let k = 0; k < B.length; k++) {
+//           sum += row[k] * B[k][j];
+//         }
+//         answer[i].push(sum);
+//       }
+//     }
+//     return answer;
+//   }
 
-console.log(solution(as, bs))
+// console.log(solution(as, bs))
 
 
 // X (다시한번 풀어보기)
