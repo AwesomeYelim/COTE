@@ -744,28 +744,28 @@
 // O (map 메서드를 이용하여 배열 전체에 parseInt 적용)
 
 // 문제 50. 버블 정렬 구현하기
-function bubble(arr){
-    let result = arr.slice(); //매개변수 arr에 새로 배열을 만들어 준다는 의미
+// function bubble(arr){
+//     let result = arr.slice(); //매개변수 arr에 새로 배열을 만들어 준다는 의미
 
-    for (let i = 0; i < result.length - 1 ; i++){
-        for(let j = 0; j < result.length - i ; j++){
-            if(result[j] > result[j+1]){
-                let val = result[j]
-                result[j] = result[j+1];
-                result[j+1] = val;
-            }
-        }
+//     for (let i = 0; i < result.length - 1 ; i++){
+//         for(let j = 0; j < result.length - i ; j++){
+//             if(result[j] > result[j+1]){
+//                 let val = result[j]
+//                 result[j] = result[j+1];
+//                 result[j+1] = val;
+//             }
+//         }
 
-    }
+//     }
 
-    return result;
-}
-// prompt('입력해주세요').split(' ')
-const items = ['4','2','3','8','5'].map((n) => {
-    return parseInt(n, 10);
-});
+//     return result;
+// }
+// // prompt('입력해주세요').split(' ')
+// const items = ['4','2','3','8','5'].map((n) => {
+//     return parseInt(n, 10);
+// });
 
-console.log(bubble(items));
+// console.log(bubble(items));
 
 // X (이해는 했지만 처음부터 다시 해보기)
 
