@@ -1571,14 +1571,13 @@
 //   for (let j = 0; j < as[i].length; j++) {
 //     if (as[i].length === bs.length) {
 //         arr.push(as[i][j]*bs[j][i])// [ 4, 12, 15, 28 ]
-        
+
 //     } else {
 //       console.log("-1");
 //     }
 //   }
 // }
 // console.log(arr);
-
 
 // 선생님답
 // let as = [
@@ -1613,6 +1612,99 @@
 
 // console.log(solution(as, bs))
 
-
 // X (다시한번 풀어보기)
 
+// 문제 71,72 깊이 우선 탐색, 너비 우선 탐색
+
+// 내가푼(시도)
+// function 깊이우선탐색(a) {
+//   let arr = [];
+//   let b = Object.keys(a); // [ 'E', 'F', 'A', 'B', 'C', 'D' ]
+//   arr.push(b[0]); // ['E']
+
+//   for (let i of b) { // [ 'E', 'F', 'A', 'B', 'C', 'D' ]
+//     // console.log(i)
+//     for (let j in a[b[0]]) { // ['D', 'A']
+//         // console.log(j)
+//       if ( a[b[0]][j] == i ) {
+//         // console.log(a[b[0]][j])
+//         arr.push(a[b[0]][0])
+//       }
+//     }
+//     // console.log(i);
+//   }
+
+//   // return a[b[0]]
+//   return arr;
+// }
+
+// let graph = {
+//   E: ["D", "A"],
+//   F: ["D"],
+//   A: ["E", "C", "B"],
+//   B: ["A"],
+//   C: ["A"],
+//   D: ["E", "F"],
+// };
+
+// console.log(깊이우선탐색(graph));
+
+// 선생님답
+    // 1) 깊이 우선 탐색
+    // let graph = {
+    //   E: ["D", "A"],
+    //   F: ["D"],
+    //   A: ["E", "C", "B"],
+    //   B: ["A"],
+    //   C: ["A"],
+    //   D: ["E", "F"],
+    // };
+
+    // function dfs(graph, start) {
+    //   let visited = [];
+    //   let stack = [start];
+
+    //   while (stack.length != 0) {
+    //     let n = stack.pop();
+    //     if (!visited.includes(n)) {
+    //       visited.push(n);
+    //       let sub = graph[n].filter((x) => !visited.includes(x));
+    //       for (let i of sub) {
+    //         stack.push(i);
+    //       }
+    //     }
+    //   }
+    //   return visited;
+    // }
+
+    // console.log(dfs(graph, "E"));
+
+    // 2) 너비 우선 탐색
+    // let graph = {
+    //     E: ["D", "A"],
+    //     F: ["D"],
+    //     A: ["E", "C", "B"],
+    //     B: ["A"],
+    //     C: ["A"],
+    //     D: ["E", "F"],
+    //   };
+    
+    //   function dfs(graph, start) {
+    //     let visited = [];
+    //     let queue = [start];
+    
+    //     while (queue.length != 0) {
+    //       let n = queue.shift();
+    //       if (!visited.includes(n)) {
+    //         visited.push(n);
+    //         let sub = graph[n].filter((x) => !visited.includes(x));
+    //         for (let i of sub) {
+    //           queue.push(i);
+    //         }
+    //       }
+    //     }
+    //     return visited;
+    //   }
+    
+    //   console.log(dfs(graph, "E"));
+    
