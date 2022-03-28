@@ -1650,61 +1650,96 @@
 // console.log(깊이우선탐색(graph));
 
 // 선생님답
-    // 1) 깊이 우선 탐색
-    // let graph = {
-    //   E: ["D", "A"],
-    //   F: ["D"],
-    //   A: ["E", "C", "B"],
-    //   B: ["A"],
-    //   C: ["A"],
-    //   D: ["E", "F"],
-    // };
+// 1) 깊이 우선 탐색
+// let graph = {
+//   E: ["D", "A"],
+//   F: ["D"],
+//   A: ["E", "C", "B"],
+//   B: ["A"],
+//   C: ["A"],
+//   D: ["E", "F"],
+// };
 
-    // function dfs(graph, start) {
-    //   let visited = [];
-    //   let stack = [start];
+// function dfs(graph, start) {
+//   let visited = [];
+//   let stack = [start];
 
-    //   while (stack.length != 0) {
-    //     let n = stack.pop();
-    //     if (!visited.includes(n)) {
-    //       visited.push(n);
-    //       let sub = graph[n].filter((x) => !visited.includes(x));
-    //       for (let i of sub) {
-    //         stack.push(i);
-    //       }
-    //     }
-    //   }
-    //   return visited;
-    // }
+//   while (stack.length != 0) {
+//     let n = stack.pop();
+//     // console.log(n)
+//     if (!visited.includes(n)) {
+//       visited.push(n);
+//       let sub = graph[n].filter((x) => !visited.includes(x));
+//       for (let i of sub) {
+//         stack.push(i);
+//       }
+//     }
+//   }
+//   return visited;
+// }
 
-    // console.log(dfs(graph, "E"));
+// console.log(dfs(graph, "E"));
 
-    // 2) 너비 우선 탐색
-    // let graph = {
-    //     E: ["D", "A"],
-    //     F: ["D"],
-    //     A: ["E", "C", "B"],
-    //     B: ["A"],
-    //     C: ["A"],
-    //     D: ["E", "F"],
-    //   };
-    
-    //   function dfs(graph, start) {
-    //     let visited = [];
-    //     let queue = [start];
-    
-    //     while (queue.length != 0) {
-    //       let n = queue.shift();
-    //       if (!visited.includes(n)) {
-    //         visited.push(n);
-    //         let sub = graph[n].filter((x) => !visited.includes(x));
-    //         for (let i of sub) {
-    //           queue.push(i);
-    //         }
-    //       }
-    //     }
-    //     return visited;
-    //   }
-    
-    //   console.log(dfs(graph, "E"));
-    
+// 2) 너비 우선 탐색
+// let graph = {
+//     E: ["D", "A"],
+//     F: ["D"],
+//     A: ["E", "C", "B"],
+//     B: ["A"],
+//     C: ["A"],
+//     D: ["E", "F"],
+//   };
+
+//   function dfs(graph, start) {
+//     let visited = [];
+//     let queue = [start];
+
+//     while (queue.length != 0) {
+//       let n = queue.shift();
+//     //   console.log(n)
+//       if (!visited.includes(n)) {
+//         visited.push(n);
+//         let sub = graph[n].filter((x) => !visited.includes(x));
+//         for (let i of sub) {
+//           queue.push(i);
+//         }
+//       }
+//     }
+//     return visited;
+//   }
+
+//   console.log(dfs(graph, "E"));
+
+// X (못품 -> 블로그 정리하면서 다시 정리)
+
+// 문제 73. 최단 경로 찾기
+let graph = {
+  A: ["B", "C"],
+  B: ["A", "D", "E"],
+  C: ["A", "F"],
+  D: ["B"],
+  E: ["B", "F"],
+  F: ["C", "E"],
+};
+
+function 최단경로(graph, start, find) {
+  let visited = [];
+  let first = [start];
+
+  while (first.length !== 0) {
+    let n = first.pop();
+    if (!visited.includes(n)) {
+      visited.push(n);
+      let m = graph[n].filter((x) => !visited.includes(x));
+      for (let i of m) {
+        first.push(i);
+      }
+    }
+  }
+
+  return visited.indexOf(find) - visited.indexOf(start);
+}
+
+console.log(최단경로(graph, "A", "F"));
+
+// O (깊이 우선 탐색으로 품 -> 다시한번 풀기)
