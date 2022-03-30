@@ -1756,49 +1756,83 @@
 
 // 문제 74. 최장 경로 찾기
 
-let graph = {
-  1: [2, 3, 4],
-  2: [1, 3, 4, 5, 6],
-  3: [1, 2, 7],
-  4: [1, 2, 5, 6],
-  5: [2, 4, 6, 7],
-  6: [2, 4, 5, 7],
-  7: [3, 5, 6],
-};
+// let graph = {
+//   1: [2, 3, 4],
+//   2: [1, 3, 4, 5, 6],
+//   3: [1, 2, 7],
+//   4: [1, 2, 5, 6],
+//   5: [2, 4, 6, 7],
+//   6: [2, 4, 5, 7],
+//   7: [3, 5, 6],
+// };
 
-// let 입력 = prompt('입력쓰').split(' ');
-let 입력 = ["1", "7"];
-let start = Number(입력[0]);
-let end = Number(입력[1]);
+// // let 입력 = prompt('입력쓰').split(' ');
+// let 입력 = ["1", "7"];
+// let start = Number(입력[0]);
+// let end = Number(입력[1]);
 
-let queue = [start];
-let visited = [];
+// let queue = [start];
+// let visited = [];
 
-function 최장거리(q, visited) {
-  let node = q[q.length - 1];
-  let length = 0;
+// function 최장거리(q, visited) {
+//   let node = q[q.length - 1];
+//   let length = 0;
 
-  if (node == end) {
-    return visited.length;
-  }
-  if (visited.includes(node)) {
-    return visited.length;
-  } else {
-    visited.push(node);
-  }
-  let max = [];
+//   if (node == end) {
+//     return visited.length;
+//   }
+//   if (visited.includes(node)) {
+//     return visited.length;
+//   } else {
+//     visited.push(node);
+//   }
+//   let max = [];
 
-  for (let i in graph[node]) {
-    q.push(graph[node][i]);
-    max.push(length, 최장거리(q, visited));
+//   for (let i in graph[node]) {
+//     q.push(graph[node][i]);
+//     max.push(length, 최장거리(q, visited));
 
-    length = Math.max.apply(null, max);
+//     length = Math.max.apply(null, max);
 
-    queue.pop();
-  }
-  return length;
-}
+//     queue.pop();
+//   }
+//   return length;
+// }
 
-console.log(최장거리(queue, visited));
+// console.log(최장거리(queue, visited));
 
 //  X
+
+// 문제 75. 이상한 369
+
+// 내가푼답
+// let 삼육구 = Number('93')
+// let arr = [];
+// let count = 1;
+
+// for (let i = 0; i <= 삼육구; i++) {
+//   arr.push(count++);
+// }
+
+// let n = arr.filter(x => (x%3==0 && (x%10 == 3 || x%10 == 6 || x%10 ==9)))
+// console.log(n)
+
+// 선생님답
+
+function sol(n) {
+  let answer = 0;
+  let count = 1;
+  const obj = { 3: 1, 6: 2, 9: 3 };
+
+  while (n.length !== 0) {
+    answer += obj[parseInt(n.pop(), 10)] * count;
+    count *= 3;
+  }
+  return answer;
+}
+
+const user_input = "333".split("");
+
+console.log(sol(user_input));
+
+// △ (100 넘어가면서 이상함;)
