@@ -1841,38 +1841,38 @@
 
 // 선생님답
 
-let 사각형 = 5;
-let 탐색가능지역 = 3;
-let 지뢰밭 = [
-  [1, 0, 0, 1, 0],
-  [0, 1, 0, 0, 1],
-  [0, 0, 0, 1, 0],
-  [0, 0, 0, 0, 0],
-  [0, 0, 1, 0, 0],
-];
+// let 사각형 = 5;
+// let 탐색가능지역 = 3;
+// let 지뢰밭 = [
+//   [1, 0, 0, 1, 0],
+//   [0, 1, 0, 0, 1],
+//   [0, 0, 0, 1, 0],
+//   [0, 0, 0, 0, 0],
+//   [0, 0, 1, 0, 0],
+// ];
 
-let iadd = 0; //가로
-let jadd = 0; //세로
-let value = 0;
-let arr = [];
+// let iadd = 0; //가로
+// let jadd = 0; //세로
+// let value = 0;
+// let arr = [];
 
-for (let iadd = 0; iadd <= 사각형 - 탐색가능지역; iadd++) {
-  for (let jadd = 0; jadd <= 사각형 - 탐색가능지역; jadd++) {
-    for (let i = iadd; i <= 탐색가능지역 - 1 + iadd; i++) {
-      for (let j = jadd; j <= 탐색가능지역 - 1 + jadd; j++) {
-        // console.log(i, j);
-        value += 지뢰밭[i][j]
-      }
-    }
-    arr.push(value);
-    // console.log("----------");
-    value = 0;
-  }
-  console.log("!!!!!");
-}
+// for (let iadd = 0; iadd <= 사각형 - 탐색가능지역; iadd++) {
+//   for (let jadd = 0; jadd <= 사각형 - 탐색가능지역; jadd++) {
+//     for (let i = iadd; i <= 탐색가능지역 - 1 + iadd; i++) {
+//       for (let j = jadd; j <= 탐색가능지역 - 1 + jadd; j++) {
+//         // console.log(i, j);
+//         value += 지뢰밭[i][j]
+//       }
+//     }
+//     arr.push(value);
+//     // console.log("----------");
+//     value = 0;
+//   }
+//   console.log("!!!!!");
+// }
 
-console.log(arr)
-console.log(Math.max.apply(null, arr))
+// console.log(arr)
+// console.log(Math.max.apply(null, arr))
 // 지뢰밭[2][2]
 // 지뢰밭[2][3]
 // 지뢰밭[2][4]
@@ -1882,3 +1882,39 @@ console.log(Math.max.apply(null, arr))
 // 지뢰밭[4][2]
 // 지뢰밭[4][3]
 // 지뢰밭[4][4]
+
+// X
+
+// 문제 77. 가장 긴 공통 부분 문자열
+
+// S2[n] = 'T'
+// S2[n+1] = 'H'
+// S2[n+2] = 'I'
+// S2[n+3] = 'S'
+// S2[n+4] = 'I'
+// S2[n+5] = 'S'
+
+function sol(str) {
+  let result = [];
+  for (let i = 1; i < str.length + 1; i++) {
+    for (let j = 0; j < i; j++) {
+      result.push(str.slice(j, j + str.length + 1 - i));
+    }
+  }
+  return result;
+}
+
+console.log(sol("ABCDEF"));
+let inputOne = "ABCDF";
+let inputTwo = "BCE";
+let ArrayOne = sol(inputOne);
+let ArrayTwo = sol(inputTwo);
+
+let inter = ArrayOne.filter((x) => ArrayOne.includes(x));
+console.log(inter);
+
+inter.sort((a, b) => {
+  return b.length - a.length;
+});
+
+console.log(inter[0].length);
