@@ -982,26 +982,26 @@
 
 // const route = [];
 
-// function hanoi(num, start, end, temp){
+// function hanoi(원반의수, 시작기둥, 목표기둥, 보조기둥){
 //   // 원판이 한개 일때는 바로 옮기면 됩니다.
-//   if (num === 1){
-//     route.push([start, end]);
-//     return NaN;
+//   if (원반의수 === 1){
+//     route.push([시작기둥, 목표기둥]);
+//     return 1;
 //   }
 
 //   // 원반이 n-1개를 경유기둥으로 옮기고
-//   hanoi()
+//   hanoi(원반의수-1, 시작기둥, 보조기둥, 목표기둥)
 //   // 가장 큰 원반은 목표기둥으로
-//   route.push()
+//   route.push([시작기둥, 목표기둥])
 //   // 경유기둥과 시작기둥을 바꿉니다.
-//   hanoi()
+//   hanoi(원반의수-1, 보조기둥, 목표기둥, 시작기둥) 
 // }
 
 // hanoi(3, 'A', 'B', 'C');
 // console.log(route);
 // console.log(route.length);
 
-// X (이해못함 - 컨디션 좋을때 하기)
+// △
 
 // 문제 56. 객체의 함수 응용
 
@@ -1355,30 +1355,30 @@
 // console.log(arr)
 
 // 선생님답
-// const 전체블록 = ['ABCDEF', 'BCAD', 'ADEFQRX', 'BEDFG', 'EFGHZ']
-// let 규칙 = 'ABD';
+const 전체블록 = ['ABCDEF', 'BCAD', 'ADEFQRX', 'BEDFG', 'EFGHZ']
+let 규칙 = 'ABD';
 
-// function solution(전체블록, 규칙){
-//     let answer = [];
-//     for(let 부분블록 of 전체블록){
-//         answer.push(블록순서체크(부분블록, 규칙)) //콜백함수를 넣어줌
-//     }
-//     return answer;
-// }
-// function 블록순서체크(부분블록, 규칙){
-//     let 임시변수 = 규칙.indexOf(규칙[0]);
-//     for(let 문자 of 부분블록){
-//         if(규칙.includes(문자)){
-//             if(임시변수 > 규칙.indexOf(문자)){
-//                 return '불가능'
-//             }
-//             임시변수 = 규칙.indexOf(문자);
-//         }
-//     }
-//     return '가능';
-// }
+function solution(전체블록, 규칙){
+    let answer = [];
+    for(let 부분블록 of 전체블록){
+        answer.push(블록순서체크(부분블록, 규칙)) //콜백함수를 넣어줌
+    }
+    return answer;
+}
+function 블록순서체크(부분블록, 규칙){
+    let 임시변수 = 규칙.indexOf(규칙[0]);
+    for(let 문자 of 부분블록){
+        if(규칙.includes(문자)){
+            if(임시변수 > 규칙.indexOf(문자)){
+                return '불가능'
+            }
+            임시변수 = 규칙.indexOf(문자);
+        }
+    }
+    return '가능';
+}
 
-// console.log(solution(전체블록, 규칙))
+console.log(solution(전체블록, 규칙))
 
 // △ (알파벳순으로 출력함/ 풀이 이해못함 -> 다시풀기)
 
@@ -1894,27 +1894,27 @@
 // S2[n+4] = 'I'
 // S2[n+5] = 'S'
 
-function sol(str) {
-  let result = [];
-  for (let i = 1; i < str.length + 1; i++) {
-    for (let j = 0; j < i; j++) {
-      result.push(str.slice(j, j + str.length + 1 - i));
-    }
-  }
-  return result;
-}
+// function sol(str) {
+//   let result = [];
+//   for (let i = 1; i < str.length + 1; i++) {
+//     for (let j = 0; j < i; j++) {
+//       result.push(str.slice(j, j + str.length + 1 - i));
+//     }
+//   }
+//   return result;
+// }
 
-console.log(sol("ABCDEF"));
-let inputOne = "ABCDF";
-let inputTwo = "BCE";
-let ArrayOne = sol(inputOne);
-let ArrayTwo = sol(inputTwo);
+// console.log(sol("ABCDEF"));
+// let inputOne = "ABCDF";
+// let inputTwo = "BCE";
+// let ArrayOne = sol(inputOne);
+// let ArrayTwo = sol(inputTwo);
 
-let inter = ArrayOne.filter((x) => ArrayOne.includes(x));
-console.log(inter);
+// let inter = ArrayOne.filter((x) => ArrayOne.includes(x));
+// console.log(inter);
 
-inter.sort((a, b) => {
-  return b.length - a.length;
-});
+// inter.sort((a, b) => {
+//   return b.length - a.length;
+// });
 
-console.log(inter[0].length);
+// console.log(inter[0].length);
