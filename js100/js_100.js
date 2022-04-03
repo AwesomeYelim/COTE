@@ -1355,30 +1355,30 @@
 // console.log(arr)
 
 // 선생님답
-const 전체블록 = ['ABCDEF', 'BCAD', 'ADEFQRX', 'BEDFG', 'EFGHZ']
-let 규칙 = 'ABD';
+// const 전체블록 = ['ABCDEF', 'BCAD', 'ADEFQRX', 'BEDFG', 'EFGHZ']
+// let 규칙 = 'ABD';
 
-function solution(전체블록, 규칙){
-    let answer = [];
-    for(let 부분블록 of 전체블록){
-        answer.push(블록순서체크(부분블록, 규칙)) //콜백함수를 넣어줌
-    }
-    return answer;
-}
-function 블록순서체크(부분블록, 규칙){
-    let 임시변수 = 규칙.indexOf(규칙[0]);
-    for(let 문자 of 부분블록){
-        if(규칙.includes(문자)){
-            if(임시변수 > 규칙.indexOf(문자)){
-                return '불가능'
-            }
-            임시변수 = 규칙.indexOf(문자);
-        }
-    }
-    return '가능';
-}
+// function solution(전체블록, 규칙){
+//     let answer = [];
+//     for(let 부분블록 of 전체블록){
+//         answer.push(블록순서체크(부분블록, 규칙)) //콜백함수를 넣어줌
+//     }
+//     return answer;
+// }
+// function 블록순서체크(부분블록, 규칙){
+//     let 임시변수 = 규칙.indexOf(규칙[0]);
+//     for(let 문자 of 부분블록){
+//         if(규칙.includes(문자)){
+//             if(임시변수 > 규칙.indexOf(문자)){
+//                 return '불가능'
+//             }
+//             임시변수 = 규칙.indexOf(문자);
+//         }
+//     }
+//     return '가능';
+// }
 
-console.log(solution(전체블록, 규칙))
+// console.log(solution(전체블록, 규칙))
 
 // △ (알파벳순으로 출력함/ 풀이 이해못함 -> 다시풀기)
 
@@ -1513,36 +1513,36 @@ console.log(solution(전체블록, 규칙))
 // console.log(소수합산);
 
 // 선생님답
-// let prime = [];
-// let isPrime = true;
-// let val = 100;
-// let 골드바흐파티션 = [];
+let prime = [];
+let isPrime = true;
+let val = 100;
+let 골드바흐파티션 = [];
 
-// for (let i = 2; i < val; i++) {
-//     for(let j = 2; j < i; j++){
-//         if(i % j == 0){
-//             isPrime = false; //정수일때
-//         }
-//     }
-//     if(isPrime){ //소수일때
-//         prime.push(i);
-//     }
-//     isPrime = true;
-// }
+for (let i = 2; i < val; i++) {
+    for(let j = 2; j < i; j++){
+        if(i % j == 0){
+            isPrime = false; //정수일때
+        }
+    }
+    if(isPrime){ //소수일때
+        prime.push(i);
+    }
+    isPrime = true;
+}
 
-// for(let n of prime){
-//     if(prime.includes(val - n) && n <= val - n){
-//         골드바흐파티션.push([n, val - n]);
-//     }
-// }
+for(let n of prime){
+    if(prime.includes(val - n) && n <= val - n){
+        골드바흐파티션.push([n, val - n]);
+    }
+}
 
-// let 차 = 골드바흐파티션.map(e => e[1]-e[0]);
-// let 작은값 = 골드바흐파티션[차.indexOf(Math.min.apply(null, 차))]
-// let 큰값 = 골드바흐파티션[차.indexOf(Math.max.apply(null, 차))]
+let 차 = 골드바흐파티션.map(e => e[1]-e[0]);
+let 작은값 = 골드바흐파티션[차.indexOf(Math.min.apply(null, 차))]
+let 큰값 = 골드바흐파티션[차.indexOf(Math.max.apply(null, 차))]
 
-// console.log(골드바흐파티션) //모두출력
-// console.log(차)
-// console.log(작은값, 큰값)
+console.log(골드바흐파티션) //모두출력
+console.log(차)
+console.log(작은값, 큰값)
 
 // △ (문제 잘못읽음...-> 다시풀기)
 
