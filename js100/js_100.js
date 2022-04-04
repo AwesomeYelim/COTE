@@ -994,7 +994,7 @@
 //   // 가장 큰 원반은 목표기둥으로
 //   route.push([시작기둥, 목표기둥])
 //   // 경유기둥과 시작기둥을 바꿉니다.
-//   hanoi(원반의수-1, 보조기둥, 목표기둥, 시작기둥) 
+//   hanoi(원반의수-1, 보조기둥, 목표기둥, 시작기둥)
 // }
 
 // hanoi(3, 'A', 'B', 'C');
@@ -1918,3 +1918,54 @@
 // });
 
 // console.log(inter[0].length);
+
+// 문제78. 원형테이블
+
+// 내가푼답
+let num = prompt().split(' ')
+let num = ["6", "3"];
+let arr = [];
+
+for (let i = 1; i <= num[0]; i++) {
+  arr.push(i);
+}
+
+function cic(arr) {
+  if (arr.length > 2) {
+    let i = 0;
+    arr.splice(i, 1);
+    arr.splice(i + 2, 1);
+
+    cic(arr);
+  }
+  return arr;
+}
+
+console.log(cic(arr));
+
+// 선생님답
+// const user_input = "6 3".split(" ");
+// const n = parseInt(user_input[0], 10);
+// const k = parseInt(user_input[1], 10);
+// console.log(n, k);
+
+// function sol(n, k) {
+//   let index = 0;
+//   let q = [];
+//   for (let i = 0; i < n; i++) {
+//     q.push(i + 1);
+//   }
+//   console.log(q)
+//   while (q.length > 2) {
+//     if (index > q.length - 1) {
+//       index -= q.length;
+//     }
+//     q.splice(index, 1);
+//     index += k;
+//     index -= 1;
+//   }
+//   return q;
+// }
+
+// console.log(sol(n, k));
+// O
