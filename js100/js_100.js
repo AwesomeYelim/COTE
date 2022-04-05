@@ -1970,7 +1970,6 @@
 // console.log(sol(n, k));
 // O
 
-
 // 문제 79. 순회하는 리스트
 
 // 내기푼답
@@ -2011,33 +2010,80 @@
 // value: ${arr[indexnum]}, ${arr1[indexnum]}`)
 
 // 선생님답
-const 일 = [10, 20, 25, 27, 34, 35, 39];
-const turn = 3;
+// const 일 = [10, 20, 25, 27, 34, 35, 39];
+// const turn = 3;
 
-function rotate(a, t){
-    let b = a.slice()
-    let c = [];
+// function rotate(a, t){
+//     let b = a.slice() // 배열복사 이런식
+//     let c = [];
 
-    for(let i=0; i<t; i++){
-        b.unshift(b.pop());
+//     for(let i=0; i<t; i++){
+//         b.unshift(b.pop());
+//     }
+//     for(let i in b){
+//         c.push(Math.abs(a[i]-b[i]))// Math.abs는 정수를 반환함
+//     }
+
+//     console.log(a);
+//     console.log(b);
+//     console.log(c);
+
+//     const m = Math.min.apply(null, c);
+//     let index = c.indexOf(m);
+
+//     console.log(index);
+//     console.log(a[index], b[index]);
+// }
+
+// rotate(일, turn)
+
+// O (다시한번)
+
+// 문제 80. 순열과 조합
+// 내가푼답
+// let arr = ["ㄱ", "ㄴ", "ㄷ", "ㄹ"];
+// let len = 3;
+
+// function rotate(arr, len) {
+//   const results = [];
+//   if (len === 1) {
+//     return arr.map((x) => [x]);
+//   }
+
+//   arr.forEach((f, ind, ori) => {
+//     const rest = ori.slice(ind + 1); // 해당하는 fixed를 제외한 나머지 뒤
+//     const combi = rotate(rest, len - 1); // (재귀함수)나머지에 대해서 조합을 구한다.
+//     const att = combi.map(c => [f, ...c]); //  돌아온 조합에 떼 놓은(fixed) 값 붙이기
+//     results.push(...att); // 배열 spread syntax 로 모두다 push
+//   });
+
+//   return results;
+// }
+
+// console.log(rotate(arr, len));
+
+// 선생님답
+
+function combination(charsArray, n) {
+  let combi = [];
+
+  const f = (pre, charsArray) => {
+    for (let i = 0; i < charsArray.length; i++) {
+        combi.push(pre + charsArray[i]);
+        // console.log(pre + charsArray[i]);
+      f(pre + charsArray[i], charsArray.slice(i + 1));
     }
-    for(let i in b){
-        c.push(Math.abs(a[i]-b[i]))
-    }
+  };
+  
+  f("", charsArray);
+//   console.log(charsArray);
+//   console.log(combi);
 
-    console.log(a);
-    console.log(b);
-    console.log(c);
-
-    const m = Math.min.apply(null, c);
-    let index = c.indexOf(m);
-
-    console.log(index);
-    console.log(a[index], b[index]);
+  const result = combi.filter(x => x.length === n) // 3개이상만 추출
+  return result;
 }
 
-rotate(일, turn)
+const arr = "A,B,C,D".split(",");
+const user_input_n = 3;
 
-
-
-// O
+console.log(combination(arr, user_input_n));
