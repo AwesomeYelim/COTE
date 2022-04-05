@@ -1922,26 +1922,26 @@
 // 문제78. 원형테이블
 
 // 내가푼답
-let num = prompt().split(' ')
-let num = ["6", "3"];
-let arr = [];
+// let num = prompt().split(' ')
+// let num = ["6", "3"];
+// let arr = [];
 
-for (let i = 1; i <= num[0]; i++) {
-  arr.push(i);
-}
+// for (let i = 1; i <= num[0]; i++) {
+//   arr.push(i);
+// }
 
-function cic(arr) {
-  if (arr.length > 2) {
-    let i = 0;
-    arr.splice(i, 1);
-    arr.splice(i + 2, 1);
+// function cic(arr) {
+//   if (arr.length > 2) {
+//     let i = 0;
+//     arr.splice(i, 1);
+//     arr.splice(i + 2, 1);
 
-    cic(arr);
-  }
-  return arr;
-}
+//     cic(arr);
+//   }
+//   return arr;
+// }
 
-console.log(cic(arr));
+// console.log(cic(arr));
 
 // 선생님답
 // const user_input = "6 3".split(" ");
@@ -1968,4 +1968,76 @@ console.log(cic(arr));
 // }
 
 // console.log(sol(n, k));
+// O
+
+
+// 문제 79. 순회하는 리스트
+
+// 내기푼답
+// const arr = [10, 20, 25, 27, 34, 35, 39];
+// // const n = parseInt(prompt("순회횟수는?"), 10);
+// const n = 2;
+// let arr1 = [];
+// let 차 = [];
+
+// for(let i = 0; i < arr.length; i++) {
+//     arr1.push(arr[i])
+// }
+
+// function rotate(inL, inN) {
+//   for (let i = 0; i < inN; i++) {
+//     let m = inL.pop();
+//     inL.unshift(m);
+//   }
+//   return inL;
+// }
+// // console.log(arr);
+// // console.log(rotate(arr1, n));
+// rotate(arr1, n);
+
+// for (let i in arr) {
+//     if (arr[i] > arr1[i]) {
+//       차.push(arr[i] - arr1[i]);
+//     }
+//     if (arr[i] < arr1[i]) {
+//       차.push(arr1[i] - arr[i]);
+//     }
+//   }
+// let indexnum = 차.indexOf(Math.min.apply(null, 차))
+// // console.log(차)
+
+// console.log(
+// `index: ${indexnum}
+// value: ${arr[indexnum]}, ${arr1[indexnum]}`)
+
+// 선생님답
+const 일 = [10, 20, 25, 27, 34, 35, 39];
+const turn = 3;
+
+function rotate(a, t){
+    let b = a.slice()
+    let c = [];
+
+    for(let i=0; i<t; i++){
+        b.unshift(b.pop());
+    }
+    for(let i in b){
+        c.push(Math.abs(a[i]-b[i]))
+    }
+
+    console.log(a);
+    console.log(b);
+    console.log(c);
+
+    const m = Math.min.apply(null, c);
+    let index = c.indexOf(m);
+
+    console.log(index);
+    console.log(a[index], b[index]);
+}
+
+rotate(일, turn)
+
+
+
 // O
