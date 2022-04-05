@@ -2064,26 +2064,96 @@
 
 // 선생님답
 
-function combination(charsArray, n) {
-  let combi = [];
+// function combination(charsArray, n) {
+//   let combi = [];
 
-  const f = (pre, charsArray) => {
-    for (let i = 0; i < charsArray.length; i++) {
-        combi.push(pre + charsArray[i]);
-        // console.log(pre + charsArray[i]);
-      f(pre + charsArray[i], charsArray.slice(i + 1));
-    }
-  };
-  
-  f("", charsArray);
-//   console.log(charsArray);
-//   console.log(combi);
+//   const f = (pre, charsArray) => {
+//     for (let i = 0; i < charsArray.length; i++) {
+//         combi.push(pre + charsArray[i]);
+//         // console.log(pre + charsArray[i]);
+//       f(pre + charsArray[i], charsArray.slice(i + 1));
+//     }
+//   };
 
-  const result = combi.filter(x => x.length === n) // 3개이상만 추출
-  return result;
+//   f("", charsArray);
+// //   console.log(charsArray);
+// //   console.log(combi);
+
+//   const result = combi.filter(x => x.length === n) // 3개이상만 추출
+//   return result;
+// }
+
+// const arr = "A,B,C,D".split(",");
+// const user_input_n = 3;
+
+// console.log(combination(arr, user_input_n));
+
+// △ (구글링)
+
+// 문제81. 지뢰찾기
+
+// 내가풀(다만)것
+
+// [i][n]번째 인덱스 + [i-1][n],[i][n-1],[i][n+1],[i+1][n]
+// let flag = prompt('깃발을 입력하시오').split("\n");
+// let flag = "0 1 0 0 0\n0 0 0 0 0\n0 0 0 1 0\n0 0 1 0 0\n0 0 0 0 0".split("\n");
+// let mine = [];
+// let f = flag.map((x) => x.replace("1", "f").split(" "));
+// console.log(f);
+
+// let count = 0;
+// let search = 0;
+
+// for (let i of f) {
+//   console.log(i);
+//   for (let n of i) {
+//     // console.log(count, search);
+//     if (n === "f") {
+//       i[search] = "*";
+//     }
+//     search += 1;
+//   }
+//   count += 1;
+//   search = 0;
+// }
+
+
+선생님답
+let value = "0 1 0 0 0\n0 0 0 0 0\n0 0 0 1 0\n0 0 1 0 0\n0 0 0 0 0";
+let sp = value.split("\n");
+let count = 0;
+
+for (let i of sp) {
+  sp[count] = i.replace("1", "f").split(" ");
+  count += 1;
 }
 
-const arr = "A,B,C,D".split(",");
-const user_input_n = 3;
+count = 0;
+let sc = 0;
 
-console.log(combination(arr, user_input_n));
+for (let s of sp) {
+  for (let i of s) {
+    if (i === "f") {
+      sc = s.indexOf(i)
+      // console.log(count, sc)
+      if (sc > 0) {
+        s[sc - 1] = "*";
+      }
+      if (sc < 4) {
+        s[sc + 1] = "*";
+      }
+      if (count > 0) {
+        sp[count - 1][sc] = "*";
+      }
+      if (count < 4) {
+        sp[count + 1][sc] = "*";
+      }
+    }
+    sc += 1;
+  }
+  console.log(s);
+  count += 1;
+  sc = 0;
+}
+
+// △ (1차원 배열로 다시풀기)
