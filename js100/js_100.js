@@ -2207,32 +2207,86 @@
 // }
 
 // 선생님답
-let user_input = "((((){{{}}{{}}})))";
+// let user_input = "((({){}))";
 
-function solution(s) {
-  const m = {
-    ")": "(",
-    "}": "{",
-  };
-  let stack = [];
+// function solution(s) {
+//   const m = {
+//     ")": "(",
+//     "}": "{",
+//   };
+//   let stack = [];
 
-  for (let i in s) {
-    if (s[i] === "(" || s[i] === "{") {
-      stack.push(s[i]);
-    } else if (m[s[i]]) {
-      if (stack.length === 0) {
-        return false;
-      } else {
-        let t = m[s[i]];
-        if (t != stack.pop()) {
-          return false;
-        }
-      }
+//   for (let i in s) {
+//     if (s[i] === "(" || s[i] === "{") {
+//       stack.push(s[i]);
+//     } else if (m[s[i]]) {
+//       if (stack.length === 0) {
+//         return false;
+//       } else {
+//         let t = m[s[i]];
+//         console.log(t)
+//         if (t != stack.pop()) {
+//           return false;
+//         }
+//       }
+//     }
+//   }
+// return stack.length === 0;
+// }
+
+// console.log(solution(user_input));
+
+// O (괄호기준 풀이 -> 문제 53 응용/ 다시풀기)
+
+// 문제 84. 숫자뽑기
+// let num = "1723";
+// let cho = 2;
+// let arr = [];
+
+// for (let i = 0; i <= cho; i++) {
+//   for (let j = 0; j < num.length; j++) {
+//     if (num[i] !== num[j]) {
+//       if (!arr.includes(num[j] + num[i])) {
+//         arr.push(num[i] + num[j]);
+//       }
+//     }
+//   }
+// }
+
+// let max = Math.max.apply(null, arr)
+// console.log(max);
+
+// [0][1]
+// [0][2]
+// [0][3]
+// [1][2]
+// [1][3]
+// [2][3]
+
+function solution(chars, length) {
+  let result = [];
+
+  const f = (pre, chars) => {
+    for (let i = 0; i < chars.length; i++) {
+      result.push(pre + chars[i]);
+
+      f(pre + chars[i], chars.slice(i + 1));
     }
-  }
-return stack.length === 0;
+  };
+
+  f("", chars);
+  console.log(result);
+
+  result = result.filter((x) => x.length === length);
+  
+  result.sort((a, b) => b - a);
+  console.log(result);
+
+  return result[0];
 }
 
-console.log(solution(user_input));
+const num = "1723";
+const len = 2;
+console.log(solution(num, len));
 
-// O (괄호기준 풀이)
+// O (문제 67, 77 참고)
