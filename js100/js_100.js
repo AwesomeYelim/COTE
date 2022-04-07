@@ -2117,43 +2117,122 @@
 //   search = 0;
 // }
 
+// 선생님답
+// let value = "0 1 0 0 0\n0 0 0 0 0\n0 0 0 1 0\n0 0 1 0 0\n0 0 0 0 0";
+// let sp = value.split("\n");
+// let count = 0;
 
-선생님답
-let value = "0 1 0 0 0\n0 0 0 0 0\n0 0 0 1 0\n0 0 1 0 0\n0 0 0 0 0";
-let sp = value.split("\n");
-let count = 0;
+// for (let i of sp) {
+//   sp[count] = i.replace("1", "f").split(" ");
+//   count += 1;
+// }
 
-for (let i of sp) {
-  sp[count] = i.replace("1", "f").split(" ");
-  count += 1;
-}
+// count = 0;
+// let sc = 0;
 
-count = 0;
-let sc = 0;
+// for (let s of sp) {
+//   for (let i of s) {
+//     if (i === "f") {
+//       sc = s.indexOf(i)
+//       // console.log(count, sc)
+//       if (sc > 0) {
+//         s[sc - 1] = "*";
+//       }
+//       if (sc < 4) {
+//         s[sc + 1] = "*";
+//       }
+//       if (count > 0) {
+//         sp[count - 1][sc] = "*";
+//       }
+//       if (count < 4) {
+//         sp[count + 1][sc] = "*";
+//       }
+//     }
+//     sc += 1;
+//   }
+//   console.log(s);
+//   count += 1;
+//   sc = 0;
+// }
 
-for (let s of sp) {
-  for (let i of s) {
-    if (i === "f") {
-      sc = s.indexOf(i)
-      // console.log(count, sc)
-      if (sc > 0) {
-        s[sc - 1] = "*";
-      }
-      if (sc < 4) {
-        s[sc + 1] = "*";
-      }
-      if (count > 0) {
-        sp[count - 1][sc] = "*";
-      }
-      if (count < 4) {
-        sp[count + 1][sc] = "*";
+// △ (풀이도 이상함 -> 1차원배열로 다시풀기)
+
+// 문제 82, 83 수학 괄호 파싱
+
+// function math(e) {
+//   let count = 0;
+
+//   for (let i of e) {
+//     if (i === "(") {
+//       count++;
+//       //   arr.push("(");
+//     }
+//     if (i === ")") {
+//       count--;
+//       // arr.push(")");
+//     }
+//   }
+//   if (count !== 0) {
+//     return false;
+//   }
+
+//   let arr = [];
+
+//   for (let i in e) {
+//     if (e[i] === "(") {
+//         if(e[i+1] == ')'){
+//             return false;
+//         }
+//       arr.push("(");
+//     }
+//     if (i === ")") {
+//       if (arr.length === 0) {
+//         return false;
+//     }
+//     arr.push(")");
+//     }
+//   }
+//   return true;
+// }
+
+// while(1){
+//     let order = prompt('데이터 입력(1), 프로그램 종료(2)');
+//     if(order === '1'){
+//         const ex = prompt('데이터를 입력하세요');
+//         // const ex = "5+3*()()3+5)".split("");
+//         console.log(math(ex));
+//     }else {
+//         break;
+//     }
+// }
+
+// 선생님답
+let user_input = "((((){{{}}{{}}})))";
+
+function solution(s) {
+  const m = {
+    ")": "(",
+    "}": "{",
+  };
+  let stack = [];
+
+  for (let i in s) {
+    if (s[i] === "(" || s[i] === "{") {
+      stack.push(s[i]);
+    } else if (m[s[i]]) {
+      if (stack.length === 0) {
+        return false;
+      } else {
+        let t = m[s[i]];
+        if (t != stack.pop()) {
+          return false;
+        }
       }
     }
-    sc += 1;
   }
-  console.log(s);
-  count += 1;
-  sc = 0;
+return stack.length === 0;
 }
 
-// △ (1차원 배열로 다시풀기)
+console.log(solution(user_input));
+
+// O (괄호기준 풀이)
