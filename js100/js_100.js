@@ -2263,30 +2263,34 @@
 // [1][3]
 // [2][3]
 
-function solution(chars, length) {
-  let result = [];
+// 선생님답
+// function solution(chars, length) {
+//   let result = [];
 
-  const f = (pre, chars) => {
-    for (let i = 0; i < chars.length; i++) {
-      result.push(pre + chars[i]);
+//   const f = (pre, chars) => {
+//     for (let i = 0; i < chars.length; i++) {
+//       result.push(pre + chars[i]);
 
-      f(pre + chars[i], chars.slice(i + 1));
-    }
-  };
+//       f(pre + chars[i], chars.slice(i + 1));
+//     }
+//   };
 
-  f("", chars);
-  console.log(result);
+//   f("", chars);
+//   console.log(result);
 
-  result = result.filter((x) => x.length === length);
+//   result = result.filter((x) => x.length === length);
   
-  result.sort((a, b) => b - a);
-  console.log(result);
+//   result.sort((a, b) => b - a);
+//   console.log(result);
 
-  return result[0];
-}
+//   return result[0];
+// }
 
-const num = "1723";
-const len = 2;
-console.log(solution(num, len));
+// const num = "1723";
+// const len = 2;
+// console.log(solution(num, len));
 
 // O (문제 67, 77 참고)
+
+
+// 문제85. 숫자놀이
