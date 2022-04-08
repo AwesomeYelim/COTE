@@ -2279,7 +2279,7 @@
 //   console.log(result);
 
 //   result = result.filter((x) => x.length === length);
-  
+
 //   result.sort((a, b) => b - a);
 //   console.log(result);
 
@@ -2292,5 +2292,17 @@
 
 // O (문제 67, 77 참고)
 
-
 // 문제85. 숫자놀이
+
+// let num = 6;
+// let arr1 = [1, 1];
+// let arr2 = [1, 2];
+
+// 다음을 응용하자 !
+//  1 ~ 10000, 8갯수 세기
+let result = "";
+for (let i = 1; i <= 100; i++) {
+  result += i;
+}
+
+console.log(result.match(/8/g).length);  // 정규표현식 사용하여 
