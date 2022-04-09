@@ -1,58 +1,28 @@
-function mathBrackets(arr) {
-  let count = 0;
+let graph = {
+  E: ["D", "A"],
+  F: ["D"],
+  A: ["E", "C", "B"],
+  B: ["A"],
+  C: ["A"],
+  D: ["E", "F"],
+};
 
-  for (let i = 0; i < arr.length; i++) {
-    if (arr[i] === "(" || arr[i] === "[" || arr[i] === "{") {
-      count++;
-    }
-    if (arr[i] === ")" || arr[i] === "]" || arr[i] === "}") {
-      count--;
+function dfs(graph, start) {
+  let visited = [];
+  let queue = [start];
+
+  while (queue.length != 0) {
+    let n = queue.shift(); // queue 의 맨 앞의 요소만 추출함(깊이 탐색과 유일하게 다른 부분)
+    //   console.log(n)
+    if (!visited.includes(n)) {
+      visited.push(n);
+      let sub = graph[n].filter((x) => !visited.includes(x));
+      for (let i of sub) {
+        queue.push(i);
+      }
     }
   }
-
-  if (count !== 0) {
-    return false;
-  }
-
-  let bracket = [];
-
-  for (let i in arr) {
-    if (arr[i] === "(") {
-      bracket.push("(");
-    }
-    if (arr[i] === ")") {
-      if (bracket.length === 0) {
-        //')' 부터 시작할수 없기 때문에 return false를 반환
-        return false;
-      }
-      bracket.pop();
-    }
-    if (arr[i] === "[") {
-      bracket.push("[");
-    }
-    if (arr[i] === "]") {
-      if (bracket.length === 0) {
-        return false;
-      }
-      bracket.pop();
-    }
-    if (arr[i] === "{") {
-      bracket.push("{");
-    }
-    if (arr[i] === "}") {
-      if (bracket.length === 0) {
-        return false;
-      }
-      bracket.pop();
-    }
-    return true;
-  }
+  return visited;
 }
-// const num = prompt().split("")
-const num = "(())}{}".split("");
 
-if (mathBrackets(num) == true) {
-  console.log("YES");
-} else {
-  console.log("NO");
-}
+console.log(dfs(graph, "E"));
