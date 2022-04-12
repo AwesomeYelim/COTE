@@ -2294,15 +2294,46 @@
 
 // 문제85. 숫자놀이
 
-// let num = 6;
-// let arr1 = [1, 1];
-// let arr2 = [1, 2];
-
 // 다음을 응용하자 !
 //  1 ~ 10000, 8갯수 세기
-let result = "";
-for (let i = 1; i <= 100; i++) {
-  result += i;
+// let result = "";
+// for (let i = 1; i <= 100; i++) {
+//   result += i;
+// }
+// // console.log(result);
+// let re = new RegExp(8, 'g')
+// console.log(result.match(re).length) // 정규표현식 사용하여
+
+function solution(n) {
+  let answer = "1";
+  if (n === 1) {
+    return 1;
+  }
+  for (let i = 1; i < n; i++) {
+    answer = rule(answer);
+  }
+
+  return answer;
 }
 
-console.log(result.match(/8/g).length);  // 정규표현식 사용하여 
+function rule(answer) {
+  let answerMax = 9;
+  let result = "";
+
+  for (let i = 1; i < answerMax; i++) {
+    let re = new RegExp(i, "g");
+    let count = (answer.match(re) || []).length;
+
+    if (count >= 1) {
+      result = result + String(i) + String(count);
+    }
+  }
+  return result;
+}
+
+let num = 7;
+console.log(solution(num));
+
+// X (다시풀기)
+
+
