@@ -2304,36 +2304,112 @@
 // let re = new RegExp(8, 'g')
 // console.log(result.match(re).length) // 정규표현식 사용하여
 
-function solution(n) {
-  let answer = "1";
-  if (n === 1) {
-    return 1;
-  }
-  for (let i = 1; i < n; i++) {
-    answer = rule(answer);
-  }
+// function solution(n) {
+//   let answer = "1";
+//   if (n === 1) {
+//     return 1;
+//   }
+//   for (let i = 1; i < n; i++) {
+//     answer = rule(answer);
+//   }
 
-  return answer;
-}
+//   return answer;
+// }
 
-function rule(answer) {
-  let answerMax = 9;
-  let result = "";
+// function rule(answer) {
+//   let answerMax = 9;
+//   let result = "";
 
-  for (let i = 1; i < answerMax; i++) {
-    let re = new RegExp(i, "g");
-    let count = (answer.match(re) || []).length;
+//   for (let i = 1; i < answerMax; i++) {
+//     let re = new RegExp(i, "g");
+//     let count = (answer.match(re) || []).length;
 
-    if (count >= 1) {
-      result = result + String(i) + String(count);
-    }
-  }
-  return result;
-}
+//     if (count >= 1) {
+//       result = result + String(i) + String(count);
+//     }
+//   }
+//   return result;
+// }
 
-let num = 7;
-console.log(solution(num));
+// let num = 7;
+// console.log(solution(num));
 
 // X (다시풀기)
 
+// 문제 86. 회전초밥
 
+// 내가 시도한 풀이
+// let point = [1, 1, 3, 2, 5];
+// 1, 1, 3, 2, 5
+// let dish = 3;//index
+// const point = [5, 2, 3, 1, 2, 5];
+// // 5, 2, 3, 1, 2, 5, 5, 2, 3, 5
+// let dish = 1; //index
+
+// // let filtered = arr.filter((x) => x !== 정렬[0);
+
+// let arr = [];
+// function rotate1(dish, point) {
+//   for (let i of point) {
+//     rotate2(i, point);
+//   }
+//   arr.push(...point);
+//   return arr;
+// }
+
+// function rotate2(i, point) {
+//   let test = point.slice();
+//   let 정렬 = test.sort((a, b) => a - b); // [ 1, 2, 2, 3, 5, 5 ]
+
+//   let ind = dish - 1;
+//   if (point[ind] === 1) {
+//     arr.push(point[ind]);
+//   }
+//   if (i === point[ind]) {
+//   }
+//   if (i !== point[ind]) {
+//     if (point[i] === 정렬[0]) {
+//       정렬.shift();
+//       point.splice(i, 1);
+//     }
+//   }
+// }
+// console.log(rotate1(dish, point));
+
+// 선생님답
+const point = [5, 2, 3, 1, 2, 5];
+// 5, 2, 3, 1, 2, 5, 5, 2, 3, 5
+let dish = 1; //index
+
+function sol(point, dish) {
+  let answer = 0;
+  dish -= 1;
+
+  let s = point.slice();
+  //   console.log(s);
+  s.sort((a, b) => a - b);
+  //   console.log(s)
+  while (true) {
+    let p = point.shift();
+    if(s[0] === p){
+        if(dish === 0){
+            break;
+        }
+        dish -= 1;
+        s.shift();
+    } else {
+        point.push(p)
+        if(dish === 0){
+            dish = point.length - 1;
+        }else {
+            dish -= 1;
+        }
+    }
+    answer += 1
+  }
+  return answer;
+}
+
+console.log(sol(point, dish));
+
+// △ (ㅜㅜ 다시풀기)
