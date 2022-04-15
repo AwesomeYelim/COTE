@@ -2465,6 +2465,128 @@
 // O
 
 // 문제 88. 지식이의 게임 개발
+
+// 내가푼답
+// let wi = 4;
+// let he = 5;
+// let po = [0, 0];
+// let hu = [
+//   [0, 1],
+//   [1, 1],
+//   [2, 3],
+//   [1, 3],
+// ];
+// let barr = [];
+
+// function make_map(wi, he, po, hu) {
+//   let ar = [];
+//   // 4 * 4 배열 -> 0으로 만들기
+//   for (let i = 0; i < wi; i++) {
+//     ar.push(0);
+//   }
+//   barr.push(ar);
+//   if (barr.length < he) {
+//     make_map(wi, he, po, hu);
+//   }
+//   // 0에다 po랑 hu대입하기
+//   barr[po[0]][po[1]] = 1;
+
+//   for (let i of hu) {
+//     barr[i[0]][i[1]] = 2;
+//   }
+
+//   return barr;
+// }
+// make_map(wi, he, po, hu); // 함수 불러와서 barr 우선 만들어 놓음
+
+// // 양옆 벽 2 쌓기
+// for (let i in barr) {
+//   barr[i].unshift(2);
+//   barr[i].push(2);
+// }
+// // 상하 벽 2 쌓기
+// let arr = [];
+// for (let i = 0; i < wi + 2; i++) {
+//   arr.push(2);
+// }
+// barr.push(arr);
+// barr.unshift(arr);
+// console.log(barr);
+
+// 선생님답
+// function make_map(가로, 세로, 캐릭터, 장애물){
+//   let world_map = [];
+//   for(let i = 0; i < 세로 + 3; i++){
+//     world_map.push(Array(가로 + 1).fill(0));
+//   }
+
+//   for(let i in world_map){
+//     for(let j in world_map[0]){
+//       if(i == 0 || j == 0 || j == world_map[0].length - 1 || i == world_map.length - 1){
+//         world_map[i][j] = 2;
+//       }
+//     }
+//   }
+//   world_map[캐릭터[0] + 1][캐릭터[1] + 1] = 1
+
+//   for(let i of 장애물){
+//     if(world_map[i[0] + 1][i[1] + 1] == 1){
+//       world_map[i[0] + 1][i[1] + 1] = 1;
+//     }else{
+//       world_map[i[0] + 1][i[1] + 1] = 2;
+//     }
+//   }
+//   console.log(world_map);
+// }
+// make_map(5, 4, [0, 0], [[0,1], [1,1], [2,3], [1,3]])
+
+// O (드럽게 품)
+
+// 문제 89. 지식이의 게임 개발2 (문제 88번 풀어야 가능)
+
+// 내가푼답
+function make_map(가로, 세로, 캐릭터, 장애물, 움직임) {
+  let world_map = [];
+  for (let i = 0; i < 세로 + 2; i++) {
+    world_map.push(Array(가로 + 2).fill(0));
+  }
+
+  for (let i in world_map) {
+    for (let j in world_map[0]) {
+      if (
+        i == 0 ||
+        j == 0 ||
+        j == world_map[0].length - 1 ||
+        i == world_map.length - 1
+      ) {
+        world_map[i][j] = 2;
+      }
+    }
+  }
+
+///////// 움직임 때문에 변형시킨 부분 ///////////////
+  let 상 = 움직임.filter(x => x == 1).length
+  let 하 = 움직임.filter(x => x == 2).length
+  let 좌 = 움직임.filter(x => x == 3).length
+  let 우 = 움직임.filter(x => x == 4).length
+
+  let 상하 = 캐릭터[0] + 1 - 상 + 하
+  let 좌우 = 캐릭터[1] + 1 - 좌 + 우
+
+  world_map[상하][좌우] = 1;
+  ////////////////////////////////////////////
+
+  for (let i of 장애물) {
+    if (world_map[i[0] + 1][i[1] + 1] == 1) {
+      world_map[i[0] + 1][i[1] + 1] = 1;
+    } else {
+      world_map[i[0] + 1][i[1] + 1] = 2;
+    }
+  }
+  console.log(world_map,[상하, 좌우]);
+
+}
+
 let wi = 4;
 let he = 5;
 let po = [0, 0];
@@ -2474,41 +2596,79 @@ let hu = [
   [2, 3],
   [1, 3],
 ];
-let barr = [];
 
-function make_map(wi, he, po, hu) {
-  let ar = [];
-  // 4 * 4 배열 -> 0으로 만들기
-  for (let i = 0; i < wi; i++) {
-    ar.push(0);
-  }
-  barr.push(ar);
-  if (barr.length < he) {
-    make_map(wi, he, po, hu);
-  }
-  // 0에다 po랑 hu대입하기
-  barr[po[0]][po[1]] = 1;
+let key = {
+  상: 1, // 지도[i-1][j]
+  하: 2, // 지도[i+1][j]
+  좌: 3, // 지도[i][j-1]
+  우: 4, // 지도[i][j+1]
+};
+let mo = [2, 2, 2, 4, 4, 4];
 
-  for (let i of hu) {
-    barr[i[0]][i[1]] = 2;
-  }
+make_map(wi, he, po, hu, mo);
 
-  return barr;
-}
-make_map(wi, he, po, hu);
+// 선생님답
+// function make_map(가로, 세로, 캐릭터, 장애물, 움직임) {
+//   let world_map = [];
+//   for (let i = 0; i < 세로 + 3; i++) {
+//     world_map.push(Array(가로 + 1).fill(0));
+//   }
 
-// 양옆 벽 2 쌓기
-for (let i in barr) {
-  barr[i].unshift(2);
-  barr[i].push(2);
-}
-// 위아래 벽 2 쌓기
-let arr = [];
-for (let i = 0; i < wi + 2; i++) {
-  arr.push(2);
-}
-barr.push(arr);
-barr.unshift(arr);
-console.log(barr);
+//   for (let i in world_map) {
+//     for (let j in world_map[0]) {
+//       if (
+//         i == 0 ||
+//         j == 0 ||
+//         j == world_map[0].length - 1 ||
+//         i == world_map.length - 1
+//       ) {
+//         world_map[i][j] = 2;
+//       }
+//     }
+//   }
 
-// O 
+//   let 캐릭터의위치 = [캐릭터[0] + 1, 캐릭터[1] + 1];
+//   let x = 캐릭터의위치[1];
+//   let y = 캐릭터의위치[0];
+
+//   for (let i of 움직임) {
+//     if (i == 1 && world_map[y - 1][x] != 2) {
+//       y -= 1;
+//     } else if (i == 2 && world_map[y + 1][x] != 2) {
+//       y += 1;
+//     } else if (i == 3 && world_map[y][x - 1] != 2) {
+//       x -= 1;
+//     } else if (i == 4 && world_map[y][x + 1] != 2) {
+//       x += 1;
+//     }
+//   }
+//   world_map[x][y] = 1;
+
+//   for (let i of 장애물) {
+//     if (world_map[i[0] + 1][i[1] + 1] == 1) {
+//       world_map[i[0] + 1][i[1] + 1] = 1;
+//     } else {
+//       world_map[i[0] + 1][i[1] + 1] = 2;
+//     }
+//   }
+
+//   console.log(world_map, [x, y]);
+// }
+// make_map(
+//   5,
+//   4,
+//   [0, 0],
+//   [
+//     [0, 1],
+//     [1, 1],
+//     [2, 3],
+//     [1, 3],
+//   ],
+//   [2, 2, 2, 4, 4, 4]
+// );
+
+// O (장애물 생각못함)
+
+
+
+// 문제 90.
