@@ -2416,33 +2416,99 @@
 
 // 문제. 87 천하제일 먹기 대회
 
-// 입력
-let names = ["손오공", "야모차", "메지터", "비콜로"];
-let dish = [70, 10, 55, 40];
+// 내가푼답
+// let names = ["손오공", "야모차", "메지터", "비콜로"];
+// let dish = [70, 10, 55, 40];
 
-// // 출력
-// let obj = {
-//     '손오공': 1,
-//     '메지터': 2,
-//     '비콜로': 3,
-//     '야모차': 4
+// function sol(names, dish) {
+//   let arr = [];
+//   for (let i in names) {
+//     arr.push([names[i], dish[i]]);
+//   }
+//   arr.sort((a, b) => b[1] - a[1]);
+
+//   for (let i in arr) {
+//     arr[i][1] = Number(i) + 1;
+//   }
+
+//   let obj = {};
+//   arr.forEach((a) => (obj[a[0]] = a[1]));
+//   return obj;
 // }
 
-function sol(names, dish) {
-  let arr = [];
-  for (let i in names) {
-    arr.push([names[i], dish[i]]);
-  }
-  arr.sort((a, b) => b[1] - a[1]);
+// console.log(sol(names, dish));
 
-  for (let i in arr) {
-    arr[i][1] = Number(i) + 1;
+// 선생님답
+// let names = ["손오공", "야모차", "메지터", "비콜로"];
+// let point = [70, 10, 55, 40];
+
+// function sol(names, point) {
+//   let temp = [];
+//   for (let i of names) {
+//     let obj = {};
+//     obj["name"] = i;
+//     obj["value"] = point[names.indexOf(i)];
+//     temp.push(obj);
+//   }
+
+//   temp.sort((a, b) => (a.value < b.value ? 1 : a.value > b.value ? -1 : 0));
+
+//   let result = {};
+//   for (let i of temp) {
+//     result[i["name"]] = temp.indexOf(i) + 1;
+//   }
+//   return result;
+// }
+
+// console.log(sol(names, point));
+
+// O
+
+// 문제 88. 지식이의 게임 개발
+let wi = 4;
+let he = 5;
+let po = [0, 0];
+let hu = [
+  [0, 1],
+  [1, 1],
+  [2, 3],
+  [1, 3],
+];
+let barr = [];
+
+function make_map(wi, he, po, hu) {
+  let ar = [];
+  // 4 * 4 배열 -> 0으로 만들기
+  for (let i = 0; i < wi; i++) {
+    ar.push(0);
+  }
+  barr.push(ar);
+  if (barr.length < he) {
+    make_map(wi, he, po, hu);
+  }
+  // 0에다 po랑 hu대입하기
+  barr[po[0]][po[1]] = 1;
+
+  for (let i of hu) {
+    barr[i[0]][i[1]] = 2;
   }
 
-  let obj = {};
-  arr.forEach((a) => (obj[a[0]] = a[1]));
-  return obj;
+  return barr;
 }
+make_map(wi, he, po, hu);
 
-console.log(sol(names, dish));
+// 양옆 벽 2 쌓기
+for (let i in barr) {
+  barr[i].unshift(2);
+  barr[i].push(2);
+}
+// 위아래 벽 2 쌓기
+let arr = [];
+for (let i = 0; i < wi + 2; i++) {
+  arr.push(2);
+}
+barr.push(arr);
+barr.unshift(arr);
+console.log(barr);
 
+// O 
