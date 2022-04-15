@@ -2428,33 +2428,21 @@ let dish = [70, 10, 55, 40];
 //     '야모차': 4
 // }
 
+function sol(names, dish) {
+  let arr = [];
+  for (let i in names) {
+    arr.push([names[i], dish[i]]);
+  }
+  arr.sort((a, b) => b[1] - a[1]);
 
+  for (let i in arr) {
+    arr[i][1] = Number(i) + 1;
+  }
 
-function sol(names) {
-
-    let obj = {};
-
-    for (let i in names) {
-      obj[names[i]] = dish[i];
-    }
-    
-    let val = Object.values(obj).sort((a, b) => b - a);
-
-    for(let i in val){
-        val[i] = Number(i)+1
-    }
-    
-    console.log(val)
-    
-    const sort = Object.fromEntries(
-      Object.entries(obj).sort(([, a], [, b]) => b - a)
-    );
-    
-    
-    
-    
-    return sort;
-
+  let obj = {};
+  arr.forEach((a) => (obj[a[0]] = a[1]));
+  return obj;
 }
 
-console.log(sol(names));
+console.log(sol(names, dish));
+
