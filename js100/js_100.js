@@ -2377,39 +2377,84 @@
 // console.log(rotate1(dish, point));
 
 // 선생님답
-const point = [5, 2, 3, 1, 2, 5];
-// 5, 2, 3, 1, 2, 5, 5, 2, 3, 5
-let dish = 1; //index
+// const point = [5, 2, 3, 1, 2, 5];
+// // 5, 2, 3, 1, 2, 5, 5, 2, 3, 5
+// let dish = 1; //index
 
-function sol(point, dish) {
-  let answer = 0;
-  dish -= 1;
+// function sol(point, dish) {
+//   let answer = 0;
+//   dish -= 1;
 
-  let s = point.slice();
-  //   console.log(s);
-  s.sort((a, b) => a - b);
-  //   console.log(s)
-  while (true) {
-    let p = point.shift();
-    if(s[0] === p){
-        if(dish === 0){
-            break;
-        }
-        dish -= 1;
-        s.shift();
-    } else {
-        point.push(p)
-        if(dish === 0){
-            dish = point.length - 1;
-        }else {
-            dish -= 1;
-        }
-    }
-    answer += 1
-  }
-  return answer;
-}
+//   let s = point.slice();
+//   //   console.log(s);
+//   s.sort((a, b) => a - b);
+//   //   console.log(s)
+//   while (true) {
+//     let p = point.shift();
+//     if(s[0] === p){
+//         if(dish === 0){
+//             break;
+//         }
+//         dish -= 1;
+//         s.shift();
+//     } else {
+//         point.push(p)
+//         if(dish === 0){
+//             dish = point.length - 1;
+//         }else {
+//             dish -= 1;
+//         }
+//     }
+//     answer += 1
+//   }
+//   return answer;
+// }
 
-console.log(sol(point, dish));
+// console.log(sol(point, dish));
 
 // △ (ㅜㅜ 다시풀기)
+
+// 문제. 87 천하제일 먹기 대회
+
+// 입력
+let names = ["손오공", "야모차", "메지터", "비콜로"];
+let dish = [70, 10, 55, 40];
+
+// // 출력
+// let obj = {
+//     '손오공': 1,
+//     '메지터': 2,
+//     '비콜로': 3,
+//     '야모차': 4
+// }
+
+
+
+function sol(names) {
+
+    let obj = {};
+
+    for (let i in names) {
+      obj[names[i]] = dish[i];
+    }
+    
+    let val = Object.values(obj).sort((a, b) => b - a);
+
+    for(let i in val){
+        val[i] = Number(i)+1
+    }
+    
+    console.log(val)
+    
+    const sort = Object.fromEntries(
+      Object.entries(obj).sort(([, a], [, b]) => b - a)
+    );
+    
+    
+    
+    
+    return sort;
+
+}
+
+console.log(sol(names));
