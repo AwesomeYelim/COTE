@@ -1887,37 +1887,31 @@
 
 // 문제 77. 가장 긴 공통 부분 문자열
 
-// S2[n] = 'T'
-// S2[n+1] = 'H'
-// S2[n+2] = 'I'
-// S2[n+3] = 'S'
-// S2[n+4] = 'I'
-// S2[n+5] = 'S'
-
 // function sol(str) {
-//   let result = [];
-//   for (let i = 1; i < str.length + 1; i++) {
-//     for (let j = 0; j < i; j++) {
-//       result.push(str.slice(j, j + str.length + 1 - i));
+//     let result = [];
+//     for (let i = 1; i < str.length + 1; i++) {
+//       for (let j = 0; j < i; j++) {
+//         result.push(str.slice(j, j + str.length + 1 - i));
+//       }
 //     }
+//     return result;
 //   }
-//   return result;
-// }
 
-// console.log(sol("ABCDEF"));
-// let inputOne = "ABCDF";
-// let inputTwo = "BCE";
-// let ArrayOne = sol(inputOne);
-// let ArrayTwo = sol(inputTwo);
+//   let inputOne = "ABCDF";
+//   let inputTwo = "BCE";
+//   let ArrayOne = sol(inputOne);
+//   let ArrayTwo = sol(inputTwo);
 
-// let inter = ArrayOne.filter((x) => ArrayOne.includes(x));
-// console.log(inter);
+//   let inter = ArrayOne.filter((x) => ArrayTwo.includes(x));
+//   console.log(inter);
 
-// inter.sort((a, b) => {
-//   return b.length - a.length;
-// });
+//   inter.sort((a, b) => {
+//     return b.length - a.length;
+//   });
 
-// console.log(inter[0].length);
+//   console.log(inter[0].length);
+
+// X (문제 90. 다시복습됨)
 
 // 문제78. 원형테이블
 
@@ -2545,67 +2539,67 @@
 // 문제 89. 지식이의 게임 개발2 (문제 88번 풀어야 가능)
 
 // 내가푼답
-function make_map(가로, 세로, 캐릭터, 장애물, 움직임) {
-  let world_map = [];
-  for (let i = 0; i < 세로 + 2; i++) {
-    world_map.push(Array(가로 + 2).fill(0));
-  }
+// function make_map(가로, 세로, 캐릭터, 장애물, 움직임) {
+//   let world_map = [];
+//   for (let i = 0; i < 세로 + 2; i++) {
+//     world_map.push(Array(가로 + 2).fill(0));
+//   }
 
-  for (let i in world_map) {
-    for (let j in world_map[0]) {
-      if (
-        i == 0 ||
-        j == 0 ||
-        j == world_map[0].length - 1 ||
-        i == world_map.length - 1
-      ) {
-        world_map[i][j] = 2;
-      }
-    }
-  }
+//   for (let i in world_map) {
+//     for (let j in world_map[0]) {
+//       if (
+//         i == 0 ||
+//         j == 0 ||
+//         j == world_map[0].length - 1 ||
+//         i == world_map.length - 1
+//       ) {
+//         world_map[i][j] = 2;
+//       }
+//     }
+//   }
 
-///////// 움직임 때문에 변형시킨 부분 ///////////////
-  let 상 = 움직임.filter(x => x == 1).length
-  let 하 = 움직임.filter(x => x == 2).length
-  let 좌 = 움직임.filter(x => x == 3).length
-  let 우 = 움직임.filter(x => x == 4).length
+// ///////// 움직임 때문에 변형시킨 부분 ///////////////
+//   let 상 = 움직임.filter(x => x == 1).length
+//   let 하 = 움직임.filter(x => x == 2).length
+//   let 좌 = 움직임.filter(x => x == 3).length
+//   let 우 = 움직임.filter(x => x == 4).length
 
-  let 상하 = 캐릭터[0] + 1 - 상 + 하
-  let 좌우 = 캐릭터[1] + 1 - 좌 + 우
+//   let 상하 = 캐릭터[0] + 1 - 상 + 하
+//   let 좌우 = 캐릭터[1] + 1 - 좌 + 우
 
-  world_map[상하][좌우] = 1;
-  ////////////////////////////////////////////
+//   world_map[상하][좌우] = 1;
+//   ////////////////////////////////////////////
 
-  for (let i of 장애물) {
-    if (world_map[i[0] + 1][i[1] + 1] == 1) {
-      world_map[i[0] + 1][i[1] + 1] = 1;
-    } else {
-      world_map[i[0] + 1][i[1] + 1] = 2;
-    }
-  }
-  console.log(world_map,[상하, 좌우]);
+//   for (let i of 장애물) {
+//     if (world_map[i[0] + 1][i[1] + 1] == 1) {
+//       world_map[i[0] + 1][i[1] + 1] = 1;
+//     } else {
+//       world_map[i[0] + 1][i[1] + 1] = 2;
+//     }
+//   }
+//   console.log(world_map,[상하, 좌우]);
 
-}
+// }
 
-let wi = 4;
-let he = 5;
-let po = [0, 0];
-let hu = [
-  [0, 1],
-  [1, 1],
-  [2, 3],
-  [1, 3],
-];
+// let wi = 4;
+// let he = 5;
+// let po = [0, 0];
+// let hu = [
+//   [0, 1],
+//   [1, 1],
+//   [2, 3],
+//   [1, 3],
+// ];
 
-let key = {
-  상: 1, // 지도[i-1][j]
-  하: 2, // 지도[i+1][j]
-  좌: 3, // 지도[i][j-1]
-  우: 4, // 지도[i][j+1]
-};
-let mo = [2, 2, 2, 4, 4, 4];
+// let key = {
+//   상: 1, // 지도[i-1][j]
+//   하: 2, // 지도[i+1][j]
+//   좌: 3, // 지도[i][j-1]
+//   우: 4, // 지도[i][j+1]
+// };
+// let mo = [2, 2, 2, 4, 4, 4];
 
-make_map(wi, he, po, hu, mo);
+// make_map(wi, he, po, hu, mo);
 
 // 선생님답
 // function make_map(가로, 세로, 캐릭터, 장애물, 움직임) {
@@ -2669,6 +2663,40 @@ make_map(wi, he, po, hu, mo);
 
 // O (장애물 생각못함)
 
+// 문제 90. 같은 의약 성분을 찾아라! (문제 77번)
+let pan = "ABCDEFGH";
+let sn = 4;
+let data = ["EFGHUKLI", "IEGFHJKM", "IJEFGHKZ", "WQFGGEFG", "EFGHUKLU"];
 
+function sol(pan, sn) {
+  let result = [];
+  for (let i = 0; i < pan.length; i++) {
+    if (pan.slice(i, i + sn).length === sn) {
+      result.push(pan.slice(i, i + sn));
+    }
+  }
+  return result;
+}
+const panf = sol(pan, sn);
 
-// 문제 90.
+function sol2(data) {
+  let four2 = [];
+  for (let i in data) {
+    // console.log(panf[i]);
+    four2.push(sol(data[i], sn));
+    let num = four2[i].filter((x) => panf.includes(x));
+    four2[i] = num[0];
+    if (four2[i] === undefined) {
+      four2[i] = 0;
+    }
+  }
+  for(let i in four2) {
+    if(four2[i] === 'EFGH'){
+        console.log(data[i])
+    }
+  }
+}
+
+sol2(data);
+
+// O (푸는데.. 디질뻔함)
