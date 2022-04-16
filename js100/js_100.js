@@ -2663,40 +2663,96 @@
 
 // O (장애물 생각못함)
 
-// 문제 90. 같은 의약 성분을 찾아라! (문제 77번)
-let pan = "ABCDEFGH";
-let sn = 4;
-let data = ["EFGHUKLI", "IEGFHJKM", "IJEFGHKZ", "WQFGGEFG", "EFGHUKLU"];
+// 문제 90. 같은 의약 성분을 찾아라! (문제 77번 참고)
+// 내가푼답
+// let pan = "ABCDEFGH";
+// let sn = 4;
+// let data = ["EFGHUKLI", "IEGFHJKM", "IJEFGHKZ", "WQFGGEFG", "EFGHUKLU"];
 
-function sol(pan, sn) {
-  let result = [];
-  for (let i = 0; i < pan.length; i++) {
-    if (pan.slice(i, i + sn).length === sn) {
-      result.push(pan.slice(i, i + sn));
-    }
-  }
-  return result;
+// function sol(pan, sn) {
+//   let result = [];
+//   for (let i = 0; i < pan.length; i++) {
+//     if (pan.slice(i, i + sn).length === sn) {
+//       result.push(pan.slice(i, i + sn));
+//     }
+//   }
+//   return result;
+// }
+// const panf = sol(pan, sn);
+
+// function sol2(data) {
+//   let four2 = [];
+//   for (let i in data) {
+//     // console.log(panf[i]);
+//     four2.push(sol(data[i], sn));
+//     let num = four2[i].filter((x) => panf.includes(x));
+//     four2[i] = num[0];
+//     if (four2[i] === undefined) {
+//       four2[i] = 0;
+//     }
+//   }
+//   for(let i in four2) {
+//     if(four2[i] !== 0 ){
+//         console.log(data[i])
+//     }
+//   }
+// }
+
+// sol2(data);
+
+// 선생님답
+let l = [];
+
+for (let i = 65; i < 91; i++) {
+  l.push(String.fromCharCode(i)); //(아스키코드 사용)
 }
-const panf = sol(pan, sn);
 
-function sol2(data) {
-  let four2 = [];
-  for (let i in data) {
-    // console.log(panf[i]);
-    four2.push(sol(data[i], sn));
-    let num = four2[i].filter((x) => panf.includes(x));
-    four2[i] = num[0];
-    if (four2[i] === undefined) {
-      four2[i] = 0;
+// console.log(l);
+
+function randomItem(a) {
+  let string = [];
+
+  while (string.length !== 8) {
+    let b = a[Math.floor(Math.random() * a.length)];
+    if (!string.includes(b)) {
+      string.push(b);
     }
   }
-  for(let i in four2) {
-    if(four2[i] === 'EFGH'){
-        console.log(data[i])
-    }
+  let medicine = string.join("");
+  return medicine;
+}
+
+// console.log(randomItem(l));
+let total_medicine = [];
+
+while (total_medicine.length !== 100) {
+  let m = randomItem(l);
+  if (!total_medicine.includes(m)) {
+    total_medicine.push(m);
+  }
+}
+// console.log(total_medicine);
+
+let user_input = "ABCDEFGH 4".split(" ");
+let result = [];
+
+for (let i of total_medicine) {
+  let setUserData = new Set(user_input[0]);
+  let setMedicine = new Set(i);
+
+  let intersection = new Set(
+    [...setUserData].filter((x) => setMedicine.has(x))
+  );
+  // console.log(intersection)
+  if (intersection.size === parseInt(user_input[1], 10)) {
+      result.push(i)
   }
 }
 
-sol2(data);
+console.log(result)
 
-// O (푸는데.. 디질뻔함)
+// O (푸는데.. 디질뻔함) -> 선생님답 다시한번 확인하기
+
+
+
+
