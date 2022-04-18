@@ -2755,44 +2755,102 @@
 
 // 문제 91. 반평균 등수
 
-let student_score = [];
-let class_score = [];
-let total_score = [];
+// let student_score = [];
+// let class_score = [];
+// let total_score = [];
 
-for (let k = 0; k < 7; k++) {
-  class_score = [];
-  for (let j = 0; j < 30; j++) {
-    student_score = []; // 초기화
-    for (let i = 0; i < 5; i++) {
-      student_score.push(Math.floor(Math.random() * 100) + 1);
+// for (let k = 0; k < 7; k++) {
+//   class_score = [];
+//   for (let j = 0; j < 30; j++) {
+//     student_score = []; // 초기화
+//     for (let i = 0; i < 5; i++) {
+//       student_score.push(Math.floor(Math.random() * 100) + 1);
+//     }
+//     class_score.push(student_score);
+//   }
+//   total_score.push(class_score);
+// }
+
+// // console.log(total_score);
+
+// let total_average = [];
+// let c_average = [];
+// let s_average = 0;
+// let s_sum = 0;
+// let c_sum = 0;
+// let 일등 = 0;
+
+// for (let c of total_score) {
+//   for (let s of c) {
+//     s_sum = s.reduce((a, b) => a + b);
+//     s_average = s_sum / 5;
+//     c_average.push(s_average);
+//     if (일등 < s_average) {
+//       일등 = s_average;
+//     }
+//   }
+//   console.log(`각반의 일등 \n ${일등}`);
+//   일등 = 0;
+//   total_average.push(c_average.reduce((a, b) => a + b) / 30);
+//   c_average = [];
+// }
+// console.log(total_average);
+// console.log(total_average.reduce((a, b) => a + b) / 7);
+
+// △ (순회규칙, 초기화 다시한번 살피기)
+
+// 문제 92. 키보드 고장
+let arr = [0, 1, 2, 5, 7, 8];
+let six = arr.length;
+let four = six - 2;
+let three = four - 1;
+
+// let 월급 = prompt().split(',');
+let 월급정보 = `이대표, '333,356,755', 'S은행', '100-0000-0000-001'
+최차장, '5,000,000', 'S은행', '100-0000-0000-002'
+이과장, '3,200,000', 'S은행', '100-0000-0000-003'
+홍팀장, '3,300,000', 'S은행', '100-0000-0000-004'
+이대리, '5,300,000', 'S은행', '100-0000-0000-005'`;
+
+let 나눠짐 = 월급정보.split("\n");
+let 숫자값 = [];
+
+for (let i of 나눠짐) {
+  // console.log(i.split(','))
+  let j = i.split(",");
+  let k = j.slice(1, j.length - 2);
+  숫자값.push(k.join(""));
+}
+console.log(숫자값);
+let result = [];
+
+for (let 월급 of 숫자값) {
+  let 월급하나 = "";
+  let 월급둘 = "";
+  console.log(월급);
+  for (let 나뉜월급 of 월급) {
+    console.log(나뉜월급);
+    if (나뉜월급 !== "'") {
+      if (나뉜월급 == three) {
+        월급하나 += "1";
+        월급둘 += "2";
+      } else if (나뉜월급 === four) {
+        월급하나 += "2";
+        월급둘 += "2";
+      } else if (나뉜월급 === six) {
+        월급하나 += "1";
+        월급둘 += "5";
+      } else {
+        월급하나 += 나뉜월급;
+        월급둘 += "0";
+      }
     }
-    class_score.push(student_score);
   }
-  total_score.push(class_score);
+  console.log(월급하나);
+  console.log(월급둘);
+  result.push([parseInt(월급하나, 10), parseInt(월급둘, 10)]);
+  월급하나 = "";
+  월급둘 = "";
 }
 
-// console.log(total_score);
-
-let total_average = [];
-let c_average = [];
-let s_average = 0;
-let s_sum = 0;
-let c_sum = 0;
-let 일등 = 0;
-
-for (let c of total_score) {
-  for (let s of c) {
-    s_sum = s.reduce((a, b) => a + b);
-    s_average = s_sum / 5;
-    c_average.push(s_average);
-    if (일등 < s_average) {
-      일등 = s_average;
-    }
-  }
-  console.log(`각반의 일등 \n ${일등}`);
-  일등 = 0;
-  total_average.push(c_average.reduce((a, b) => a + b) / 30);
-  c_average = [];
-}
-console.log(total_average);
-console.log(total_average.reduce((a, b) => a + b) / 7);
+console.log(result);
