@@ -2701,58 +2701,98 @@
 // sol2(data);
 
 // 선생님답
-let l = [];
+// let l = [];
 
-for (let i = 65; i < 91; i++) {
-  l.push(String.fromCharCode(i)); //(아스키코드 사용)
-}
+// for (let i = 65; i < 91; i++) {
+//   l.push(String.fromCharCode(i)); //(아스키코드 사용)
+// }
 
-// console.log(l);
+// // console.log(l);
 
-function randomItem(a) {
-  let string = [];
+// function randomItem(a) {
+//   let string = [];
 
-  while (string.length !== 8) {
-    let b = a[Math.floor(Math.random() * a.length)];
-    if (!string.includes(b)) {
-      string.push(b);
-    }
-  }
-  let medicine = string.join("");
-  return medicine;
-}
+//   while (string.length !== 8) {
+//     let b = a[Math.floor(Math.random() * a.length)];
+//     if (!string.includes(b)) {
+//       string.push(b);
+//     }
+//   }
+//   let medicine = string.join("");
+//   return medicine;
+// }
 
-// console.log(randomItem(l));
-let total_medicine = [];
+// // console.log(randomItem(l));
+// let total_medicine = [];
 
-while (total_medicine.length !== 100) {
-  let m = randomItem(l);
-  if (!total_medicine.includes(m)) {
-    total_medicine.push(m);
-  }
-}
-// console.log(total_medicine);
+// while (total_medicine.length !== 100) {
+//   let m = randomItem(l);
+//   if (!total_medicine.includes(m)) {
+//     total_medicine.push(m);
+//   }
+// }
+// // console.log(total_medicine);
 
-let user_input = "ABCDEFGH 4".split(" ");
-let result = [];
+// let user_input = "ABCDEFGH 4".split(" ");
+// let result = [];
 
-for (let i of total_medicine) {
-  let setUserData = new Set(user_input[0]);
-  let setMedicine = new Set(i);
+// for (let i of total_medicine) {
+//   let setUserData = new Set(user_input[0]);
+//   let setMedicine = new Set(i);
 
-  let intersection = new Set(
-    [...setUserData].filter((x) => setMedicine.has(x))
-  );
-  // console.log(intersection)
-  if (intersection.size === parseInt(user_input[1], 10)) {
-      result.push(i)
-  }
-}
+//   let intersection = new Set(
+//     [...setUserData].filter((x) => setMedicine.has(x))
+//   );
+//   // console.log(intersection)
+//   if (intersection.size === parseInt(user_input[1], 10)) {
+//       result.push(i)
+//   }
+// }
 
-console.log(result)
+// console.log(result)
 
 // O (푸는데.. 디질뻔함) -> 선생님답 다시한번 확인하기
 
+// 문제 91. 반평균 등수
 
+let student_score = [];
+let class_score = [];
+let total_score = [];
 
+for (let k = 0; k < 7; k++) {
+  class_score = [];
+  for (let j = 0; j < 30; j++) {
+    student_score = []; // 초기화
+    for (let i = 0; i < 5; i++) {
+      student_score.push(Math.floor(Math.random() * 100) + 1);
+    }
+    class_score.push(student_score);
+  }
+  total_score.push(class_score);
+}
 
+// console.log(total_score);
+
+let total_average = [];
+let c_average = [];
+let s_average = 0;
+let s_sum = 0;
+let c_sum = 0;
+let 일등 = 0;
+
+for (let c of total_score) {
+  for (let s of c) {
+    s_sum = s.reduce((a, b) => a + b);
+    s_average = s_sum / 5;
+    c_average.push(s_average);
+    if (일등 < s_average) {
+      일등 = s_average;
+    }
+  }
+  console.log(`각반의 일등 \n ${일등}`);
+  일등 = 0;
+  total_average.push(c_average.reduce((a, b) => a + b) / 30);
+  c_average = [];
+}
+console.log(total_average);
+console.log(total_average.reduce((a, b) => a + b) / 7);
