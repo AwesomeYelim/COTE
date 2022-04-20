@@ -2857,38 +2857,70 @@
 
 // 문제 93. 페이지 교체 - 선입선출 알고리즘
 
-let page = "BCBAEBCE".split("");
-let fr = 3;
-let arr = [];
+// 내가푼답
+// let page = "BCBAEBCE".split("");
+// let fr = 3;
+// let arr = [];
 
-let count = 0;
-let n = 0;
+// let count = 0;
+// let n = 0;
 
-function sol(c, n) {
-  for (let i of page) {
-    if (arr.length < fr) {
-      if (!arr.includes(i)) {
-        arr.push(i);
-        c += 1;
-      }
-    }
-    if (arr.length === fr) {
-      if (!arr.includes(i)) {
-        arr.splice(n, 1, i);
-        c += 1;
-        n += 1;
-      }
-        // console.log(n)
-    }
-    if (arr.length > fr){
-        return arr;
-    }
-    console.log(arr);
-    console.log(c * 6 + (page.length - c));
-    
+// function sol(c, n) {
+//   for (let i of page) {
+//     if (arr.length < fr) {
+//       if (!arr.includes(i)) {
+//         arr.push(i);
+//         c += 1;
+//       }
+//     }
+//     if (arr.length === fr) {
+//       if (!arr.includes(i)) {
+//         arr.splice(n, 1, i);
+//         c += 1;
+//         n += 1;
+//       }
+//         // console.log(n)
+//     }
+//     if (arr.length > fr){
+//         return arr;
+//     }
+//     console.log(arr);
+//     console.log(c * 6 + (page.length - c));
+
+//   }
+// }
+
+// sol(count, n);
+
+// 선생님답
+
+function sol(f, page) {
+  let rt = 0;
+  let temp = [];
+
+  if(f === 0){
+      rt = page.length * 6;
+      return rt;
   }
+
+  for(let i of page){
+      if(temp.includes(i)){
+        rt += 1;
+      }else{
+          if(temp.length < f){
+            temp.push(i);
+          }else{
+            temp.shift();
+            temp.push(i)
+          }
+          rt += 6
+      }
+  }
+return rt;
 }
 
-sol(count, n);
+const f = 3;
+const page = "BCBAEBCE".split("");
+console.log(sol(f, page));
 
 // O (중간단계부터 이상함)
