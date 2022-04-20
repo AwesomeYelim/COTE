@@ -2800,57 +2800,95 @@
 // △ (순회규칙, 초기화 다시한번 살피기)
 
 // 문제 92. 키보드 고장
-let arr = [0, 1, 2, 5, 7, 8];
-let six = arr.length;
-let four = six - 2;
-let three = four - 1;
+// let arr = [0, 1, 2, 5, 7, 8];
+// let six = arr.length;
+// let four = six - 2;
+// let three = four - 1;
 
-// let 월급 = prompt().split(',');
-let 월급정보 = `이대표, '333,356,755', 'S은행', '100-0000-0000-001'
-최차장, '5,000,000', 'S은행', '100-0000-0000-002'
-이과장, '3,200,000', 'S은행', '100-0000-0000-003'
-홍팀장, '3,300,000', 'S은행', '100-0000-0000-004'
-이대리, '5,300,000', 'S은행', '100-0000-0000-005'`;
+// // let 월급 = prompt().split(',');
+// let 월급정보 = `이대표, '333,356,755', 'S은행', '100-0000-0000-001'
+// 최차장, '5,000,000', 'S은행', '100-0000-0000-002'
+// 이과장, '3,200,000', 'S은행', '100-0000-0000-003'
+// 홍팀장, '3,300,000', 'S은행', '100-0000-0000-004'
+// 이대리, '5,300,000', 'S은행', '100-0000-0000-005'`;
 
-let 나눠짐 = 월급정보.split("\n");
-let 숫자값 = [];
+// let 나눠짐 = 월급정보.split("\n");
+// let 숫자값 = [];
 
-for (let i of 나눠짐) {
-  // console.log(i.split(','))
-  let j = i.split(",");
-  let k = j.slice(1, j.length - 2);
-  숫자값.push(k.join(""));
-}
-console.log(숫자값);
-let result = [];
+// for (let i of 나눠짐) {
+//   // console.log(i.split(','))
+//   let j = i.split(",");
+//   let k = j.slice(1, j.length - 2);
+//   숫자값.push(k.join(""));
+// }
+// console.log(숫자값);
+// let result = [];
 
-for (let 월급 of 숫자값) {
-  let 월급하나 = "";
-  let 월급둘 = "";
-  console.log(월급);
-  for (let 나뉜월급 of 월급) {
-    console.log(나뉜월급);
-    if (나뉜월급 !== "'") {
-      if (나뉜월급 == three) {
-        월급하나 += "1";
-        월급둘 += "2";
-      } else if (나뉜월급 === four) {
-        월급하나 += "2";
-        월급둘 += "2";
-      } else if (나뉜월급 === six) {
-        월급하나 += "1";
-        월급둘 += "5";
-      } else {
-        월급하나 += 나뉜월급;
-        월급둘 += "0";
+// for (let 월급 of 숫자값) {
+//   let 월급하나 = "";
+//   let 월급둘 = "";
+//   console.log(월급);
+//   for (let 나뉜월급 of 월급) {
+//     console.log(나뉜월급);
+//     if (나뉜월급 !== "'") {
+//       if (나뉜월급 == three) {
+//         월급하나 += "1";
+//         월급둘 += "2";
+//       } else if (나뉜월급 === four) {
+//         월급하나 += "2";
+//         월급둘 += "2";
+//       } else if (나뉜월급 === six) {
+//         월급하나 += "1";
+//         월급둘 += "5";
+//       } else {
+//         월급하나 += 나뉜월급;
+//         월급둘 += "0";
+//       }
+//     }
+//   }
+//   console.log(월급하나);
+//   console.log(월급둘);
+//   result.push([parseInt(월급하나, 10), parseInt(월급둘, 10)]);
+//   월급하나 = "";
+//   월급둘 = "";
+// }
+
+// console.log(result);
+
+// 문제 93. 페이지 교체 - 선입선출 알고리즘
+
+let page = "BCBAEBCE".split("");
+let fr = 3;
+let arr = [];
+
+let count = 0;
+let n = 0;
+
+function sol(c, n) {
+  for (let i of page) {
+    if (arr.length < fr) {
+      if (!arr.includes(i)) {
+        arr.push(i);
+        c += 1;
       }
     }
+    if (arr.length === fr) {
+      if (!arr.includes(i)) {
+        arr.splice(n, 1, i);
+        c += 1;
+        n += 1;
+      }
+        // console.log(n)
+    }
+    if (arr.length > fr){
+        return arr;
+    }
+    console.log(arr);
+    console.log(c * 6 + (page.length - c));
+    
   }
-  console.log(월급하나);
-  console.log(월급둘);
-  result.push([parseInt(월급하나, 10), parseInt(월급둘, 10)]);
-  월급하나 = "";
-  월급둘 = "";
 }
 
-console.log(result);
+sol(count, n);
+
+// O (중간단계부터 이상함)

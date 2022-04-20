@@ -1,44 +1,65 @@
-let graph = {
-  1: [2, 3, 4],
-  2: [1, 3, 4, 5, 6],
-  3: [1, 2, 7],
-  4: [1, 2, 5, 6],
-  5: [2, 4, 6, 7],
-  6: [2, 4, 5, 7],
-  7: [3, 5, 6],
-};
+let 사각형 = 5;
+let 탐색가능지역 = 3;
+let 지뢰밭 = [
+  [1, 0, 0, 1, 0],
+  [0, 1, 0, 0, 1],
+  [0, 0, 0, 1, 0],
+  [0, 0, 0, 0, 0],
+  [0, 0, 1, 0, 0],
+];
+let arr1 = [];
+let arr2 = [];
+let count1 = 0;
+let count2 = 0;
 
-// let 입력 = prompt('입력쓰').split(' ');
-let 입력 = ["1", "7"];
-let start = Number(입력[0]);
-let end = Number(입력[1]);
-
-let queue = [start];
-let visited = [];
-
-function 최장거리(q, visited) {
-  let node = q[q.length - 1];
-  let length = 0;
-
-  if (node == end) {
-    return visited.length;
+for(let i of 지뢰밭){
+  for(let j of i){
+    arr1.push(j)
   }
-  if (visited.includes(node)) {
-    return visited.length;
-  } else {
-    visited.push(node);
+}
+console.log(arr1)
+
+function sol(c1, c2){
+  let n = 0;
+  for(let i = c2; i < 탐색가능지역 + c2; i++){
+    n += 1
+    if(n == 9){
+      return c1;
+    }
+    if(arr1[i] === 1){
+      c1++;
+      sol(c1, c2)
+    }
+    break;
+    
   }
-  let max = [];
+  
 
-  for (let i in graph[node]) {
-    q.push(graph[node][i]);
-    max.push(length, 최장거리(q, visited));
-
-    length = Math.max.apply(null, max);
-
-    queue.pop();
-  }
-  return length;
 }
 
-console.log(최장거리(queue, visited));
+console.log(sol(count1, count2))
+// n n+1 n+2 
+// n+5 n+6 n+7 
+// n+10 n+11 n+12
+
+// 1 2 3
+// 6 7 8
+// 11 12 13
+
+// 3 4 5
+// 7 8 9
+// 12 13 14
+
+
+// 22 23 24
+
+
+// 지뢰밭[2][2]
+// 지뢰밭[2][3]
+// 지뢰밭[2][4]
+// 지뢰밭[3][2]
+// 지뢰밭[3][3]
+// 지뢰밭[3][4]
+// 지뢰밭[4][2]
+// 지뢰밭[4][3]
+// 지뢰밭[4][4]
