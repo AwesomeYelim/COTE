@@ -2894,33 +2894,67 @@
 
 // 선생님답
 
-function sol(f, page) {
-  let rt = 0;
-  let temp = [];
+// function sol(f, page) {
+//   let rt = 0;
+//   let temp = [];
 
-  if(f === 0){
-      rt = page.length * 6;
-      return rt;
-  }
+//   if(f === 0){
+//       rt = page.length * 6;
+//       return rt;
+//   }
 
-  for(let i of page){
-      if(temp.includes(i)){
-        rt += 1;
-      }else{
-          if(temp.length < f){
-            temp.push(i);
-          }else{
-            temp.shift();
-            temp.push(i)
-          }
-          rt += 6
-      }
-  }
-return rt;
-}
+//   for(let i of page){
+//       if(temp.includes(i)){
+//         rt += 1;
+//       }else{
+//           if(temp.length < f){
+//             temp.push(i);
+//           }else{
+//             temp.shift();
+//             temp.push(i)
+//           }
+//           rt += 6
+//       }
+//   }
+// return rt;
+// }
 
-const f = 3;
-const page = "BCBAEBCE".split("");
-console.log(sol(f, page));
+// const f = 3;
+// const page = "BCBAEBCE".split("");
+// console.log(sol(f, page));
 
 // O (중간단계부터 이상함)
+
+// 문제 94. 페이지 교체 - LRU 알고리즘
+
+
+function sol(f, page) {
+    let rt = 0;
+    let temp = [];
+  
+    if(f === 0){
+        rt = page.length * 6;
+        return rt;
+    }
+  
+    for(let i of page){
+        if(temp.includes(i)){
+          rt += 1;
+          temp.splice(temp.indexOf(i), 1);
+          temp.push(i);
+        }else{
+            if(temp.length < f){
+              temp.push(i);
+            }else{
+              temp.shift();
+              temp.push(i)
+            }
+            rt += 6
+        }
+    }
+  return rt;
+  }
+  
+  const f = 3;
+  const page = "BCBAEBCE".split("");
+  console.log(sol(f, page));
