@@ -2989,56 +2989,92 @@
 
 // 선생님답
 
-let stmp = [
-  [1, 1, 1, 2],
-  [2, 0, 0, 0],
-  [1, 1, 1, 1],
-  [0, 0, 0, 0],
+// let stmp = [
+//   [1, 1, 1, 2],
+//   [2, 0, 0, 0],
+//   [1, 1, 1, 1],
+//   [0, 0, 0, 0],
+// ];
+
+// let k = 1;
+
+// function sol(stmp, k) {
+//   let n = stmp.length;
+//   let p = [];
+
+//   for (let i = 0; i < n; i++) {
+//     p.push(Array(n).fill(0));
+//   }
+//   //   console.log(p)
+//   p = sum_matrix(p, stmp);
+
+//   for (let i = 0; i < k; i++) {
+//     stmp = rotate(stmp);
+//     p = sum_matrix(p, stmp);
+//   }
+
+//   return p;
+// }
+
+// function rotate(stmp) {
+//   let n = stmp.length;
+//   let rot = [];
+
+//   for (let i = 0; i < n; i++) {
+//     rot.push(Array(n).fill(0));
+//   }
+
+//   for (let i = 0; i < n; i++) {
+//     for (let j = 0; j < n; j++) {
+//       rot[j][n - 1 - i] = stmp[i][j];
+//     }
+//   }
+//   return rot;
+// }
+
+// function sum_matrix(p, stmp) {
+//   let n = stmp.length;
+//   for (let i = 0; i < n; i++) {
+//     for (let j = 0; j < n; j++) {
+//       p[i][j] += stmp[i][j];
+//     }
+//   }
+//   return p;
+// }
+// console.log(sol(stmp, k));
+
+// 문제 96. 넓은 텃밭 만들기 !
+
+let p = [
+  [0, 0, 0, 0, 0],
+  [0, 1, 0, 0, 0],
+  [0, 1, 0, 0, 0],
+  [0, 0, 1, 0, 0],
+  [0, 0, 0, 1, 0],
 ];
+let count = 3;
 
-let k = 1;
-
-function sol(stmp, k) {
-  let n = stmp.length;
-  let p = [];
-
-  for (let i = 0; i < n; i++) {
-    p.push(Array(n).fill(0));
-  }
-  //   console.log(p)
-  p = sum_matrix(p, stmp);
-
-  for (let i = 0; i < k; i++) {
-    stmp = rotate(stmp);
-    p = sum_matrix(p, stmp);
-  }
-
-  return p;
-}
-
-function rotate(stmp) {
-  let n = stmp.length;
+function sol(p) {
   let rot = [];
 
-  for (let i = 0; i < n; i++) {
-    rot.push(Array(n).fill(0));
-  }
-
-  for (let i = 0; i < n; i++) {
-    for (let j = 0; j < n; j++) {
-      rot[j][n - 1 - i] = stmp[i][j];
+    for (let i = 0; i < count; i++) {
+      rot.push(Array(count).fill("#"));
+    }
+  for (let i = 0; i < p.length; i++) {
+    for (let j = 0; j < p.length; j++) {
+      console.log(p[i][j]);
+      
     }
   }
+
   return rot;
 }
 
-function sum_matrix(p, stmp) {
-  let n = stmp.length;
-  for (let i = 0; i < n; i++) {
-    for (let j = 0; j < n; j++) {
-      p[i][j] += stmp[i][j];
-    }
-  }
-  return p;
-}
-console.log(sol(stmp, k));
+console.log(sol(p));
+
+// 0,0 -> 2,2
+// i,j -> i+2, j+2
+
+// 0,0  0,1  0,2
+// 1,0  1,1  1,2
+// 2,0  2,1  2,2
