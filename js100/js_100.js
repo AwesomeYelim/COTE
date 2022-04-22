@@ -2927,34 +2927,118 @@
 
 // 문제 94. 페이지 교체 - LRU 알고리즘
 
+// function sol(f, page) {
+//     let rt = 0;
+//     let temp = [];
 
-function sol(f, page) {
-    let rt = 0;
-    let temp = [];
-  
-    if(f === 0){
-        rt = page.length * 6;
-        return rt;
-    }
-  
-    for(let i of page){
-        if(temp.includes(i)){
-          rt += 1;
-          temp.splice(temp.indexOf(i), 1);
-          temp.push(i);
-        }else{
-            if(temp.length < f){
-              temp.push(i);
-            }else{
-              temp.shift();
-              temp.push(i)
-            }
-            rt += 6
-        }
-    }
-  return rt;
+//     if(f === 0){
+//         rt = page.length * 6;
+//         return rt;
+//     }
+
+//     for(let i of page){
+//         if(temp.includes(i)){
+//           rt += 1;
+//           temp.splice(temp.indexOf(i), 1);
+//           temp.push(i);
+//         }else{
+//             if(temp.length < f){
+//               temp.push(i);
+//             }else{
+//               temp.shift();
+//               temp.push(i)
+//             }
+//             rt += 6
+//         }
+//         console.log(temp)
+//     }
+//   return rt;
+//   }
+
+//   const f = 3;
+//   const page = "BCBAEBCE".split("");
+//   console.log(sol(f, page));
+
+// 문제 95. 도장찍기
+
+// 내가시도한답
+// let 입력 = [
+//   [1, 1, 1, 2],
+//   [2, 0, 0, 0],
+//   [1, 1, 1, 1],
+//   [0, 0, 0, 0],
+// ];
+// let n = 4;
+// let ind = n - 1;
+// let turn = 1;
+
+// function sol(s, n, t) {
+//   for (let i = 0; i < n; i++) {
+//     for (let j = 0; j < n; j++) {
+//       //   console.log(s[i][j]);
+//       if (t === 1) {
+//             s[i][j] = s[j][(n - 1) - i];
+//             console.log(s)
+//       }
+//     }
+// }
+// return s;
+// }
+
+// console.log(sol(입력, n, turn));
+
+// 선생님답
+
+let stmp = [
+  [1, 1, 1, 2],
+  [2, 0, 0, 0],
+  [1, 1, 1, 1],
+  [0, 0, 0, 0],
+];
+
+let k = 1;
+
+function sol(stmp, k) {
+  let n = stmp.length;
+  let p = [];
+
+  for (let i = 0; i < n; i++) {
+    p.push(Array(n).fill(0));
   }
-  
-  const f = 3;
-  const page = "BCBAEBCE".split("");
-  console.log(sol(f, page));
+  //   console.log(p)
+  p = sum_matrix(p, stmp);
+
+  for (let i = 0; i < k; i++) {
+    stmp = rotate(stmp);
+    p = sum_matrix(p, stmp);
+  }
+
+  return p;
+}
+
+function rotate(stmp) {
+  let n = stmp.length;
+  let rot = [];
+
+  for (let i = 0; i < n; i++) {
+    rot.push(Array(n).fill(0));
+  }
+
+  for (let i = 0; i < n; i++) {
+    for (let j = 0; j < n; j++) {
+      rot[j][n - 1 - i] = stmp[i][j];
+    }
+  }
+  return rot;
+}
+
+function sum_matrix(p, stmp) {
+  let n = stmp.length;
+  for (let i = 0; i < n; i++) {
+    for (let j = 0; j < n; j++) {
+      p[i][j] += stmp[i][j];
+    }
+  }
+  return p;
+}
+console.log(sol(stmp, k));
