@@ -3185,28 +3185,54 @@
 // 다시 꼭풀기...
 
 // 문제 97. 택배 배달
-function sol(n, l) {
-  let answer = 0;
-  let man = new Array(n).fill(0);
-  console.log(man);
+// function sol(n, l) {
+//   let answer = 0;
+//   let man = new Array(n).fill(0);
+//   console.log(man);
 
-  while (l.length !== 0) {
-    for (let j = 0; j < man.length; j++) {
-      if (man[j] == 0 && 1) {
-        man[j] += l.shift();
-        console.log(man)
-      }
+//   while (l.length !== 0) {
+//     for (let j = 0; j < man.length; j++) {
+//       if (man[j] == 0 && 1) {
+//         man[j] += l.shift();
+//         console.log(man)
+//       }
+//     }
+
+//     man = man.map((x) => (x = x - 1));
+//     console.log(man)
+
+//     answer += 1;
+//   }
+//   return answer + Math.max.apply(null, man);
+// }
+
+// const 배달원 = 3;
+// const 배달시간 = [1, 2, 1, 3, 3, 3];
+
+// console.log(sol(배달원, 배달시간));
+// 이해못함 -> 다시한번 풀기
+
+// 문제 98. 청길이의 패션 대회
+
+let 입력1 = [4, 2, 3];
+let 입력2 = [3];
+let 입력3 = [2, 3, 4, 1];
+let 입력4 = [2, 3];
+
+
+function sol(a1, a2, a3, a4) {
+  let arr = [];
+  a1 = a1.concat(a2, a3, a4);
+
+  arr.push(a1[0]);
+  for(let i of a1) {
+    if(!arr.includes(i)){
+      arr.push(i)
     }
-
-    man = man.map((x) => (x = x - 1));
-    console.log(man)
-
-    answer += 1;
   }
-  return answer + Math.max.apply(null, man);
+  return arr;
 }
 
-const 배달원 = 3;
-const 배달시간 = [1, 2, 1, 3, 3, 3];
+console.log(sol(입력1, 입력2, 입력3, 입력4));
 
-console.log(sol(배달원, 배달시간));
+// O 
