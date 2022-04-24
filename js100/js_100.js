@@ -3099,88 +3099,114 @@
 
 // console.log(fn(n))
 
-let 텃밭 = `0 0 0 0 0
-0 1 0 0 0
-0 1 0 0 0
-0 0 1 0 0
-0 0 0 1 0`
-  .replace(/1/g, "!")
-  .replace(/0/g, "1")
-  .replace(/!/g, "0")
-  .split("\n");
+// let 텃밭 = `0 0 0 0 0
+// 0 1 0 0 0
+// 0 1 0 0 0
+// 0 0 1 0 0
+// 0 0 0 1 0`
+//   .replace(/1/g, "!")
+//   .replace(/0/g, "1")
+//   .replace(/!/g, "0")
+//   .split("\n");
 
-// console.log(텃밭);
+// // console.log(텃밭);
 
-let 역전텃밭 = [];
-for (let row of 텃밭) {
-  역전텃밭.push(row.split(" "));
-}
+// let 역전텃밭 = [];
+// for (let row of 텃밭) {
+//   역전텃밭.push(row.split(" "));
+// }
 
-function sol(역전텃밭) {
-  const 높이 = 역전텃밭.length;
-  const 넓이 = 역전텃밭[0].length;
-  let max = 0;
-  let posx = 0;
-  let posy = 0;
+// function sol(역전텃밭) {
+//   const 높이 = 역전텃밭.length;
+//   const 넓이 = 역전텃밭[0].length;
+//   let max = 0;
+//   let posx = 0;
+//   let posy = 0;
 
-  for (let i = 0; i < 높이; i++) {
-    for (let j = 0; j < 넓이; j++) {
-      역전텃밭[i][j] = parseInt(역전텃밭[i][j], 10);
-    }
-  }
-  for (let i = 1; i < 높이; i++) {
-    for (let j = 1; j < 넓이; j++) {
-      if (역전텃밭[i][j] == 1) {
-        let min;
-        //좌측원소의 값이 가장 작을 경우
-        if (역전텃밭[i - 1][j] >= 역전텃밭[i][j - 1]) {
-          min = 역전텃밭[i][j - 1];
+//   for (let i = 0; i < 높이; i++) {
+//     for (let j = 0; j < 넓이; j++) {
+//       역전텃밭[i][j] = parseInt(역전텃밭[i][j], 10);
+//     }
+//   }
+//   for (let i = 1; i < 높이; i++) {
+//     for (let j = 1; j < 넓이; j++) {
+//       if (역전텃밭[i][j] == 1) {
+//         let min;
+//         //좌측원소의 값이 가장 작을 경우
+//         if (역전텃밭[i - 1][j] >= 역전텃밭[i][j - 1]) {
+//           min = 역전텃밭[i][j - 1];
 
-          // 윗측원소의 값이 가장 작을 경우
-        } else if (역전텃밭[i - 1][j] <= 역전텃밭[i][j - 1]) {
-          min = 역전텃밭[i - 1][j];
-        }
+//           // 윗측원소의 값이 가장 작을 경우
+//         } else if (역전텃밭[i - 1][j] <= 역전텃밭[i][j - 1]) {
+//           min = 역전텃밭[i - 1][j];
+//         }
 
-        // 대각선 원소의 값이 가장 작은 경우
-        if (min >= 역전텃밭[i - 1][j - 1]) {
-          min = 역전텃밭[i - 1][j - 1];
-        }
-        // 현재 기준점이 그릴수 없는 가장 큰 정사각형의 한변의 길이
-        역전텃밭[i][j] = min + 1;
+//         // 대각선 원소의 값이 가장 작은 경우
+//         if (min >= 역전텃밭[i - 1][j - 1]) {
+//           min = 역전텃밭[i - 1][j - 1];
+//         }
+//         // 현재 기준점이 그릴수 없는 가장 큰 정사각형의 한변의 길이
+//         역전텃밭[i][j] = min + 1;
 
-        // 텃밭 배열에서 가장 큰 숫자 찾기
-        if (max < 역전텃밭[i][j]) {
-          max = 역전텃밭[i][j];
-          posx = j;
-          posy = i;
-        }
+//         // 텃밭 배열에서 가장 큰 숫자 찾기
+//         if (max < 역전텃밭[i][j]) {
+//           max = 역전텃밭[i][j];
+//           posx = j;
+//           posy = i;
+//         }
+//       }
+//     }
+//   }
+//   // 밭을 # 으로 표기
+//   for (let i = posy - (max - 1); i < posy + 1; i++) {
+//     for (let j = posx - (max - 1); j < posx + 1; j++) {
+//       역전텃밭[i][j] = "#";
+//     }
+//   }
+//   // 숫자를 다시 0과 1로 표기
+//   for (let i = 0; i < 높이; i++) {
+//     for (let j = 0; j < 넓이; j++) {
+//       if (역전텃밭[i][j] >= 1) {
+//         역전텃밭[i][j] = 0;
+//       } else if (역전텃밭[i][j] == 0) {
+//         역전텃밭[i][j] = 1;
+//       }
+//     }
+//   }
+//   // 밭 출력
+//   for (let i of 역전텃밭) {
+//     console.log(i);
+//   }
+//   // 크기 출력
+//   console.log(`${max} x ${max}`);
+// }
+
+// sol(역전텃밭);
+// 다시 꼭풀기...
+
+// 문제 97. 택배 배달
+function sol(n, l) {
+  let answer = 0;
+  let man = new Array(n).fill(0);
+  console.log(man);
+
+  while (l.length !== 0) {
+    for (let j = 0; j < man.length; j++) {
+      if (man[j] == 0 && 1) {
+        man[j] += l.shift();
+        console.log(man)
       }
     }
+
+    man = man.map((x) => (x = x - 1));
+    console.log(man)
+
+    answer += 1;
   }
-  // 밭을 # 으로 표기
-  for (let i = posy - (max - 1); i < posy + 1; i++) {
-    for (let j = posx - (max - 1); j < posx + 1; j++) {
-      역전텃밭[i][j] = "#";
-    }
-  }
-  // 숫자를 다시 0과 1로 표기
-  for (let i = 0; i < 높이; i++) {
-    for (let j = 0; j < 넓이; j++) {
-      if (역전텃밭[i][j] >= 1) {
-        역전텃밭[i][j] = 0;
-      } else if (역전텃밭[i][j] == 0) {
-        역전텃밭[i][j] = 1;
-      }
-    }
-  }
-  // 밭 출력
-  for (let i of 역전텃밭) {
-    console.log(i);
-  }
-  // 크기 출력
-  console.log(`${max} x ${max}`);
+  return answer + Math.max.apply(null, man);
 }
 
-sol(역전텃밭);
+const 배달원 = 3;
+const 배달시간 = [1, 2, 1, 3, 3, 3];
 
-// console.log(역전텃밭);
+console.log(sol(배달원, 배달시간));
