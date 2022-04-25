@@ -3214,25 +3214,57 @@
 
 // 문제 98. 청길이의 패션 대회
 
-let 입력1 = [4, 2, 3];
-let 입력2 = [3];
-let 입력3 = [2, 3, 4, 1];
-let 입력4 = [2, 3];
+// 내가쓴답
+// const 입력 = "1번: 3,1 2번: 4 3번: 2,1,3 4번: 2,1,3,4".split("번: ");
+
+// function sol(입력) {
+//   let arr = [];
+//   let 입력임 = 입력.map((x) => x.split(" ")).map((x) => (x = x[0]));
+//   입력임.shift();
+//   console.log(입력임);
+
+//   for (let i of 입력임) {
+//     for (let j of i) {
+//       if (!arr.includes(j) && j !== ",") {
+//         arr.push(j);
+//       }
+//     }
+//   }
+//   arr = arr.map(x => parseInt(x, 10))
+//   return arr;
+// }
+
+// console.log(sol(입력));
 
 
-function sol(a1, a2, a3, a4) {
-  let arr = [];
-  a1 = a1.concat(a2, a3, a4);
+// 선생님답
 
-  arr.push(a1[0]);
-  for(let i of a1) {
-    if(!arr.includes(i)){
-      arr.push(i)
+function sol(i){
+  let answer = []
+
+  let idx = i.split(/[0-9]번: /g);
+
+  idx.shift();
+  console.log(idx);
+
+  for(let i = 0; i< idx.length; i++) {
+    idx[i] = idx[i].replace(/ /g, '').split(',');
+  }
+
+  console.log(idx);
+
+  for(let i of idx){
+    for(let j of i){
+      if(!answer.includes(j)){
+        answer.push(j);
+      }
     }
   }
-  return arr;
+
+  answer = answer.map(x => parseInt(x, 10))
+  return answer;
 }
 
-console.log(sol(입력1, 입력2, 입력3, 입력4));
-
-// O 
+const input = "1번: 4,2,3 2번: 3 3번: 2,3,4,1 4번: 2,3"
+console.log(sol(input))
+// O
