@@ -3236,35 +3236,67 @@
 
 // console.log(sol(입력));
 
-
 // 선생님답
 
-function sol(i){
-  let answer = []
+// function sol(i){
+//   let answer = []
 
-  let idx = i.split(/[0-9]번: /g);
+//   let idx = i.split(/[0-9]번: /g);
 
-  idx.shift();
-  console.log(idx);
+//   idx.shift();
+//   console.log(idx);
 
-  for(let i = 0; i< idx.length; i++) {
-    idx[i] = idx[i].replace(/ /g, '').split(',');
+//   for(let i = 0; i< idx.length; i++) {
+//     idx[i] = idx[i].replace(/ /g, '').split(',');
+//   }
+
+//   console.log(idx);
+
+//   for(let i of idx){
+//     for(let j of i){
+//       if(!answer.includes(j)){
+//         answer.push(j);
+//       }
+//     }
+//   }
+
+//   answer = answer.map(x => parseInt(x, 10))
+//   return answer;
+// }
+
+// const input = "1번: 4,2,3 2번: 3 3번: 2,3,4,1 4번: 2,3"
+// console.log(sol(input))
+// O
+
+// 문제 99. 토끼들의 행진
+
+let stone = [1, 2, 1, 4, 5, 2];
+let rabbit = [2, 1, 3, 1];
+
+// r : 1 -> 0,1,2,3
+// r : 2 -> 1,3,5
+// r : 3 -> 2,5,8
+// 2n-1
+function sol(s, r) {
+  let arr = [];
+  for (let i in r) {
+    arr.push("pass");
   }
+  for (let i in r) {
+    let count = 0;
 
-  console.log(idx);
+    while (count < s.length - 1) {
+      count += r[i];
+      s[count - 1] -= 1;
 
-  for(let i of idx){
-    for(let j of i){
-      if(!answer.includes(j)){
-        answer.push(j);
+      if (s[count - 1] < 0) {
+        arr[i] = "fail";
       }
     }
+    let count_m = JSON.parse(JSON.stringify(s)); 
+    console.log(count_m)
   }
-
-  answer = answer.map(x => parseInt(x, 10))
-  return answer;
+  return arr;
 }
 
-const input = "1번: 4,2,3 2번: 3 3번: 2,3,4,1 4번: 2,3"
-console.log(sol(input))
-// O
+console.log(sol(stone, rabbit));
