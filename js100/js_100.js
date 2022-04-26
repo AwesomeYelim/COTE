@@ -3305,37 +3305,75 @@
 // 주황공 : 5점
 
 // 내가쓴답
-let puzzle = [
-  [0, 0, 0, 0],
-  [0, 1, 0, 3],
-  [2, 5, 0, 1],
-  [2, 4, 4, 1],
-  [5, 1, 1, 1],
-];
-let piece = [1, 1, 1, 1, 3, 3, 3];
+// let puzzle = [
+//   [0, 0, 0, 0],
+//   [0, 1, 0, 3],
+//   [2, 5, 0, 1],
+//   [2, 4, 4, 1],
+//   [5, 1, 1, 1],
+// ];
+// let piece = [1, 1, 1, 1, 3, 3, 3];
 
-function sol(pu, pi) {
-  let arr = [];
-  let minus = 0;
-  let score = 0;
-  for (let i = 0; i < pi.length; i++) {
-    for (let j = 0; j <= pu[0].length; j++) {
-      if (pu[j][pi[i] - 1] !== 0) {
-        if (!arr.includes(pu[j][pi[i] - 1])) {
-          arr.push(pu[j][pi[i] - 1]);
-          console.log(arr);
-        } else if (arr.includes(pu[j][pi[i] - 1])) {
-          score += 4;
-          arr.pop();
-        }
-        pu[j][pi[i] - 1] = 0;
-        minus += 1;
-      }
-    }
-  }
-  return score - (pi.length - minus);
-}
+// function sol(pu, pi) {
+//   let arr = [];
+//   let minus = 0;
+//   let score = 0;
+//   for (let i = 0; i < pi.length; i++) {
+//     for (let j = 0; j <= pu[0].length; j++) {
+//       if (pu[j][pi[i] - 1] !== 0) {
+//         if (!arr.includes(pu[j][pi[i] - 1])) {
+//           arr.push(pu[j][pi[i] - 1]);
+//           console.log(arr);
+//         } else if (arr.includes(pu[j][pi[i] - 1])) {
+//           score += 4;
+//           arr.pop();
+//         }
+//         pu[j][pi[i] - 1] = 0;
+//         minus += 1;
+//       }
+//     }
+//   }
+//   return score - (pi.length - minus);
+// }
 
-console.log(sol(puzzle, piece));
+// console.log(sol(puzzle, piece));
+
+// 선생님답
+// let 퍼즐판 = [
+//   [0, 0, 0, 0],
+//   [0, 1, 0, 3],
+//   [2, 5, 0, 1],
+//   [2, 4, 4, 1],
+//   [5, 1, 1, 1],
+// ];
+// let 조작 = [1, 1, 1, 1, 3, 3, 3];
+
+// function sol(plate, moves) {
+//   let stack = [0];
+//   let point = 0;
+
+//   while (moves.length !== 0) {
+//     let m = moves.shift();
+//     for (let i = 0; i < plate.length; i++) {
+//       if (plate[i][m - 1] !== 0) {
+//         if (stack[stack.length - 1] == plate[i][m - 1]) {
+//           point += plate[i][m - 1] * 2;
+//           stack.pop();
+//         } else {
+//           stack.push(plate[i][m - 1]);
+//         }
+//         plate[i][m - 1] = 0;
+//         break;
+//       } else if (i == plate.length - 1) {
+//         point -= 1;
+//       }
+//     }
+//   }
+
+//   return point;
+// }
+
+// console.log(sol(퍼즐판, 조작));
+
 
 // O
