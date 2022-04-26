@@ -3270,33 +3270,73 @@
 
 // 문제 99. 토끼들의 행진
 
-let stone = [1, 2, 1, 4, 5, 2];
-let rabbit = [2, 1, 3, 1];
+// let stone = [1, 2, 1, 4, 5, 2];
+// let rabbit = [2, 1, 3, 1];
 
-// r : 1 -> 0,1,2,3
-// r : 2 -> 1,3,5
-// r : 3 -> 2,5,8
-// 2n-1
-function sol(s, r) {
+// function sol(s, r) {
+//   let arr = [];
+//   for (let i in r) {
+//     arr.push("pass");
+//   }
+//   for (let i in r) {
+//     let count = 0;
+
+//     while (count < s.length - 1) {
+//       count += r[i];
+//       s[count - 1] -= 1;
+
+//       if (s[count - 1] < 0) {
+//         arr[i] = "fail";
+//       }
+//     }
+//     let count_m = JSON.parse(JSON.stringify(s));
+//     console.log(count_m)
+//   }
+//   return arr;
+// }
+
+// console.log(sol(stone, rabbit));
+
+// 문제 100. 퍼즐게임
+// 파란공 : 1점
+// 빨간공 : 2점
+// 노란공 : 3점
+// 초록공 : 4점
+// 주황공 : 5점
+
+let puzzle = [
+  [0, 0, 0, 0],
+  [0, 1, 0, 3],
+  [2, 5, 0, 1],
+  [2, 4, 4, 1],
+  [5, 1, 1, 1],
+];
+let piece = [1, 1, 1, 1, 3, 3, 3];
+
+
+function sol(pu, pi) {
   let arr = [];
-  for (let i in r) {
-    arr.push("pass");
-  }
-  for (let i in r) {
-    let count = 0;
-
-    while (count < s.length - 1) {
-      count += r[i];
-      s[count - 1] -= 1;
-
-      if (s[count - 1] < 0) {
-        arr[i] = "fail";
-      }
+  let minus = 0;
+  let score = 0;
+  for (let i = 0; i < pi.length; i++) {
+    for (let j = 0; j <= pu[0].length; j++) {
+      if (pu[j][pi[i] - 1] !== 0) {
+        if (!arr.includes(pu[j][pi[i] - 1])) {
+          arr.push(pu[j][pi[i] - 1]);
+          console.log(arr);
+        } else if (arr.includes(pu[j][pi[i] - 1])) {
+          score += 4;
+          arr.pop();
+        }
+        pu[j][pi[i] - 1] = 0;
+        minus += 1;
+      } 
     }
-    let count_m = JSON.parse(JSON.stringify(s)); 
-    console.log(count_m)
   }
-  return arr;
+  return score-(pi.length-minus);
 }
 
-console.log(sol(stone, rabbit));
+console.log(sol(puzzle, piece));
+
+
+// O
