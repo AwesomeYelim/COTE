@@ -3304,6 +3304,7 @@
 // 초록공 : 4점
 // 주황공 : 5점
 
+// 내가쓴답
 let puzzle = [
   [0, 0, 0, 0],
   [0, 1, 0, 3],
@@ -3312,7 +3313,6 @@ let puzzle = [
   [5, 1, 1, 1],
 ];
 let piece = [1, 1, 1, 1, 3, 3, 3];
-
 
 function sol(pu, pi) {
   let arr = [];
@@ -3330,13 +3330,12 @@ function sol(pu, pi) {
         }
         pu[j][pi[i] - 1] = 0;
         minus += 1;
-      } 
+      }
     }
   }
-  return score-(pi.length-minus);
+  return score - (pi.length - minus);
 }
 
 console.log(sol(puzzle, piece));
-
 
 // O
