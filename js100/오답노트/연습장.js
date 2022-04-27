@@ -1,34 +1,25 @@
+// 내가 시도한 풀이
 
-function solution(n) {
-  let answer = "1";
-  if (n === 1) {
-    return 1;
-  }
-  
-  for (let i = 1; i < n; i++) {
-    console.log(answer)
-    answer = rule(answer);
-  }
+// let point = [1, 1, 3, 2, 5];
+// 1, 1, 3, 2, 5
+// let dish = 3;//index
 
-  return answer;
+const point = [5, 2, 3, 1, 2, 5];
+// 5, 2, 3, 1, 2, 5, 5, 2, 3, 5
+let dish = 1; //index
+
+function rotate1(p, d) {
+  let arr = [];
+  let sort = point.slice();
+  sort = sort.sort((a, b) => a - b);
+
+  rotate2(p, d);
+  return sort;
 }
 
-
-function rule(answer) {
-  let answerMax = 9;
-  let result = "";
-
-  for (let i = 1; i < answerMax; i++) {
-    let re = new RegExp(i, "g");
-    let count = (answer.match(re) || []).length;
-
-    if (count >= 1) {
-      result = result + String(i) + String(count);
-    }
+function rotate2(p, d) {
+  for (let i in p) {
+    
   }
-  return result;
 }
-
-let num = 7;
-console.log(solution(num));
-
+console.log(rotate1(point, dish));
