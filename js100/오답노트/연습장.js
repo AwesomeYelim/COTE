@@ -1,19 +1,25 @@
 function sol(n, l) {
-  for(let i = 0; i < l.length/2; i++){
-    l[i] = l[i] - 1
-    console.log(l[i])
+  let answer = 0;
+  let man = new Array(n).fill(0);
+  console.log(man);
 
+  while (l.length !== 0) {
+    for (let j = 0; j < man.length; j++) {
+      if (man[j] == 0 && 1) {
+        man[j] += l.shift();
+        console.log(man)
+      }
+    }
+
+    man = man.map((x) => (x = x - 1));
+    console.log(man)
+
+    answer += 1;
   }
-  // for(let i = n; i < l.length; i++){
-    
-  //   console.log(l[i])
-
-  // }
-
-  
+  return answer + Math.max.apply(null, man);
 }
 
 const 배달원 = 3;
 const 배달시간 = [1, 2, 1, 3, 3, 3];
-// 0,1,2 / 3,4,5
+
 console.log(sol(배달원, 배달시간));
