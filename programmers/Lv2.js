@@ -55,31 +55,31 @@
 
 // console.log(sol(str));
 
-
-function solution(s) {
-    let min_len = s.length;
+// 다른사람풀이
+// function sol(s) {
+//     let min_len = s.length;
     
-    for (let i = 1; i <= parseInt(s.length / 2); i++) {
-        let prev = s.substr(0, i);
-        let count = 1;
-        let str = '';
+//     for (let i = 1; i <= parseInt(s.length / 2); i++) {
+//         let prev = s.substr(0, i);
+//         let count = 1;
+//         let str = '';
         
-        for (let k = i; k < s.length; k += i) {
-            const cur = s.substr(k, i);
-            
-            if (prev === cur) count++;
-            else {
-                str += (count > 1 ? String(count) : '') + prev;
-                count = 1;
-                prev = cur;
-            }
-        }
-        str += (count > 1 ? String(count) : '') + prev;
+//         for (let k = i; k < s.length; k += i) {
+//             const cur = s.substr(k, i);
+//             // console.log(cur)
+//             if (prev === cur) count++;
+//             else {
+//                 str += (count > 1 ? String(count) : '') + prev;
+//                 count = 1;
+//                 prev = cur;
+//             }
+//         }
+//         str += (count > 1 ? String(count) : '') + prev;
         
-        min_len = Math.min(min_len, str.length)
-    }
+//         min_len = Math.min(min_len, str.length)
+//     }
     
-    return min_len;
-}
+//     return min_len;
+// }
 
 // console.log(sol(str));

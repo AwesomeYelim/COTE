@@ -2286,7 +2286,7 @@
 
 // O (문제 67, 77 참고)
 
-// 문제85. 숫자놀이
+// 문제 85. 숫자놀이
 
 // 다음을 응용하자 !
 //  1 ~ 10000, 8갯수 세기
@@ -2854,6 +2854,7 @@
 // }
 
 // console.log(result);
+// X
 
 // 문제 93. 페이지 교체 - 선입선출 알고리즘
 
@@ -2959,6 +2960,8 @@
 //   const page = "BCBAEBCE".split("");
 //   console.log(sol(f, page));
 
+// X
+
 // 문제 95. 도장찍기
 
 // 내가시도한답
@@ -3042,6 +3045,9 @@
 //   return p;
 // }
 // console.log(sol(stmp, k));
+
+// X
+
 
 // 문제 96. 넓은 텃밭 만들기 !
 
@@ -3183,6 +3189,7 @@
 
 // sol(역전텃밭);
 // 다시 꼭풀기...
+// X
 
 // 문제 97. 택배 배달
 // function sol(n, l) {
@@ -3211,6 +3218,7 @@
 
 // console.log(sol(배달원, 배달시간));
 // 이해못함 -> 다시한번 풀기
+// X
 
 // 문제 98. 청길이의 패션 대회
 
@@ -3297,6 +3305,8 @@
 
 // console.log(sol(stone, rabbit));
 
+// X
+
 // 문제 100. 퍼즐게임
 // 파란공 : 1점
 // 빨간공 : 2점
@@ -3339,41 +3349,41 @@
 // console.log(sol(puzzle, piece));
 
 // 선생님답
-// let 퍼즐판 = [
-//   [0, 0, 0, 0],
-//   [0, 1, 0, 3],
-//   [2, 5, 0, 1],
-//   [2, 4, 4, 1],
-//   [5, 1, 1, 1],
-// ];
-// let 조작 = [1, 1, 1, 1, 3, 3, 3];
+let 퍼즐판 = [
+  [0, 0, 0, 0],
+  [0, 1, 0, 3],
+  [2, 5, 0, 1],
+  [2, 4, 4, 1],
+  [5, 1, 1, 1],
+];
+let 조작 = [1, 1, 1, 1, 3, 3, 3];
 
-// function sol(plate, moves) {
-//   let stack = [0];
-//   let point = 0;
+function sol(plate, moves) {
+  let stack = [0];
+  let point = 0;
 
-//   while (moves.length !== 0) {
-//     let m = moves.shift();
-//     for (let i = 0; i < plate.length; i++) {
-//       if (plate[i][m - 1] !== 0) {
-//         if (stack[stack.length - 1] == plate[i][m - 1]) {
-//           point += plate[i][m - 1] * 2;
-//           stack.pop();
-//         } else {
-//           stack.push(plate[i][m - 1]);
-//         }
-//         plate[i][m - 1] = 0;
-//         break;
-//       } else if (i == plate.length - 1) {
-//         point -= 1;
-//       }
-//     }
-//   }
+  while (moves.length !== 0) {
+    let m = moves.shift();
+    for (let i = 0; i < plate.length; i++) {
+      if (plate[i][m - 1] !== 0) {
+        if (stack[stack.length - 1] == plate[i][m - 1]) {
+          point += plate[i][m - 1] * 2;
+          stack.pop();
+        } else {
+          stack.push(plate[i][m - 1]);
+        }
+        plate[i][m - 1] = 0;
+        break;
+      } else if (i == plate.length - 1) {
+        point -= 1;
+      }
+    }
+  }
 
-//   return point;
-// }
+  return point;
+}
 
-// console.log(sol(퍼즐판, 조작));
+console.log(sol(퍼즐판, 조작));
 
 
 // O
