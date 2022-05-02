@@ -7,7 +7,7 @@
 //     console.log(a+b)
 // }
 
-// 1. 신고결과 받기
+// 문제 1. 신고결과 받기
 // https://programmers.co.kr/learn/courses/30/lessons/92334
 
 // 구글링 참고하여 푼답
@@ -70,7 +70,7 @@
 
 
 
-// 2. 로또의 최고 순위와 최저 순위
+// 문제 2. 로또의 최고 순위와 최저 순위
 
 // 내가푼답
 // function solution(lottos, win_nums) {
@@ -119,7 +119,7 @@
 
 
 
-// 3. 신규 아이디 추천
+// 문제 3. 신규 아이디 추천
 
 
 // 1단계 new_id의 모든 대문자를 대응되는 소문자로 치환합니다.
@@ -152,33 +152,35 @@
 
 // 1. 다른사람풀이 
 
-const solution = (new_id) => {
-    const id = new_id
-        .toLowerCase()
-        .replace(/[^\w\d-_.]/g, '')
-        .replace(/\.{2,}/g, '.')
-        .replace(/^\.|\.$/g, '')
-        .padEnd(1, 'a')
-        .slice(0, 15)
-        .replace(/^\.|\.$/g, '')        
-    return id.padEnd(3, id[id.length-1])
-}
+// const solution = (new_id) => {
+//     const id = new_id
+//         .toLowerCase()
+//         .replace(/[^\w\d-_.]/g, '')
+//         .replace(/\.{2,}/g, '.')
+//         .replace(/^\.|\.$/g, '')
+//         .padEnd(1, 'a')
+//         .slice(0, 15)
+//         .replace(/^\.|\.$/g, '')        
+//     return id.padEnd(3, id[id.length-1])
+// }
 
 
-// 2. 다른사람 풀이 (정규식 없이 품)
+// // 2. 다른사람 풀이 (정규식 없이 품)
 
-function solution(nid) {
-  var ans = "";
-  for (let i = 0; i < nid.length; i++) {
-    let c = nid[i].toLowerCase();
-    if ("0123456789abcdefghijklmnopqrstuvwxyz.-_".indexOf(c) === -1) continue;
-    if (c === "." && ans[ans.length - 1] === "." && nid[i - 1]) continue;
-    ans += c;
-  }
-  if (ans[0] === ".") ans = ans.slice(1);
-  ans = ans.slice(0, 15);
-  if (ans[ans.length - 1] === ".") ans = ans.slice(0, ans.length - 1);
-  if (!ans) ans = "a";
-  while (ans.length < 3) ans += ans[ans.length - 1];
-  return ans;
-}
+// function solution(nid) {
+//   var ans = "";
+//   for (let i = 0; i < nid.length; i++) {
+//     let c = nid[i].toLowerCase();
+//     if ("0123456789abcdefghijklmnopqrstuvwxyz.-_".indexOf(c) === -1) continue;
+//     if (c === "." && ans[ans.length - 1] === "." && nid[i - 1]) continue;
+//     ans += c;
+//   }
+//   if (ans[0] === ".") ans = ans.slice(1);
+//   ans = ans.slice(0, 15);
+//   if (ans[ans.length - 1] === ".") ans = ans.slice(0, ans.length - 1);
+//   if (!ans) ans = "a";
+//   while (ans.length < 3) ans += ans[ans.length - 1];
+//   return ans;
+// }
+
+// 문제 4.
