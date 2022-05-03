@@ -1,25 +1,25 @@
-function sol(n, l) {
-  let answer = 0;
-  let man = new Array(n).fill(0);
-  console.log(man);
+let stone = [1, 2, 1, 4, 5, 2];
+let frog = [2, 1, 3, 1];
 
-  while (l.length !== 0) {
-    for (let j = 0; j < man.length; j++) {
-      if (man[j] == 0 && 1) {
-        man[j] += l.shift();
-        console.log(man)
+function sol(내구도, 점프력) {
+  let answer = [];
+  for (let i in 점프력) {
+    answer.push("pass");
+  }
+  for (let i in 점프력) {
+    let 개구리의현재위치 = 0;
+    while (개구리의현재위치 < 내구도.length - 1) {
+      개구리의현재위치 += 점프력[i];
+      내구도[개구리의현재위치 - 1] -= 1;
+
+      if (내구도[개구리의현재위치 - 1] < 0) {
+        answer[i] = "fail";
       }
     }
-
-    man = man.map((x) => (x = x - 1));
-    console.log(man)
-
-    answer += 1;
+    let 내구도감소 = JSON.parse(JSON.stringify(내구도));
+    console.log(내구도감소)
   }
-  return answer + Math.max.apply(null, man);
+  return answer;
 }
 
-const 배달원 = 3;
-const 배달시간 = [1, 2, 1, 3, 3, 3];
-
-console.log(sol(배달원, 배달시간));
+console.log(sol(stone, frog));
