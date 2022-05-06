@@ -39,3 +39,5 @@ const toMilliSeconds = (time) => {
 };
 
 console.log(solution(tr));
+
+// X (Date 메서드 다시 익히기)
