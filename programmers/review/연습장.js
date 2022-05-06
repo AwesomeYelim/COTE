@@ -10,33 +10,35 @@ let k = 2;
 
 function solution(id_list, report, k) {
   let obj = {};
+  let obj2 = {};
   report = report.map((x) => x.split(" "));
   let reported = new Set(report.map((x) => x[1]));
   reported = [...reported];
-  let count = 0;
-  let answer = [];
   console.log(reported);
+  let count = 0;
+  let before = [];
+  let answer = [];
 
-  for (let el of reported) {
+  for (let i = 0; i < id_list.length; i++) {
     for (let id of id_list) {
       obj[id] = report
         .map((x) => (x[0] == id ? x[1] : 0))
         .filter((x) => x !== 0);
-
-      if (obj[id].includes(el)) {
+      console.log(obj);
+      if (obj[id].includes(id_list[i])) {
         count += 1;
-      } 
+      }
     }
     if (count <= k) {
-      answer.push(count);
+      before.push(count);
       count = 0;
     }
-    // if (count === 0) {
-    //   answer.push(count);
-    // }
+  }
+  for(let i in before) {
+    obj2[id_list[i]] = before[i]
   }
 
-  return answer;
+  return obj2;
 }
 
 console.log(solution(id_list, report, k));
