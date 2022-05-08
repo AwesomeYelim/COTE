@@ -11,53 +11,52 @@
 // https://programmers.co.kr/learn/courses/30/lessons/92334
 
 // 내가푼답
-let id_list = ["muzi", "frodo", "apeach", "neo"];
-let report = [
-  "muzi frodo",
-  "apeach frodo",
-  "frodo neo",
-  "muzi neo",
-  "apeach muzi",
-];
-let k = 2;
+// let id_list = ["muzi", "frodo", "apeach", "neo"];
+// let report = [
+//   "muzi frodo",
+//   "apeach frodo",
+//   "frodo neo",
+//   "muzi neo",
+//   "apeach muzi",
+// ];
+// let k = 2;
 
-function solution(id_list, report, k) {
-  let obj = {};
-  report = report.map((x) => x.split(" "));
-  let reported = new Set(report.map((x) => x[1]));
-  reported = [...reported];
-  let count = 0;
-  let answer = [];
-  console.log(reported);
+// function solution(id_list, report, k) {
+//   let obj = {};
+//   report = report.map((x) => x.split(" "));
+//   let reported = new Set(report.map((x) => x[1]));
+//   reported = [...reported];
+//   let count = 0;
+//   let answer = [];
+//   console.log(reported);
 
-  for (let el of reported) {
-    for (let id of id_list) {
-      obj[id] = report
-        .map((x) => (x[0] == id ? x[1] : 0))
-        .filter((x) => x !== 0);
+//   for (let el of reported) {
+//     for (let id of id_list) {
+//       obj[id] = report
+//         .map((x) => (x[0] == id ? x[1] : 0))
+//         .filter((x) => x !== 0);
 
-      if (obj[id].includes(el)) {
-        count += 1;
-      } 
-    }
-    if (count <= k) {
-      answer.push(count);
-      count = 0;
-    }
-    // if (count === 0) {
-    //   answer.push(count);
-    // }
-  }
+//       if (obj[id].includes(el)) {
+//         count += 1;
+//       } 
+//     }
+//     if (count <= k) {
+//       answer.push(count);
+//       count = 0;
+//     }
+//     // if (count === 0) {
+//     //   answer.push(count);
+//     // }
+//   }
 
-  return answer;
-}
+//   return answer;
+// }
 
-console.log(solution(id_list, report, k));
+// console.log(solution(id_list, report, k));
 
 // 구글링 참고하여 푼답
 // function solution(id_list, report, k) {
-//     const answer = new Array(id_list.length);
-//     answer.fill(0)
+//     const answer = new Array(id_list.length).fill(0);
 //     const report_list = {} // answer 배열을 id_list의 크기만큼 할당하고 fill함수를 사용하여 0으로 초기화한다.
 
 //     id_list.map((user)=>{
