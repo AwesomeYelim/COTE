@@ -226,4 +226,9 @@
 //   return ans;
 // }
 
-// 문제 4.
+// 문제 4. 숫자 문자열과 영단어
+
+function solution(s) {
+  var answer = 0;
+  return answer;
+}
