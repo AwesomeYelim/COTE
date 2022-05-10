@@ -38,7 +38,7 @@
 
 //       if (obj[id].includes(el)) {
 //         count += 1;
-//       } 
+//       }
 //     }
 //     if (count <= k) {
 //       answer.push(count);
@@ -111,8 +111,6 @@
 
 // X (배껴옴)
 
-
-
 // 문제 2. 로또의 최고 순위와 최저 순위
 
 // 내가푼답
@@ -140,7 +138,6 @@
 
 // console.log(solution(lottos, win_nums));
 
-
 // 다른사람푼답
 // function solution(lottos, win_nums) {
 //     const rank = [6, 6, 5, 4, 3, 2, 1];
@@ -157,13 +154,9 @@
 
 // console.log(solution(lottos, win_nums));
 
-
 // O (상태가 안좋아서 그지같이품)
 
-
-
 // 문제 3. 신규 아이디 추천
-
 
 // 1단계 new_id의 모든 대문자를 대응되는 소문자로 치환합니다.
 // 2단계 new_id에서 알파벳 소문자, 숫자, 빼기(-), 밑줄(_), 마침표(.)를 제외한 모든 문자를 제거합니다.
@@ -177,23 +170,20 @@
 // function solution(new_id) {
 
 //     let lv1 = new_id.toLowerCase();
-//     let lv2 = lv1.replace(/[^\w-._]+/g,''); 
+//     let lv2 = lv1.replace(/[^\w-._]+/g,'');
 //     let lv3= lv2.replace(/\.{2,}/g, '.');
 //     let lv4 = lv3.replace(/^\.|\.$/g, '');
 //     let lv5 = lv4.replace(/^$/, 'a');
 //     let lv6 = lv5.slice(0, 15).replace(/\.$/, '');
 //     let lv7 = lv6.length > 2 ? lv6 : lv6 + lv6.charAt(lv6.length - 1).repeat(3 - lv6.length)
 
-    
 //     return lv7;
 // }
-
 
 // let new_id = 'z-+.^.'
 // console.log(solution(new_id))
 
-
-// 1. 다른사람풀이 
+// 1. 다른사람풀이
 
 // const solution = (new_id) => {
 //     const id = new_id
@@ -203,10 +193,9 @@
 //         .replace(/^\.|\.$/g, '')
 //         .padEnd(1, 'a')
 //         .slice(0, 15)
-//         .replace(/^\.|\.$/g, '')        
+//         .replace(/^\.|\.$/g, '')
 //     return id.padEnd(3, id[id.length-1])
 // }
-
 
 // // 2. 다른사람 풀이 (정규식 없이 품)
 
@@ -228,7 +217,31 @@
 
 // 문제 4. 숫자 문자열과 영단어
 
-function solution(s) {
-  var answer = 0;
-  return answer;
+const num = "23four5six7";
+
+
+function solution(answer) {
+  
+  const obj = {
+    0: "zero",
+    1: "one",
+    2: "two",
+    3: "three",
+    4: "four",
+    5: "five",
+    6: "six",
+    7: "seven",
+    8: "eight",
+    9: "nine",
+  };
+  for(let key in obj){
+    if(answer.includes(obj[key]) && answer[0] !== 0 && answer[0] !== 'z'){
+      answer = answer.replace(obj[key], key)
+    }
+  }
+  
+  return Number(answer);
 }
+
+
+console.log(solution(num))
