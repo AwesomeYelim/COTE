@@ -247,29 +247,72 @@
 
 //다른사람 풀이
 
-const str = "23four5six7";
+// const str = "23four5six7";
 
-function solution(s) {
-  let num = [
-    "zero",
-    "one",
-    "two",
-    "three",
-    "four",
-    "five",
-    "six",
-    "seven",
-    "eight",
-    "nine"
-  ];
-  let answer = s;
+// function solution(s) {
+//   let num = [
+//     "zero",
+//     "one",
+//     "two",
+//     "three",
+//     "four",
+//     "five",
+//     "six",
+//     "seven",
+//     "eight",
+//     "nine"
+//   ];
+//   let answer = s;
 
-  for(let i = 0; i < num.length; i++) {
-    let arr = answer.split(num[i]);
-    answer = arr.join(i);
+//   for(let i = 0; i < num.length; i++) {
+//     let arr = answer.split(num[i]);
+//     answer = arr.join(i);
+//   }
+
+//   return Number(answer);
+// }
+
+// console.log(solution(str))
+
+// 문제 5. 키패드 누르기
+const numbers = [1, 3, 4, 5, 8, 2, 1, 4, 5, 9, 5];
+const hand = "right";
+
+function solution(numbers, hand) {
+  var answer = "";
+  let arr = Array(2).fill(0);
+  
+  for (let i of numbers) {
+    let 차1 = Math.abs(arr[0] - i);
+    let 차2 = Math.abs(arr[1] - i);
+
+    if (i === 1 || i === 4 || i === 7) {
+      answer += "L";
+      arr[0] = i;
+    } else if (i === 3 || i === 6 || i === 9) {
+      answer += "R";
+      arr[1] = i;
+    } else if (i === 2 || i === 5 || i === 8 || i === 0) {
+      if (
+        (arr[0] - i === arr[1] - i && 차1 === 3) ||
+        차2 === 3
+      ) {
+        if (hand === "right") {
+          answer += "R";
+        } else if (hand === "left") {
+          answer += "L";
+        }
+      } else if (차1 > 차2) {
+        answer += "R";
+        arr[1] = i;
+      } else if (차1 < 차2) {
+        answer += "L";
+        arr[0] = i;
+      }
+    }
   }
 
-  return Number(answer);
+  return answer;
 }
 
-console.log(solution(str))
+console.log(solution(numbers, hand));
