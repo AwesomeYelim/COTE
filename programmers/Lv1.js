@@ -360,10 +360,29 @@ let board = [
   [4, 2, 4, 4, 2],
   [3, 5, 1, 3, 1],
 ];
-
 let moves = [1, 5, 3, 5, 1, 2, 1, 4];
 
 function solution(board, moves) {
-  var answer = 0;
+  moves = moves.map((x) => x - 1);
+  let answer = 0;
+  let arr = [];
+
+  for (let i in board) {
+    for (let j in board[i]) {
+      console.log(board[j][i]);
+    }
+  }
+
+  
+  console.log(moves);
+  // for (let i of board) {
+  //   for (let j of moves) {
+  //     j = j-1
+  //     console.log(i[j]);
+  //   }
+  // }
+
   return answer;
 }
+
+solution(board, moves);
