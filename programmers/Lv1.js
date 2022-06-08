@@ -389,6 +389,9 @@
 // solution(board, moves);
 
 // 문제 7. 없는 숫자 더하기
+
+// 내풀이
+
 // let numbers = [1, 2, 3, 4, 6, 7, 8, 0];
 
 // function solution(numbers) {
@@ -404,11 +407,44 @@
 //   for (let i of arr) {
 //     result += i;
 //   }
-  
+
 //   return result;
 // }
 
 // console.log(solution(numbers))
 
+// 다른사람풀이
+
+// function solution(numbers) {
+//   return 45 - numbers.reduce((cur, acc) => cur + acc, 0);
+// }
 
 // 0
+
+// 문제 8. 음양 더하기
+
+// 내풀이
+
+let absolutes = [4, 7, 12];
+let signs = [true, false, true];
+
+// function solution(absolutes, signs) {
+//   var answer = 0;
+
+//   for (let i = 0; i < absolutes.length; i++) {
+//     if (signs[i] === true) {
+//       answer += absolutes[i];
+//     } else {
+//       answer -= absolutes[i];
+//     }
+//   }
+//   return answer;
+// }
+
+// 다른사람풀이
+
+function solution(absolutes, signs) {
+  return absolutes.reduce((acc, val, i) => acc + val * (signs[i] ? 1 : -1), 0);
+}
+
+console.log(solution(absolutes, signs));
