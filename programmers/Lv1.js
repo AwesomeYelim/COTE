@@ -425,8 +425,8 @@
 
 // 내풀이
 
-let absolutes = [4, 7, 12];
-let signs = [true, false, true];
+// let absolutes = [4, 7, 12];
+// let signs = [true, false, true];
 
 // function solution(absolutes, signs) {
 //   var answer = 0;
@@ -440,11 +440,26 @@ let signs = [true, false, true];
 //   }
 //   return answer;
 // }
+// console.log(solution(absolutes, signs));
 
 // 다른사람풀이
 
-function solution(absolutes, signs) {
-  return absolutes.reduce((acc, val, i) => acc + val * (signs[i] ? 1 : -1), 0);
-}
+// function solution(absolutes, signs) {
+//   return absolutes.reduce((acc, val, i) => acc + val * (signs[i] ? 1 : -1), 0);
+// }
 
-console.log(solution(absolutes, signs));
+// 0
+
+// 문제 9. 내적
+let a = [1, 2, 3, 4];
+let b = [-3, -1, 0, 2];
+
+// 배열.reduce((누적값, 현잿값, 인덱스, 요소) => { return 결과 }, 초깃값);
+function solution(a, b) {
+  let answer = a.reduce((x, y, i) => {
+    return x += y * b[i];
+  }, 0);
+
+  return answer;
+}
+console.log(solution(a, b));
