@@ -353,36 +353,62 @@
 
 // 문제 6. 크레인 인형뽑기 게임
 
-let board = [
-  [0, 0, 0, 0, 0],
-  [0, 0, 1, 0, 3],
-  [0, 2, 5, 0, 1],
-  [4, 2, 4, 4, 2],
-  [3, 5, 1, 3, 1],
-];
-let moves = [1, 5, 3, 5, 1, 2, 1, 4];
+// let board = [
+//   [0, 0, 0, 0, 0],
+//   [0, 0, 1, 0, 3],
+//   [0, 2, 5, 0, 1],
+//   [4, 2, 4, 4, 2],
+//   [3, 5, 1, 3, 1],
+// ];
+// let moves = [1, 5, 3, 5, 1, 2, 1, 4];
 
-function solution(board, moves) {
-  moves = moves.map((x) => x - 1);
-  let answer = 0;
-  let arr = [];
+// function solution(board, moves) {
+//   var count = 0;
+//   var stack = [];
 
-  for (let i in board) {
-    for (let j in board[i]) {
-      console.log(board[j][i]);
-    }
-  }
+//   for (var i = 0; i < moves.length; i++) {
+//     var now = moves[i] - 1;
+//     for (var j = 0; j < board.length; j++) {
+//       console.log(board[j][now])
+//       if (board[j][now] != 0) {
+//         if (stack[stack.length - 1] === board[j][now]) {
+//           stack.pop();
+//           count += 2;
+//         } else {
+//           stack.push(board[j][now]);
+//         }
+//         board[j][now] = 0;
+//         break;
+//       }
+//     }
+//   }
+//   console.log(stack);
+//   return count;
+// }
 
+// solution(board, moves);
+
+// 문제 7. 없는 숫자 더하기
+// let numbers = [1, 2, 3, 4, 6, 7, 8, 0];
+
+// function solution(numbers) {
+//   let arr = [];
+//   let result = 0;
+
+//   for (let i = 0; i < 10; i++) {
+//     arr.push(i);
+//   }
+
+//   arr = arr.filter((x) => !numbers.includes(x));
+
+//   for (let i of arr) {
+//     result += i;
+//   }
   
-  console.log(moves);
-  // for (let i of board) {
-  //   for (let j of moves) {
-  //     j = j-1
-  //     console.log(i[j]);
-  //   }
-  // }
+//   return result;
+// }
 
-  return answer;
-}
+// console.log(solution(numbers))
 
-solution(board, moves);
+
+// 0
