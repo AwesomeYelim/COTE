@@ -451,15 +451,38 @@
 // 0
 
 // 문제 9. 내적
-let a = [1, 2, 3, 4];
-let b = [-3, -1, 0, 2];
+// let a = [1, 2, 3, 4];
+// let b = [-3, -1, 0, 2];
 
-// 배열.reduce((누적값, 현잿값, 인덱스, 요소) => { return 결과 }, 초깃값);
-function solution(a, b) {
-  let answer = a.reduce((x, y, i) => {
-    return x += y * b[i];
-  }, 0);
+// // 배열.reduce((누적값, 현잿값, 인덱스, 요소) => { return 결과 }, 초깃값);
+// function solution(a, b) {
+//   let answer = a.reduce((x, y, i) => {
+//     return x += y * b[i];
+//   }, 0);
 
-  return answer;
+//   return answer;
+// }
+// console.log(solution(a, b));
+
+
+// 문제 10. 멀쩡한 사각형
+
+
+function max(w, h){
+
+  const m = w % h
+
+  if(m === 0){
+    return h
+  }
+  return max(h, m)
 }
-console.log(solution(a, b));
+
+function solution(w, h) {
+  const m = w + h - max(w,h)
+
+  return w * h - m;
+
+}
+
+console.log(solution(8, 12))
