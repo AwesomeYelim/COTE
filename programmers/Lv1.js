@@ -167,21 +167,23 @@
 //      만약 제거 후 마침표(.)가 new_id의 끝에 위치한다면 끝에 위치한 마침표(.) 문자를 제거합니다.
 // 7단계 new_id의 길이가 2자 이하라면, new_id의 마지막 문자를 new_id의 길이가 3이 될 때까지 반복해서 끝에 붙입니다.
 // 내가푼답
-// function solution(new_id) {
+function solution(new_id) {
+  let lv1 = new_id.toLowerCase();
+  let lv2 = lv1.replace(/[^\w-._]+/g, "");
+  let lv3 = lv2.replace(/\.{2,}/g, ".");
+  let lv4 = lv3.replace(/^\.|\.$/g, "");
+  let lv5 = lv4.replace(/^$/, "a");
+  let lv6 = lv5.slice(0, 15).replace(/\.$/, "");
+  let lv7 =
+    lv6.length > 2
+      ? lv6
+      : lv6 + lv6.charAt(lv6.length - 1).repeat(3 - lv6.length);
 
-//     let lv1 = new_id.toLowerCase();
-//     let lv2 = lv1.replace(/[^\w-._]+/g,'');
-//     let lv3= lv2.replace(/\.{2,}/g, '.');
-//     let lv4 = lv3.replace(/^\.|\.$/g, '');
-//     let lv5 = lv4.replace(/^$/, 'a');
-//     let lv6 = lv5.slice(0, 15).replace(/\.$/, '');
-//     let lv7 = lv6.length > 2 ? lv6 : lv6 + lv6.charAt(lv6.length - 1).repeat(3 - lv6.length)
+  return lv7;
+}
 
-//     return lv7;
-// }
-
-// let new_id = 'z-+.^.'
-// console.log(solution(new_id))
+let new_id = "z-+.^.";
+console.log(solution(new_id));
 
 // 1. 다른사람풀이
 
@@ -464,25 +466,43 @@
 // }
 // console.log(solution(a, b));
 
-
 // 문제 10. 멀쩡한 사각형
 
+// function max(w, h){
 
-function max(w, h){
+//   const m = w % h
 
-  const m = w % h
+//   if(m === 0){
+//     return h
+//   }
+//   return max(h, m)
+// }
 
-  if(m === 0){
-    return h
-  }
-  return max(h, m)
+// function solution(w, h) {
+//   const m = w + h - max(w,h)
+
+//   return w * h - m;
+
+// }
+
+// console.log(solution(8, 12))
+
+// 문제 11. 삼총사
+
+let three = [-2, 3, 0, 2, -5];
+
+function solution(number) {
+    var answer = 0;
+    var count = 0
+    for(let i = 0; i < 3; i++) {
+        number = number.splice(0, i, 1);
+        answer += three[i]
+        if(answer === 0){ 
+            count += 1  
+            return count;
+        }
+    }
+    solution(number)
 }
 
-function solution(w, h) {
-  const m = w + h - max(w,h)
-
-  return w * h - m;
-
-}
-
-console.log(solution(8, 12))
+solution(three)
