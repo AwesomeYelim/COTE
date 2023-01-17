@@ -5,7 +5,7 @@ const [...item] = [4, 3, [4, 1, 2, 2, 4, 4, 4, 4, 1, 2, 4, 2]];
 
 function solution(k, m, score) {
   score = score
-    .sort()
+    .sort((a, b) => b - a)
     .map((el, i) => {
       el = i % m || score.slice(i, i + m);
       el = el.length === m && Math.max(...el) <= k && Math.min(...el) * m;
