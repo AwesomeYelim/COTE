@@ -1,4 +1,4 @@
-// Lv. 연속된 부분 수열의 합
+// Lv2. 연속된 부분 수열의 합
 
 const sk = [[1, 2, 3, 4, 5], 7]; // [2, 3]
 // const sk = [[1, 1, 1, 2, 3, 4, 5], 5]; // [6, 6]
@@ -60,8 +60,8 @@ const sk = [[1, 2, 3, 4, 5], 7]; // [2, 3]
 
 function solution(se, k) {
   var a = [];
-  let p = [0]; 
-  let m = Infinity; 
+  let p = [0];
+  let m = Infinity;
   se.forEach((num, i) => {
     p.push(num + p[i]);
   });
