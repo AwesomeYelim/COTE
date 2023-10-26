@@ -8,13 +8,16 @@ const numbers = [2, 3, 3, 5];
 
 //   numbers.forEach((el, i, arr) => {
 //     const rest = [...arr].slice(i + 1, arr.length);
-//     if (rest.length === 1 || rest.every((x) => (x ? x < el : false))) {
+//     if (!rest.length) {
 //       answer.push(-1);
-//     }
-//     for (let r of rest) {
-//       if (r > el) {
-//         answer.push(r);
-//         break;
+//     } else if (rest.every((x) => x < el)) {
+//       answer.push(-1);
+//     } else {
+//       for (let r of rest) {
+//         if (r > el) {
+//           answer.push(r);
+//           break;
+//         }
 //       }
 //     }
 //   });
@@ -22,24 +25,16 @@ const numbers = [2, 3, 3, 5];
 // }
 
 function solution(numbers) {
-  let answer = [];
+  const length = numbers.length;
+  const a = Array.from({ length }, () => -1);
+  const s = [];
 
-  numbers.forEach((el, i, arr) => {
-    const rest = [...arr].slice(i + 1, arr.length);
-    if (!rest.length) {
-      answer.push(-1);
-    } else if (rest.every((x) => x < el)) {
-      answer.push(-1);
-    } else {
-      for (let r of rest) {
-        if (r > el) {
-          answer.push(r);
-          break;
-        }
-      }
-    }
-  });
-  return answer;
+  for (let i = length - 1; i >= 0; i--) {
+    while (s.length !== 0 && numbers[i] >= s.at(-1)) s.pop();
+    if (s.length !== 0) a[i] = s.at(-1);
+    s.push(numbers[i]);
+  }
+  return a;
 }
 
 console.log(solution(numbers));
