@@ -1,8 +1,9 @@
 // Lv.2 뒤에 있는 큰 수 찾기
 
-const numbers = [2, 3, 3, 5];
-// const numbers = [9, 1, 5, 3, 6, 2];
+const numbers = [2, 3, 3, 5]; // [3, 5, 5, -1]
+// const numbers = [9, 1, 5, 3, 6, 2]; // [-1, 5, 6, 6, -1, -1]
 
+// 정확성 21.7
 // function solution(numbers) {
 //   let answer = [];
 
@@ -36,5 +37,4 @@ function solution(numbers) {
   }
   return a;
 }
-
 console.log(solution(numbers));
